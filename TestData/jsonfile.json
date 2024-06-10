@@ -1,0 +1,38 @@
+{
+  "KENYA": {
+    "INITIATOR": {
+      "USER_NAME": "omolla12345@gmail.com",
+      "PASSWORD": "Jangwa@123",
+      "first_question": "What is your favourite food?",
+      "first_answer": "food",
+      "second_question": "What city were you born in?",
+      "second_answer": "in",
+      "third_question": "What is your favourite book?",
+      "third_answer": "book",
+      "fourth_question": "What was the name of your favourite teacher?",
+      "fourth_answer": "teacher",
+      "fifth_question": "Where did you meet your spouse?",
+      "fifth_answer": "spouse",
+      "subsidiary": "KE",
+      "SECURITY-ANSWER1": "1",
+      "SECURITY-ANSWER2": "1"
+    },
+    "APPROVAL": {}
+  },
+  "UGANDA": {
+    "INITIATOR": {},
+    "APPROVAL": {}
+  },
+  "RWANDA": {
+    "INITIATOR": {},
+    "APPROVAL": {}
+  },
+  "TANZANIA": {
+    "INITIATOR": {},
+    "APPROVAL": {}
+  },
+  "SOUTH SUDAN": {
+    "INITIATOR": {},
+    "APPROVAL": {}
+  }
+}

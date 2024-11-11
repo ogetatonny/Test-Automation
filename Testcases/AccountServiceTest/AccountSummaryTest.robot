@@ -38,14 +38,14 @@ Validate the Available Balance
 	Move Back to the Previous Screen
 	Move Back to the Previous Screen
 
-#User should view the loan amount
-#	[Tags]    KE   RW   UG   TZ  SS
-#	Click on Borrow Menu
+User should view the loan amount
+	[Tags]    KE   RW   UG   TZ  SS
+	Click on Borrow Menu
 #	Verify that Loan Amount is displayed
-#	#Verify that Loan Balance is Displayed
-#
-#User should view the installment amount
-#	[Tags]    KE   RW   UG   TZ  SS
-#	Verify that Loan has Installment Payment
+	#Verify that Loan Balance is Displayed
+
+User should view the installment amount
+	[Tags]    KE   RW   UG   TZ  SS
+	Verify that Loan has Installment Payment
 
 

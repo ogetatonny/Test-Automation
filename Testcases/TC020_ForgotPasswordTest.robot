@@ -2,10 +2,10 @@
 Documentation  Verify That User Can Successfully Reset Password
 Library  AppiumLibrary
 Library  Screenshot    default_directory=../Screenshots
-Resource    ../../Resources/PageObjects/KeywordDefinitions/CommonFunctions.robot
-Resource    ../../Resources/PageObjects/KeywordDefinitions/LoginPage.robot
-Resource    ../../Resources/PageObjects/KeywordDefinitions/ForgotPassword.robot
-Resource    ../../Resources/PageObjects/KeywordDefinitions/LogoutPage.robot
+Resource    ../Resources/PageObjects/KeywordDefinitions/CommonFunctions.robot
+Resource    ../Resources/PageObjects/KeywordDefinitions/LoginPage.robot
+Resource    ../Resources/PageObjects/KeywordDefinitions/ForgotPassword.robot
+Resource    ../Resources/PageObjects/KeywordDefinitions/LogoutPage.robot
 
 *** Test Cases ***
 User Logs Out of the App

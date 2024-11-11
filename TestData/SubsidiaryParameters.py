@@ -6,6 +6,7 @@
 # Uganda
 
 Kenya = {
+    "LOCAL_CURRENCY": "KES",
     "intra_destination_account": "0020162480467",
     "intra_destination_charge_fee": "2.26 KES",
     "RTGS_destination_name": "NCBA",
@@ -18,6 +19,7 @@ Kenya = {
     "swift_partial_charge_fee": "0.00 KES",
     "PESALINK_NUMBER": "728107303",
     "transaction_charge_fee": "2.26 KES",
+    "transaction_charge_fee_pesalink": "600.00 KES",
     "usd_pesalink_charge_fee": "3.66 KES",
     "pay_to_card_charge_fee": "25.20 KES",
     "payToCardMinimum": "1050",
@@ -103,7 +105,7 @@ Kenya = {
                 "TZ_EQUITY_ACCOUNT": "3001100004415",
                 "TZ_USD_ACCOUNT": "3004111132042",
                 "SS_EQUITY_ACCOUNT": "2001100007726",
-                "SS_USD_ACCOUNT": "2001111306713"
+                "SS_USD_ACCOUNT": "2001111232771"
                     },
     "AGENT_NUMBER": "050031",
     "AGENT_NUMBER_Charge_fee": "30.00 KES",
@@ -141,6 +143,7 @@ Kenya = {
 }
 
 Rwanda = {
+    "LOCAL_CURRENCY": "RWF",
     "intra_destination_account": "4001111544690",
     "RTGS_destination_name": "Bank of Kigali",
     "RTGS_destination_account": "002570635184933",
@@ -168,8 +171,8 @@ Rwanda = {
     "usdMaximum": "25",
     "highValueMinimum": "10000001",
     "highValueMaximum": "10000005",
-    "swift_full_charge_fee": "1,500.00 RWF",
-    "swift_partial_charge_fee": "",
+    "swift_full_charge_fee": "3,000.00 RWF",
+    "swift_partial_charge_fee": "3,000.00 RWF",
     "MOBILE_MONEY_TELCOS": {
         "AirtelMoney": "Airtel Money",
         "MTNMoMo": "MTN MoMo"
@@ -193,8 +196,8 @@ Rwanda = {
         "Eucl_Tokens_BillCode": "565656",
         "Eucl_Tokens_Number": "059550043",
     },
-    "localAmountToUSD_minimum": "50",
-    "localAmountToUSD_maximum": "100",
+    "localAmountToUSD_minimum": "20",
+    "localAmountToUSD_maximum": "25",
     "USDToLocalAmount_minimum": "25000",
     "USDToLocalAmount_maximum": "30000",
     "InterCountryMinimum": "12500",
@@ -213,12 +216,16 @@ Rwanda = {
         "UG_EQUITY_ACCOUNT": "1013140266025",
         "UG_USD_ACCOUNT": "1005100893550",
         "KE_EQUITY_ACCOUNT": "0080195006967",
-        "KE_USD_ACCOUNT": "",
+        "KE_USD_ACCOUNT": "0040180144497",
         "TZ_EQUITY_ACCOUNT": "3001100004415",
         "TZ_USD_ACCOUNT": "3004111132042",
         "SS_EQUITY_ACCOUNT": "2001100007726",
-        "SS_USD_ACCOUNT": "2001111306713"
+        "SS_USD_ACCOUNT": "2001111232771"
     },
+    "AGENT_NUMBER": "000143",
+    "AGENT_NUMBER_Charge_fee": "200.00 RWF",
+    "AgentMin": "500",
+    "AgentMax": "500",
     "BuyGoods_Till_Number": "001011",
     "buy_good_charge_fee": "0.0 RWF",
     "pay_bill_charge_fee": "0.00 RWF",
@@ -229,14 +236,15 @@ Rwanda = {
     "schedulePaymentMax": "500",
     "schedulePaymentMobileMoneyMin": "1000",
     "schedulePaymentMobileMoneyMax": "1200",
-    "schedulePayment_charge_fee": "1500.00 RWF",
-    "schedulePayment_intra_destination_charge_fee": "1500.00 RWF",
+    "schedulePayment_charge_fee": "200.00 RWF",
+    "schedulePayment_intra_destination_charge_fee": "200.00 RWF",
     "schedulePaymentMM_charge_fee": "0.00 RWF",
     "schedulePayment_No_charge_fee": "0.00 RWF",
     "schedulePayment_payBill_charge_fee": "4.00 RWF",
 }
 
 Uganda = {
+    "LOCAL_CURRENCY": "UGX",
     "intra_destination_account": "1013140266025",
     "RTGS_destination_name": "StanBic Bank",
     "RTGS_destination_account": "9030016855536",
@@ -303,15 +311,19 @@ Uganda = {
     },
     "INTER_COUNTRY": {
         "KE_EQUITY_ACCOUNT": "0080195006967",
-        "KE_USD_ACCOUNT": "",
+        "KE_USD_ACCOUNT": "0040180144497",
         "RW_EQUITY_ACCOUNT": "4001111528210",
         "RW_USD_ACCOUNT": "4005111281267",
         "TZ_EQUITY_ACCOUNT": "3001100004415",
         "TZ_USD_ACCOUNT": "3004111132042",
         "SS_EQUITY_ACCOUNT": "2001100007726",
-        "SS_USD_ACCOUNT": "2001111306713"
+        "SS_USD_ACCOUNT": "2001111232771"
     },
-    "BuyGoods_Till_Number": "000692",
+    "AGENT_NUMBER": "304339",
+    "AGENT_NUMBER_Charge_fee": "30.00 UGX",
+    "AgentMin": "200",
+    "AgentMax": "300",
+    "BuyGoods_Till_Number": "098765",
     "buy_good_charge_fee": "0.0 UGX",
     "pay_bill_charge_fee": "0.00 UGX",
     "airtime_charge_fee": "300.00 UGX",
@@ -329,6 +341,7 @@ Uganda = {
 }
 
 Tanzania = {
+    "LOCAL_CURRENCY": "TZS",
     "intra_destination_account": "3001100004415",
     "RTGS_destination_name": "National Microfinance Bank ",
     "RTGS_destination_account": "62308000712",
@@ -346,8 +359,8 @@ Tanzania = {
     "highValueMaximum": "10000050",
     "RTGS_minimum": "10005",
     "RTGS_maximum": "11000",
-    "moderate_minimum": "300",
-    "moderate_maximum": "400",
+    "moderate_minimum": "1000",
+    "moderate_maximum": "1200",
     "BuyGood_minimum": "10500",
     "BuyGood_maximum": "11000",
     "mobileMoneyMinimum": "10100",
@@ -403,13 +416,17 @@ Tanzania = {
         "RW_EQUITY_ACCOUNT": "4001111528210",
         "RW_USD_ACCOUNT": "4005111281267",
         "KE_EQUITY_ACCOUNT": "0020162480467",
-        "KE_USD_ACCOUNT": "",
+        "KE_USD_ACCOUNT": "0040180144497",
         "SS_EQUITY_ACCOUNT": "2001100007726",
-        "SS_USD_ACCOUNT": "2001111306713"
+        "SS_USD_ACCOUNT": "2001111232771"
     },
+    "AGENT_NUMBER": "307010",
+    "AGENT_NUMBER_Charge_fee": "30.00 TZS",
+    "AgentMin": "200",
+    "AgentMax": "300",
     "BuyGoods_Till_Number": "309014",
     "buy_good_charge_fee": "0.0 TZS",
-    "pay_bill_charge_fee": "0.00 TZS",
+    "pay_bill_charge_fee": "600.00 TZS",
     "airtime_charge_fee": "0.00 TZS",
     "schedulePaymentMinimum": "10001",
     "schedulePaymentMaximum": "10100",
@@ -425,6 +442,7 @@ Tanzania = {
 }
 
 SouthSudan = {
+    "LOCAL_CURRENCY": "SSP",
     "intra_destination_account": "2001100007726",
     "RTGS_destination_name": "KCB",
     "RTGS_destination_account": "5500108786",
@@ -474,8 +492,14 @@ SouthSudan = {
         "TZ_EQUITY_ACCOUNT": "3001100004415",
         "TZ_USD_ACCOUNT": "3004111132042",
         "KE_EQUITY_ACCOUNT": "0080195006967",
-        "KE_USD_ACCOUNT": ""
+        "KE_USD_ACCOUNT": "0040180144497",
+        "SS_USD_ACCOUNT": "2001111306713"
+
     },
+    "AGENT_NUMBER": "222888",
+    "AGENT_NUMBER_Charge_fee": "30.00 SSP",
+    "AgentMin": "200",
+    "AgentMax": "300",
     "PAY_BILL": {
         "_BillCode": "200200",
         "_Account_Meter_Number": "VS00009505",
@@ -504,7 +528,7 @@ SouthSudan = {
     "schedulePaymentMax": "500",
     "schedulePaymentMobileMoneyMin": "1000",
     "schedulePaymentMobileMoneyMax": "1200",
-    "schedulePayment_charge_fee": "500.00 SSP",
+    "schedulePayment_charge_fee": "0.00 SSP",
     "schedulePaymentMM_charge_fee": "13.46 SSP",
     "schedulePayment_No_charge_fee": "200.00 SSP",
     "schedulePayment_payBill_charge_fee": "4.00 SSP",

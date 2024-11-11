@@ -7,11 +7,10 @@ Resource    ../../Resources/PageObjects/KeywordDefinitions/LoginPage.robot
 User Login with Invalid Credential
 	   Open Equity Mobile Application
 	   Navigate to Login Page
-       Input Email address or Mobile Number          ${current_user["user_name"]}
-       Input User Password                           ${current_user["invalid_password"]}
+       Input Email address/Mobile Number
+       Input Invalid User Password
        Click on Login Button
        Check To See If The Error Message Is Visible
-
 
 *** Test Cases ***
 Login using Invalid Credentials

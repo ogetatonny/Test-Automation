@@ -5,8 +5,6 @@ Library  Screenshot    default_directory=../Screenshots
 Resource    ../Resources/PageObjects/KeywordDefinitions/CommonFunctions.robot
 Resource    ../Resources/PageObjects/KeywordDefinitions/SendMoney.robot
 Suite Setup        Start Equity Application
-Suite Teardown     Suite Teardown
-
 
 *** Test Cases ***
 High Value Transaction For Another Equity Account

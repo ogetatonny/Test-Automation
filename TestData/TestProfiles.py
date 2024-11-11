@@ -12,8 +12,10 @@ Kenya1 = {
     "fifth_question": "Where did you meet your spouse?",
     "fifth_answer": "1",
     "subsidiary": "Kenya",
+    "id_number": "25004623",
     "PIN": "2024",
     "invalid_password": "Automation@20",
+    "source_account": " 0080195006967",
 }
 
 Kenya2 = {
@@ -34,7 +36,7 @@ Kenya2 = {
     "invalid_password": "Automation@20",
 }
 
-KE = {
+KE02 = {
     "user_name": "TESTAUTOMATIOKE01@GMAIL.COM",
     "password": "Automation@2024",
     "first_question": "What is your favourite book?",
@@ -49,15 +51,38 @@ KE = {
     "fifth_answer": "teacher",
     "subsidiary": "Kenya",
     "account_number": "0260160735852",
+    "source_account": "0300190041545",
     "id_number": "",
+    "bank_id": "",
     "cif": "54305630103",
     "PIN": "2024",
     "invalid_password": "Automation@20",
 }
 
-KE02 = {
+KE = {
     "user_name": "TESTAUTOMATIONKE02@GMAIL.COM",
     "password": "Automation@2024",
+    "first_question": "What is your favourite food?",
+    "first_answer": "food",
+    "second_question": "What is your childhood nickname?",
+    "second_answer": "nickname",
+    "third_question": "Which is your favourite color?",
+    "third_answer": "color",
+    "fourth_question": "What is the first name of your favourite grandparent?",
+    "fourth_answer": "grandparent",
+    "fifth_question": "What is the name of your first school?",
+    "fifth_answer": "school",
+    "subsidiary": "Kenya",
+    "account_number": "0260160735852",
+    "id_number": "28570377",
+    "cif": "54305630103",
+    "PIN": "2024",
+    "invalid_password": "Automation@20",
+}
+
+KE03 = {
+    "user_name": "dorcas.chelangat@azenia.com",
+    "password": "Chela@1234",
     "first_question": "What is your favourite food?",
     "first_answer": "food",
     "second_question": "What is your favourite book?",
@@ -77,6 +102,28 @@ KE02 = {
 }
 
 UG = {
+    "user_name": "TESTAUTOMATIONUG02@GMAIL.COM",
+    "password": "Automation@2024",
+    "first_question": "What is your favourite food?",
+    "first_answer": "food",
+    "second_question": "What is your childhood nickname?",
+    "second_answer": "nickname",
+    "third_question": "Which is your favourite color?",
+    "third_answer": "color",
+    "fourth_question": "What is the first name of your favourite grandparent?",
+    "fourth_answer": "grandparent",
+    "fifth_question": "What is the name of your first school?",
+    "fifth_answer": "school",
+    "subsidiary": "Uganda",
+    "account_number": "1000102739642",
+    "id_number" : "CM92077100CD7A",
+    "cif": "56012038045",
+    "phone": "256986860124",
+    "PIN": "2024",
+    "invalid_password": "Automation@20",
+}
+
+UG01 = {
     "user_name": "TESTAUTOMATIONUG01@GMAIL.COM",
     "password": "Automation@2024",
     "first_question": "What is your favourite food?",
@@ -91,74 +138,79 @@ UG = {
     "fifth_answer": "attend",
     "subsidiary": "Uganda",
     "account_number": "1000102739642",
+    "source_account": "1003100986766",
     "id_number" : "",
     "cif": "56012038045",
+    #"cif": "56010703655",
     "phone": "256986860124",
     "PIN": "2024",
     "invalid_password": "Automation@20",
 }
 
-UG02 = {
-    "user_name": "TESTAUTOMATIONUG02@GMAIL.COM",
-    "password": "Automation@2024",
-    "first_question": "What is your childhood nickname?",
-    "first_answer": "nickname",
-    "second_question": "Where did you meet your spouse?",
-    "second_answer": "spouse",
-    "third_question": "What is your favourite book?",
-    "third_answer": "book",
-    "fourth_question": "Which is your favourite color?",
-    "fourth_answer": "color",
-    "fifth_question": "What is your favourite sports team?",
-    "fifth_answer": "team",
-    "subsidiary": "Uganda",
-    "account_number": "1000102739642",
-    "id_number" : "",
-    "cif": "56012038045",
-    "phone": "256986860124",
-    "PIN": "2024",
-    "invalid_password": "Automation@20",
-}
 
 RW = {
     "user_name": "testautomationrw01@testbd.com",
     "password": "Automation@2024",
     "first_question": "What is your favourite food?",
-    "first_answer": "1",
-    "second_question": "What is the first name of your favourite grandparent?",
-    "second_answer": "1",
-    "third_question": "What is the name of your first school?",
-    "third_answer": "1",
-    "fourth_question": "Which is your favourite color?",
-    "fourth_answer": "1",
-    "fifth_question": "What is your childhood nickname?",
-    "fifth_answer": "1",
+    "first_answer": "food",
+    "second_question": "What is your childhood nickname?",
+    "second_answer": "nickname",
+    "third_question": "Which is your favourite color?",
+    "third_answer": "color",
+    "fourth_question": "What is the first name of your favourite grandparent?",
+    "fourth_answer": "grandparent",
+    "fifth_question": "What is the name of your first school?",
+    "fifth_answer": "school",
     "subsidiary": "Rwanda",
-    "account_number": "",
-    "id_number": "",
+    "account_number": "4004111361513",
+    "id_number": "1199180068093186",
     "cif": "50620525338",
     "PIN": "2024",
     "invalid_password": "Automation@20",
+    "source_account": "4004111361513",
 }
 
-RW02 = {
+
+RW01 = {
     "user_name": "testautomationrw02@testbd.com",
     "password": "Automation@2024",
     "first_question": "What is your favourite food?",
-    "first_answer": "1",
+    "first_answer": "food",
     "second_question": "What is the first name of your favourite grandparent?",
-    "second_answer": "1",
+    "second_answer": "grandparent",
     "third_question": "What is the name of your first school?",
-    "third_answer": "1",
+    "third_answer": "school",
     "fourth_question": "Which is your favourite color?",
-    "fourth_answer": "1",
+    "fourth_answer": "color",
     "fifth_question": "What is your childhood nickname?",
-    "fifth_answer": "1",
+    "fifth_answer": "nickname",
     "subsidiary": "Rwanda",
     "account_number": "",
     "id_number": "",
     "cif": "50620003774",
     "PIN": "2024",
+    "invalid_password": "Automation@20",
+}
+
+
+RW02 = {
+    "user_name": "rwandav3migration@gmail.com",
+    "password": "V3tests.",
+    "first_question": "What is your favourite food?",
+    "first_answer": "food",
+    "second_question": "What city were you born in?",
+    "second_answer": "in",
+    "third_question": "What is your favourite book?",
+    "third_answer": "book",
+    "fourth_question": "What was the name of your favourite teacher?",
+    "fourth_answer": "teacher",
+    "fifth_question": "Where did you meet your spouse?",
+    "fifth_answer": "spouse",
+    "PIN": "2025",
+    "subsidiary": "Rwanda",
+    "account_number": "4012111236075",
+    "id_number": "1198680016761115",
+    "cif": "50620293729",
     "invalid_password": "Automation@20",
 }
 
@@ -199,7 +251,8 @@ TZ01 = {
     "subsidiary": "Tanzania",
     "account_number": "",
     "id_number": "",
-    "cif": "50620525338",
+    "bank_id": "",
+    "cif": "55600236671",
     "PIN": "2024",
     "invalid_password": "Automation@20",
 }
@@ -242,10 +295,32 @@ TZ03 = {
     "account_number": "",
     "id_number": "",
     "cif": "50620525338",
-    "PIN": "2022",
+    "PIN": "2023",
     "invalid_password": "Automation@20",
 }
 
+SS01 = {
+    "user_name": "testautomationss02@testbd.com",
+    "password": "Automation@2024",
+    "first_question": "What is your lucky number?",
+    "first_answer": "1",
+    "second_question": "Which is your favourite sports team?",
+    "second_answer": "1",
+    "third_question": "What is the name of your first school?",
+    "third_answer": "1",
+    "fourth_question": "What is your favourite food?",
+    "fourth_answer": "1",
+    "fifth_question": "Which is your favourite color?",
+    "fifth_answer": "1",
+    "subsidiary": "SouthSudan",
+    "account_number": "",
+    "id_number": "B106655",
+    "bank_id": "11",
+    "cif": "11100099517",
+    "PIN": "2024",
+    "invalid_password": "Automation@20",
+
+}
 
 SS = {
     "user_name": "testautomationss01@testbd.com",
@@ -261,35 +336,15 @@ SS = {
     "fifth_question": "Which town or village were you born in?",
     "fifth_answer": "in",
     "subsidiary": "SouthSudan",
-    "account_number": "",
-    "id_number": "",
-    "cif": "50620525338",
+    "account_number": "2011111337137",
+    "id_number": "M9200004274945",
+    "bank_id": "11",
+    "cif": "11100151929",
     "PIN": "2024",
     "invalid_password": "Automation@20",
 }
 
 SS02 = {
-    "user_name": "testautomationss02@testbd.com",
-    "password": "Automation@2024",
-    "first_question": "What is your lucky number?",
-    "first_answer": "1",
-    "second_question": "Which is your favourite sports team?",
-    "second_answer": "1",
-    "third_question": "What is the name of your first school?",
-    "third_answer": "1",
-    "fourth_question": "What is your favourite food?",
-    "fourth_answer": "1",
-    "fifth_question": "Which is your favourite color?",
-    "fifth_answer": "1",
-    "subsidiary": "SouthSudan",
-    "account_number": "",
-    "id_number": "",
-    "cif": "50620525338",
-    "PIN": "2024",
-    "invalid_password": "Automation@20",
-}
-
-SS03 = {
     "user_name": "mimeranj33@test.db",
     "password": "Pass123!",
     "first_question": "What is your lucky number?",

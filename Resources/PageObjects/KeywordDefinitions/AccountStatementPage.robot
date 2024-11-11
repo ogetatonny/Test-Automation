@@ -54,8 +54,10 @@ Share Statement
 	Wait Until Element Is Ready And Click        ${SHARE_DOCUMENT_MENU}
 	Sleep    3sec
 	Click Element    ${NAVIGATE_BACK_TO_DS_VIEW}
+	Sleep    10s
 	Wait Until Element Is Ready And Click        ${CLOSE_MODAL_BUTTON}
 	Click Back Arrow        ${NAVIGATE_BACK_FROM_PDF_BUTTON}
+	Sleep    2s
 
 Navigate back to home screen
 	Click Back Arrow        ${NAVIGATE_BACK_FROM_PDF_BUTTON}
@@ -70,10 +72,10 @@ Send Statement to Email
 	Click Back Arrow        ${NAVIGATE_BACK_FROM_PDF_BUTTON}
 
 Verify that the Email is Sent
-	Wait Until Keyword Succeeds    1min     1sec    Element Should Be Visible     ${SENT_EMAIL_DESCRIPTION}
-	${SUCCESS_MESSAGE_DESCRIPTION}   Get Text            ${SENT_EMAIL_DESCRIPTION}
+	Wait Until Keyword Succeeds    1min     1sec    Element Should Be Visible     ${ERROR_DESCRIPTION}
+	${SUCCESS_MESSAGE_DESCRIPTION}   Get Text            ${ERROR_DESCRIPTION}
 	Should Contain   ${SUCCESS_MESSAGE_DESCRIPTION}        We have sent statement to
-	${SUCCESS_MESSAGE}=  Get Text            ${SENT_EMAIL_CONFIRMATION}
+	${SUCCESS_MESSAGE}=  Get Text            ${ERROR_TITLE}
 	Should Contain   ${SUCCESS_MESSAGE}        You've got mail!
 	Wait Until Element Is Ready And Click        ${DISMISS_BUTTON}
 

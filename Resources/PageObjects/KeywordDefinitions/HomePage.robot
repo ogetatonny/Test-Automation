@@ -123,5 +123,8 @@ Verify that Loan has Installment Payment
 	${NEXT_PAYMENT_LABEL}=      Get Text    ${NEXT_PAYMENT_LABEL_FIELD}
 	Should Contain    ${NEXT_PAYMENT_LABEL}      Next Payment
 	Should End With   ${NEXT_PAYMENT_LABEL}        Payment
-	Click Back Arrow        ${BACK_ICON}
+    ${LOAN_AMOUNT}=      Get Text    ${INSTALLMENT_MONTH_AMOUNT}
+    Log To Console    ${LOAN_AMOUNT}
+	Sleep    3sec
+	Click Back Arrow        ${BACK_ICON_BORR0W}
 	Verify Screen Title     ${MAIN_TITLE}     Home

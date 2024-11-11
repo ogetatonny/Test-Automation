@@ -85,7 +85,7 @@ REMIND_ME = "//android.widget.TextView[@text='1 day before payment']"
 # Don't remind me
 Buu_tttt = '//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/sendAction"]'
 CONTINUE_SEND_FOR_CONFIRMATION_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/sendAction"
-CONTD_SEND_FOR_CONFIRMATION_BUTTON = '//android.widget.Button[@text="Continue"]'
+CONTD_SEND_FOR_CONFIRMATION_BUTTON = "//android.widget.Button[ends-with(@text,'Continue')]"
 CONTD_SEND_FR_CONFIRMATION_BUTTON = '//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/sendAction"]'
 CONTINUE_PAY_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/payButton"
 # Payment confirmation      ke.co.equitygroup.equitymobile.debug:id/toolbarTitle

@@ -64,7 +64,6 @@ Buy Goods From Merchant
     Click on Continue Button After Till Number
     Enter Amount          ${random_number}
 	Enter Payment Reason      Buy Goods From Merchant
-	Sleep    5 sec
 	Click on Buy Good Button
 	Verify Payment Confirmation
 	Charge Fee Verification     ${user_subsidiary["buy_good_charge_fee"]}
@@ -76,3 +75,5 @@ Buy Goods From Merchant
     Click on Done Button
     Verify Screen Title    ${MAIN_TITLE}    Home
 
+Buy Goods From A Merchant
+    Buy Goods From Merchant     ${user_subsidiary["BuyGoods_Till_Number"]}

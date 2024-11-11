@@ -10,14 +10,16 @@ Resource     ../KeywordDefinitions/LoginPage.robot
 
 
 *** Variables ***
-${remoteUrl}=       http://127.0.0.1:4723/wd/hub
+${remoteUrl}=           http://0.0.0.0:4723
+# url for appium desktop http://127.0.0.1:4723/wd/hub
 ${ANDROID_AUTOMATION_NAME}=     UiAutomator2
 ${ANDROID_APP_PACKAGE}=         ke.co.equitygroup.equitymobile.debug
 ${ANDROID_APP_ACTIVITY}=        ke.co.equitybank.oneequity.MainActivity
 ${ANDROID_APP_SUB_ACTIVITY}=    com.google.android.gms.auth.api.signin.RevocationBoundService
 ${ANDROID_PLATFORM_NAME}=       Android
-${ANDROID_PLATFORM_VERSION}=    13
-${DEVICE_NAME}=                 SM-A515F/DSN
+${ANDROID_PLATFORM_VERSION}=    12
+${DEVICE_NAME}=                 emulator-5554
+# device for my physical device SM-A515F/DSN n 13
 ${app}=   /Users/martinsadeyeye/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app-uat-oneEquity-google-debug.apk
 @{document}=    /Users/martinsadeyeye/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/Documents/
 @{dir}=    /Users/martinsadeyeye/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE
@@ -26,6 +28,9 @@ ${retry}=  40x
 ${retry_interval}=  1s
 ${suite_setup_status}=    none
 ${login_status}=    none
+${ENTER_PIN}=   Please enter your PIN to continue
+${OTP_MESSAGE}=   verification code
+${TRY_AGAIN_WORD}=  Try again
 
 
 #*** Test Variables ***
@@ -122,7 +127,7 @@ Open Equity Mobile Application
 
 Scroll Down to Security Answer
 	Sleep    2sec
-	Swipe    590    1250    577    384
+	Swipe    333    999    577    384
 
 Scroll Down the App
 	Sleep    3sec
@@ -135,7 +140,6 @@ Scroll Right the App
 
 Scroll into the View
 	Swipe    986    1971    977    788
-
 Wait Until Element Is Ready
     [Arguments]    ${locator}
     Wait Until Keyword Succeeds      ${retry}      ${retry_interval}     Element Should Be Visible     ${locator}
@@ -170,6 +174,11 @@ Select a Telco
     [Documentation]    click the menu item
     [Arguments]      ${MOBILEMONEY_TELCOS}
     Wait Until Element Is Ready And Click        //android.widget.TextView[@text='${MOBILEMONEY_TELCOS}']
+
+Own Currency Account
+	[Documentation]    Selecting own account based on Local Currency
+	[Arguments]    ${LOCAL_CURRENCY}
+	Wait Until Element Is Ready And Click    //android.widget.TextView[ends-with(@text,'${LOCAL_CURRENCY}')]
 
 Click SendMoney Feature
     [Documentation]    click the SendMoney Feature item
@@ -255,7 +264,7 @@ Start Equity Application
 	Key in OTP and Verify
 	Select and Confirm an Option to Verify Security Question
 	Answer First Security Question
-	Scroll Down to Security Answer
+    Scroll Down to Security Answer
 	Answer Second Security Question
 	Click on Confirm Security Question Button
 	Click on the Show Me Later Button
@@ -284,9 +293,18 @@ Transaction Verification
     Run Keyword If     '${IS_PIN_VISIBLE}' == 'True'     Enter Verification PIN    ${current_user["PIN"]}
     ...    ELSE IF     '${IS_OTP_VISIBLE}' == 'True'     Enter Verification Code
     ...    ELSE        Enter Verification PIN    ${current_user["PIN"]}
-    Sleep    10sec
-    #Wait Until Element Is Ready    ${DONE_BUTTON}
+    Sleep    7sec
 
+#    Wait Until Element Is Ready    ${DONE_BUTTON}
+
+#  ${PIN_Verification_Message}=  Get Text    ${WU_HEADER_CARD_FIELD}
+#  IF    ${PIN_Verification_Message}  == 'Please enter your PIN to continue'
+#      Enter Verification PIN    ${current_user["PIN"]}
+#  ELSE IF   ${PIN_Verification_Message}  != 'Please enter your PIN to continue'
+#      Enter Verification Code
+#  ELSE
+#      Fail    msg=No Verification Method displayed!
+#  END
 
 Click on Done Button
 	Wait Until Element Is Ready And Click    ${DONE_BUTTON}
@@ -295,6 +313,10 @@ Return Back to Transact Screen
 	Click on Done Button
 	Verify Screen Title    ${MAIN_TITLE}    Transact
 
+Return Back to Home Screen
+	Click on Done Button
+	Click Back Arrow     ${BACK_ICON_BORR0W}
+	Verify Screen Title    ${MAIN_TITLE}    Home
 
 
 Remove Other Subsidiary Tags
@@ -329,7 +351,22 @@ Suite Teardown
   END
   Close All Applications
 
-
 Test Setup
   Remove Other Subsidiary Tags
 
+
+Check Error after Transaction OTP/PIN
+    [Documentation]    Verify if the transaction has no Error after Keyed in OTP/PIN
+	${PRESENCE_OF_POPUP}=    Run Keyword And Return Status    Wait Until Element Is Ready    ${TRY_AGAIN_BUTTON_ON_MODAL}
+    ${TRY_AGAIN_BUTTON_WORD}=  Get Text      ${TRY_AGAIN_BUTTON_ON_MODAL}
+    Log    ${TRY_AGAIN_BUTTON_WORD}
+    Log To Console    ${TRY_AGAIN_BUTTON_WORD}
+    IF  '${TRY_AGAIN_WORD}' == '${TRY_AGAIN_BUTTON_WORD}'
+  	    ${ERROR_TITLE}=  Get Text      ${ERROR_TITLE}
+        Log To Console    ${ERROR_TITLE}
+    	${ERROR_DESCRIPTION}=  Get Text      ${ERROR_DESCRIPTION}
+        Log To Console    ${ERROR_DESCRIPTION}
+        Start Equity Application
+    ELSE
+    	Verify Screen Title    ${CONFIRMED_TITLE_FIELD}          Confirmed
+    END

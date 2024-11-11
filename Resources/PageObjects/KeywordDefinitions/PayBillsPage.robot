@@ -91,7 +91,31 @@ Pay A Bill For
     Click on Continue Button After Confirmation
     Transaction Verification
 	Verify that the transaction is Successful
-	Return Back to Transact Screen
+	Click on Done Button
+	Verify Screen Title    ${MAIN_TITLE}    Home
+
+
+Pay Bill For KPLC Customer
+	Pay A Bill For          ${user_subsidiary["PAY_BILL"]["KPLC_BillCode"]}      ${user_subsidiary["PAY_BILL"]["KPLC_Account_Meter_Number"]}       Part payment for KPLC
+
+Pay Bill For ZUKU Customer
+	Pay A Bill For          ${user_subsidiary["PAY_BILL"]["ZUKU_BillCode"]}      ${user_subsidiary["PAY_BILL"]["ZUKU_Account_Meter_Number"]}      Part payment for Zuku
+
+Pay Bill For WASAC Customer
+	Pay Bill For          ${user_subsidiary["PAY_BILL"]["WASAC_BillCode"]}      ${user_subsidiary["PAY_BILL"]["WASAC_Number"]}       payment for WASAC
+
+Pay Bill For MTN Customer
+	Pay Bill For          ${user_subsidiary["PAY_BILL"]["MTN_BillCode"]}      ${user_subsidiary["PAY_BILL"]["MTN_ESCROW_NUMBER"]}       payment for MTN
+
+Pay Bill For UMENE Customer
+	Pay Bill For          ${user_subsidiary["PAY_BILL"]["UMENE_NEW_CONN_BillCode"]}      ${user_subsidiary["PAY_BILL"]["UMENE_NEW_CONN_Meter_Number"]}       payment for UMENE
+
+Pay Bill For LUKU Customer
+	Pay Bill For          ${user_subsidiary["PAY_BILL"]["LUKU_BillCode"]}      ${user_subsidiary["PAY_BILL"]["LUKU_Number"]}       payment for Luku
+
+Pay Bill For TrinityTech Customer
+	Pay Bill For          ${user_subsidiary["PAY_BILL"]["TrinityTech_BillCode"]}      ${user_subsidiary["PAY_BILL"]["TrinityTech_Number"]}       payment for Trinity Tech
+
 
 
 Pay Bill For
@@ -111,5 +135,8 @@ Pay Bill For
     Click on Continue Button After Confirmation
     Transaction Verification
 	Verify that the transaction is Successful
+	Click on Done Button
+	Verify Screen Title    ${MAIN_TITLE}    Home
+
 
 

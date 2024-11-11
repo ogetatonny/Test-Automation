@@ -27,7 +27,10 @@ Select USD Source Account
 Select Destination Account
 	Wait Until Element Is Ready And Click         ${SEND_TO_FIELD}
 	Verify Screen Title                           ${SCREEN_TITLE_TEXT}       Send to
-    Wait Until Element Is Ready And Click         ${SEND_TO_BUTTON}
+#    Wait Until Element Is Ready And Click         ${SEND_TO_BUTTON}
+    Own Currency Account        ${user_subsidiary["LOCAL_CURRENCY"]}
+
+
 
 Enter Amount
 	[Arguments]    ${TRANSFER_AMOUNT}
@@ -48,6 +51,9 @@ Click on Send Money Button
 
 Verify Payment Confirmation
 	Verify Screen Title     ${SCREEN_TITLE_TEXT}     Payment confirmation
+	Wait Until Element Is Ready          ${CHARGED_FEE}
+	${ACTUAL_FEE_CHARGED}=  Get Text    ${CHARGED_FEE}
+	Log To Console    Charge Fee for this Transaction is ${ACTUAL_FEE_CHARGED}
 
 Verify WU Payment Confirmation
 	Verify Screen Title     ${SCREEN_TITLE_TEXT}     Payment confirmation
@@ -58,6 +64,7 @@ Charge Fee Verification
 	${ACTUAL_FEE_CHARGED}=  Get Text            ${CHARGED_FEE}
 	Should Be Equal As Strings           ${ACTUAL_FEE_CHARGED}             ${FEE_CHARGED}
 	Should Contain    ${FEE_CHARGED}             ${FEE_CHARGED}
+
 
 Confirm and Send
 	Wait Until Element Is Ready And Click        ${SEND_MONEY_CONFIRMATION}
@@ -103,7 +110,9 @@ Click on Continue to Add Beneficiary
 
 Click Continue to Add Beneficiary
     Wait Until Element Is Ready And Click        ${ADD_BENEFICIARY_CONTINUE_BUTTON}
-    Sleep    15 sec
+    ${IS_VISIBLE}   Run Keyword And Return Status   Wait Until Element Is Visible      ${OK_RECEIPT_HIDDEN_BUTTON_ON_MODAL}
+    Run Keyword If     '${IS_VISIBLE}' == 'True'     Click Element        ${OK_RECEIPT_HIDDEN_BUTTON_ON_MODAL}
+    Sleep    5 sec
 
 Click Send Money to Another Bank Menu
 	Click Transaction Items     Another Bank
@@ -252,7 +261,7 @@ Upload Supporting Documents
 #    Wait Until Element Is Ready And Click    ${My_FILE}
     #Wait Until Element Is Ready And Click    ${SELECT_FILE}
      Wait Until Element Is Ready And Click       ${FILE_UPLOADED}
-     Wait Until Element Is Ready And Click                  ${ADD_UPLOAD_BUTTON}
+     Wait Until Element Is Ready And Click       ${ADD_UPLOAD_BUTTON}
 
 Send Money To Own Equity Account
     [Documentation]    Send money to other Equity Account
@@ -265,7 +274,7 @@ Send Money To Own Equity Account
     Verify Payment Confirmation
     Charge Fee Verification     ${user_subsidiary["No_charge_fee"]}
     Confirm and Send
-    Transaction Verification
+#    Transaction Verification
     User Verify Save to Favorite Not Available
     Verify that the transaction is Successful
     Click on Done Button
@@ -449,7 +458,7 @@ Send Money To Pesalink Mobile
 	Enter Payment Reason       Sending Money to Pesalink
 	Click on Send Money Button
 	Verify Payment Confirmation
-	Charge Fee Verification     ${user_subsidiary["transaction_charge_fee"]}
+	Charge Fee Verification     ${user_subsidiary["transaction_charge_fee_pesalink"]}
 	Confirm and Send
     Transaction Verification
     Verify that the transaction is Successful
@@ -492,6 +501,19 @@ Send Money To Mobile Money
     Verify that the transaction is Successful
     Click on Done Button
     Verify Screen Title    ${MAIN_TITLE}    Home
+
+Send Money To Airtel Mobile Money
+    Send Money To Mobile Money      ${user_subsidiary["MOBILE_MONEY_TELCOS"]["AirtelMoney"]}     ${user_subsidiary["PHONE_NUMBER"]["AirtelMoney"]}
+
+Send Money To Vodacom Mobile Money
+    Send Money To Mobile Money      ${user_subsidiary["MOBILE_MONEY_TELCOS"]["VodacomMpesa"]}     ${user_subsidiary["PHONE_NUMBER"]["Vodacom"]}
+
+Send Money To MPESA Mobile Money
+    Send Money To Mobile Money       ${user_subsidiary["MOBILE_MONEY_TELCOS"]["MPESA"]}     ${user_subsidiary["PHONE_NUMBER"]["MPESA"]}
+
+Send Money To T-Kash Mobile Money
+    Send Money To Mobile Money      ${user_subsidiary["MOBILE_MONEY_TELCOS"]["TKash"]}     ${user_subsidiary["PHONE_NUMBER"]["TKash"]}
+
 
 Send Money To Mobile Money Favourites
 	[Documentation]    Send Money To Mobile Money Favourites
@@ -590,12 +612,28 @@ Send Money to
 	Enter Payment Reason       Send money from ${current_user["subsidiary"]} to ${DESTINATION_COUNTRY}
 	Click on Send Money Button
 	Verify Payment Confirmation
-#	Charge Fee Verification     ${user_subsidiary["interCountry_charge_fee"]}
+	Charge Fee Verification     ${user_subsidiary["interCountry_charge_fee"]}
 	Confirm and Send
 	Transaction Verification
 	Verify that Intercountry transaction is Successful
 	Click on Done Button
 	Verify Screen Title    ${MAIN_TITLE}    Home
+
+
+Send Money to Another Equity account In Uganda
+	Send Money to  ${user_subsidiary["DESTINATION_COUNTRY"]["UG"]}   ${user_subsidiary["INTER_COUNTRY"]["UG_EQUITY_ACCOUNT"]}
+
+Send Money to Another Equity account In Tanzania
+	Send Money to   ${user_subsidiary["DESTINATION_COUNTRY"]["TZ"]}   ${user_subsidiary["INTER_COUNTRY"]["TZ_EQUITY_ACCOUNT"]}
+
+Send Money to Another Equity account In Rwanda
+	Send Money to   ${user_subsidiary["DESTINATION_COUNTRY"]["RW"]}   ${user_subsidiary["INTER_COUNTRY"]["RW_EQUITY_ACCOUNT"]}
+
+Send Money to Another Equity account In Kenya
+	Send Money to   ${user_subsidiary["DESTINATION_COUNTRY"]["KE"]}   ${user_subsidiary["INTER_COUNTRY"]["KE_EQUITY_ACCOUNT"]}
+
+Send Money to Another Equity account In South Sudan
+	Send Money to   ${user_subsidiary["DESTINATION_COUNTRY"]["SS"]}   ${user_subsidiary["INTER_COUNTRY"]["SS_EQUITY_ACCOUNT"]}
 
 
 Send Money to USD
@@ -619,6 +657,26 @@ Send Money to USD
 	Verify that Intercountry transaction is Successful
 	Click on Done Button
 	Verify Screen Title    ${MAIN_TITLE}    Home
+
+Send Money to Another Equity USD account In Uganda
+	Send Money to USD  ${user_subsidiary["DESTINATION_COUNTRY"]["UG"]}   ${user_subsidiary["INTER_COUNTRY"]["UG_USD_ACCOUNT"]}
+
+Send Money to Another Equity USD account In Tanzania
+	Send Money to USD   ${user_subsidiary["DESTINATION_COUNTRY"]["TZ"]}   ${user_subsidiary["INTER_COUNTRY"]["TZ_USD_ACCOUNT"]}
+
+Send Money to Another Equity USD account In Rwanda
+	Send Money to USD   ${user_subsidiary["DESTINATION_COUNTRY"]["RW"]}   ${user_subsidiary["INTER_COUNTRY"]["RW_USD_ACCOUNT"]}
+
+Send Money to Another Equity USD account In Kenya
+	Send Money to USD   ${user_subsidiary["DESTINATION_COUNTRY"]["KE"]}   ${user_subsidiary["INTER_COUNTRY"]["KE_USD_ACCOUNT"]}
+
+Send Money to Another Equity USD account In South Sudan
+	Send Money to USD   ${user_subsidiary["DESTINATION_COUNTRY"]["SS"]}   ${user_subsidiary["INTER_COUNTRY"]["SS_USD_ACCOUNT"]}
+
+
+
+
+
 
 Send Money from USD to
 	[Arguments]    ${DESTINATION_COUNTRY}       ${ANOTHER_EQUITY_ACCOUNT}
@@ -644,6 +702,25 @@ Send Money from USD to
 	Verify Screen Title    ${MAIN_TITLE}    Home
 
 
+Send Money from USD Account to Local Equity account In Uganda
+	Send Money from USD to  ${user_subsidiary["DESTINATION_COUNTRY"]["UG"]}   ${user_subsidiary["INTER_COUNTRY"]["UG_EQUITY_ACCOUNT"]}
+
+Send Money from USD Account to Local Equity account In Tanzania
+	Send Money from USD to   ${user_subsidiary["DESTINATION_COUNTRY"]["TZ"]}   ${user_subsidiary["INTER_COUNTRY"]["TZ_EQUITY_ACCOUNT"]}
+
+Send Money from USD Account to Local Equity account In Rwanda
+	Send Money from USD to   ${user_subsidiary["DESTINATION_COUNTRY"]["RW"]}   ${user_subsidiary["INTER_COUNTRY"]["RW_EQUITY_ACCOUNT"]}
+
+Send Money from USD Account to Local Equity account In Kenya
+	Send Money from USD to   ${user_subsidiary["DESTINATION_COUNTRY"]["KE"]}   ${user_subsidiary["INTER_COUNTRY"]["KE_EQUITY_ACCOUNT"]}
+
+Send Money from USD Account to Local Equity account In South Sudan
+	Send Money from USD to   ${user_subsidiary["DESTINATION_COUNTRY"]["SS"]}   ${user_subsidiary["INTER_COUNTRY"]["SS_EQUITY_ACCOUNT"]}
+
+
+
+
+
 Send Money from USD to USD
 	[Arguments]    ${DESTINATION_COUNTRY}       ${ANOTHER_EQUITY_ACCOUNT}
 	[Documentation]    Send money from USD to USD ${DESTINATION_COUNTRY} -Other Equity Account
@@ -664,6 +741,23 @@ Send Money from USD to USD
 	Verify that the transaction is Successful
 	Click on Done Button
 	Verify Screen Title    ${MAIN_TITLE}    Home
+
+
+Send Money From USD to Another Equity USD account In Uganda
+	Send Money from USD to USD  ${user_subsidiary["DESTINATION_COUNTRY"]["UG"]}   ${user_subsidiary["INTER_COUNTRY"]["UG_USD_ACCOUNT"]}
+
+Send Money From USD to Another Equity USD account In Tanzania
+	Send Money from USD to USD   ${user_subsidiary["DESTINATION_COUNTRY"]["TZ"]}   ${user_subsidiary["INTER_COUNTRY"]["TZ_USD_ACCOUNT"]}
+
+Send Money From USD to Another Equity USD account In Rwanda
+	Send Money from USD to USD   ${user_subsidiary["DESTINATION_COUNTRY"]["RW"]}   ${user_subsidiary["INTER_COUNTRY"]["RW_USD_ACCOUNT"]}
+
+Send Money From USD to Another Equity USD account In Kenya
+	Send Money from USD to USD   ${user_subsidiary["DESTINATION_COUNTRY"]["KE"]}   ${user_subsidiary["INTER_COUNTRY"]["KE_USD_ACCOUNT"]}
+
+Send Money From USD to Another Equity USD account In South Sudan
+	Send Money from USD to USD   ${user_subsidiary["DESTINATION_COUNTRY"]["SS"]}   ${user_subsidiary["INTER_COUNTRY"]["SS_USD_ACCOUNT"]}
+
 
 
 Click on Western Union
@@ -816,3 +910,10 @@ Send Money-Western Union Internationally to Cash Pickup
 #    Confirm the payment details and click the send money button.
 
 Recieve Money using Western Union Tracking Number
+
+Check For Error
+#	Wait Until Element Is Visible    ${TRY_AGAIN_BUTTON}
+#	${ERROR_DESCRIPTION}=  Get Text            ${LOGIN_ERROR_DESCRIPTION}
+#	Should Be Equal As Strings    ${ERROR_DESCRIPTION}        We are currently unable to complete your request. Please try again later.
+    Sleep  10sec
+    Click Element    ${CLOSE_TRY_AGAIN_BUTTON}

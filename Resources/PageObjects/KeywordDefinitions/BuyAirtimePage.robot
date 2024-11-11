@@ -60,6 +60,39 @@ Buy Airtime For
     Verify Buy Airtime transaction is Successful
 
 
+Airtime Purchase for Safaricom Users
+	Buy Airtime For     ${user_subsidiary["TELCO"]["Safaricom"]}     ${user_subsidiary["PHONE_NUMBER"]["Safaricom"]}
+
+Airtime Purchase for Airtel Users
+	Buy Airtime For     ${user_subsidiary["TELCO"]["Airtel"]}       ${user_subsidiary["PHONE_NUMBER"]["AirtelMoney"]}
+
+Airtime Purchase for Equitel Users
+	Buy Airtime For    ${user_subsidiary["TELCO"]["Equitel"]}       ${user_subsidiary["PHONE_NUMBER"]["Equitel"]}
+
+Airtime Purchase for Telkom Users
+	Buy Airtime For     ${user_subsidiary["TELCO"]["Telkom"]}       ${user_subsidiary["PHONE_NUMBER"]["Telkom"]}
+
+Airtime Purchase for MTN Users
+    Buy Airtime For     ${user_subsidiary["TELCO"]["MTN"]}       ${user_subsidiary["PHONE_NUMBER"]["MTN"]}
+
+Airtime Purchase for Vodacom Users
+    Buy Airtime For     ${user_subsidiary["TELCO"]["Vodacom"]}       ${user_subsidiary["PHONE_NUMBER"]["Vodacom"]}
+
+Airtime Purchase for Tigo Users
+    Buy Airtime For     ${user_subsidiary["TELCO"]["Tigo"]}       ${user_subsidiary["PHONE_NUMBER"]["Tigo"]}
+
+Airtime Purchase for Zantel Users
+    Buy Airtime For     ${user_subsidiary["TELCO"]["Zantel"]}       ${user_subsidiary["PHONE_NUMBER"]["Zantel"]}
+
+Airtime Purchase for Africell Users
+    Buy Airtime For     ${user_subsidiary["TELCO"]["Africell"]}       ${user_subsidiary["PHONE_NUMBER"]["Africell"]}
+
+Airtime Purchase From Kenya for Rwanda Customer
+    Buy Airtime For InterCountry      ${user_subsidiary["DESTINATION_COUNTRY"]["RW"]}      ${user_subsidiary["TELCO"]["RwandaAirtel"]}      ${user_subsidiary["PHONE_NUMBER"]["RwandaAirtel"]}
+
+
+
+
 Purchasing of Airtime
   Navigate to Transact
   Select Buy Airtime

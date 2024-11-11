@@ -193,15 +193,15 @@ Set Frequency For Schedule Payment
 
 Schedule Payment For - An Equity Account
     [Documentation]    Schedule Payment For An Equity Account
-	[Arguments]    ${Transaction_Type}
+
 	${random_number}    Evaluate    random.randint(${user_subsidiary["schedulePaymentMinimum"]}, ${user_subsidiary["schedulePaymentMaximum"]})
 	Click on Schedule New Payment
-	Select Transaction Type     ${Transaction_Type}
+	Select Transaction Type     ${SCHEDULE_PAYMENT_TRANSACTION_TYPE}[0]
 	Click Send To Someone New
 	Enter Account Number       ${user_subsidiary["intra_destination_account"]}
 	Click on Continue to Add Beneficiary
     Enter Amount                ${random_number}
-	Enter Payment Reason        Schedule Payment for ${Transaction_Type}
+	Enter Payment Reason        Schedule Payment for  ${SCHEDULE_PAYMENT_TRANSACTION_TYPE}[0]
 	Click Set Up Payment and Reminder
     Set Frequency For Schedule Payment
     Reminder frequency and Click Continue       ${REMIND_ME}[1]
@@ -212,11 +212,10 @@ Schedule Payment For - An Equity Account
 
 Schedule Payment For - Another Bank
 	[Documentation]    Schedule Payment For Another Bank
-	[Arguments]    ${Transaction_Type}
 	${random_number}    Evaluate    random.randint(${user_subsidiary["schedulePaymentMinimum"]}, ${user_subsidiary["schedulePaymentMaximum"]})
 	${random_name}  Generate Random String   12   [LOWER]
 	Click on Schedule New Payment
-	Select Transaction Type     ${Transaction_Type}
+	Select Transaction Type     ${SCHEDULE_PAYMENT_TRANSACTION_TYPE}[1]
 	Click Send To Someone New
 	Search and Select a Bank        ${user_subsidiary["RTGS_destination_name"]}
 	Enter Bank Account Number       ${user_subsidiary["RTGS_destination_account"]}
@@ -224,7 +223,7 @@ Schedule Payment For - Another Bank
 	Enter Full Name                 ${random_name} DOE
 	Click Continue to Add Beneficiary
 	Enter Amount         ${random_number}
-	Enter Payment Reason       Schedule Payment for ${Transaction_Type}
+	Enter Payment Reason       Schedule Payment for   ${SCHEDULE_PAYMENT_TRANSACTION_TYPE}[1]
 	Click Set Up Payment and Reminder
     Set Frequency For Schedule Payment
     Reminder frequency and Click Continue       ${REMIND_ME}[1]
@@ -235,16 +234,15 @@ Schedule Payment For - Another Bank
 
 Schedule Payment For - Pesalink Mobile
 	[Documentation]    Schedule Payment For Pesalink Mobile
-	[Arguments]    ${Transaction_Type}
 	${random_number}    Evaluate    random.randint(${user_subsidiary["schedulePaymentMinimum"]}, ${user_subsidiary["schedulePaymentMaximum"]})
 	Click on Schedule New Payment
-	Select Transaction Type     ${Transaction_Type}
+	Select Transaction Type     ${SCHEDULE_PAYMENT_TRANSACTION_TYPE}[1]
 	Click on Send Money to Phone-Linked Account
     Enter Mobile Number        ${user_subsidiary["PESALINK_NUMBER"]}
     Click Continue to Add Beneficiary
     Select Recipient's Bank
     Enter Amount          ${random_number}
-	Enter Payment Reason       Schedule Payment for ${Transaction_Type}
+	Enter Payment Reason       Schedule Payment for   ${SCHEDULE_PAYMENT_TRANSACTION_TYPE}[1]
     Click Set Up Payment and Reminder
     Set Frequency For Schedule Payment
     Reminder frequency and Click Continue       ${REMIND_ME}[1]
@@ -255,17 +253,16 @@ Schedule Payment For - Pesalink Mobile
 
 Schedule Payment For - Mobile Money
 	[Documentation]    Schedule Payment For Mobile Money
-	[Arguments]    ${Transaction_Type}
 	${random_number}    Evaluate    random.randint(${user_subsidiary["schedulePaymentMobileMoneyMin"]}, ${user_subsidiary["schedulePaymentMobileMoneyMin"]})
 	Click on Schedule New Payment
-	Select Transaction Type     ${Transaction_Type}
+	Select Transaction Type     ${SCHEDULE_PAYMENT_TRANSACTION_TYPE}[2]
 	Click Send To Someone New
     Select a Mobile Money Telco     ${user_subsidiary["MOBILE_MONEY_TELCOS"]["AirtelMoney"]}
     Enter Mobile Number             ${user_subsidiary["PHONE_NUMBER"]["AirtelMoney"]}
     Click on Continue to Add Beneficiary
     Enter Amount          ${random_number}
     Sleep    10sec
-	Enter Payment Reason       Schedule Payment for ${Transaction_Type}
+	Enter Payment Reason       Schedule Payment for   ${SCHEDULE_PAYMENT_TRANSACTION_TYPE}[2]
     Click Set Up Payment and Reminder
     Set Frequency For Schedule Payment
 #    Reminder frequency      ${REMIND_ME}[1]
@@ -282,10 +279,9 @@ Schedule Payment For - Mobile Money
 
 Schedule Payment For - Pay a bill
 	[Documentation]    Schedule Payment For Pay a bill
-	[Arguments]    ${Transaction_Type}
 	${random_number}    Evaluate    random.randint(${user_subsidiary["schedulePaymentMin"]}, ${user_subsidiary["schedulePaymentMin"]})
 	Click on Schedule New Payment
-	Select Transaction Type     ${Transaction_Type}
+	Select Transaction Type     ${SCHEDULE_PAYMENT_TRANSACTION_TYPE}[3]
 	Select a Biller
     Click on Biller Details
     Enter Biller Number         ${user_subsidiary["PAY_BILL"]["KPLC_BillCode"]}
@@ -293,7 +289,7 @@ Schedule Payment For - Pay a bill
     Enter Account Or Meter Number        ${user_subsidiary["PAY_BILL"]["KPLC_Account_Meter_Number"]}
     Click on the Next Button
     Enter Amount         ${random_number}
-    Enter Payment Reason        SP for ${Transaction_Type} as Part payment for KPLC
+    Enter Payment Reason        SP for  ${SCHEDULE_PAYMENT_TRANSACTION_TYPE}[3] as Part payment for KPLC
     Click Button to Setup Frequency
     Set Frequency For Schedule Payment
     Remind Me About My Payment       ${REMIND_ME}[1]
@@ -305,16 +301,15 @@ Schedule Payment For - Pay a bill
 
 Schedule Payment For - Buy Airtime
 	[Documentation]    Schedule Payment For Buy Airtime
-	[Arguments]    ${Transaction_Type}
 	${random_number}    Evaluate    random.randint(${user_subsidiary["schedulePaymentMin"]}, ${user_subsidiary["schedulePaymentMin"]})
 	Click on Schedule New Payment
-	Select Transaction Type     ${Transaction_Type}
+	Select Transaction Type     ${SCHEDULE_PAYMENT_TRANSACTION_TYPE}[4]
 	Buy for Someone New
     Select a Mobile Telco     ${user_subsidiary["TELCO"]["Airtel"]}
     Enter Customer Mobile Number             ${user_subsidiary["PHONE_NUMBER"]["AirtelMoney"]}
     Click Continue to Add Beneficiary
     Enter Amount          ${random_number}
-	Enter Payment Reason      Schedule Payment for ${Transaction_Type}
+	Enter Payment Reason      Schedule Payment for   ${SCHEDULE_PAYMENT_TRANSACTION_TYPE}[4]
 	Click Set Up Payment and Reminder
     Set Frequency For Schedule Payment
     Remind Me About My Payment       ${REMIND_ME}[1]
@@ -398,6 +393,10 @@ Schedule Payment For Send Money To Mobile Money
     Done Done
     #Verify Screen Title    ${MAIN_TITLE}    Transact
 
+Schedule Payment For Send Money To Airtel Mobile Money
+    Schedule Payment For Send Money To Mobile Money     ${user_subsidiary["MOBILE_MONEY_TELCOS"]["AirtelMoney"]}       ${user_subsidiary["PHONE_NUMBER"]["AirtelMoney"]}
+
+
 Schedule Payment To Buy Airtime For
 	[Documentation]    Buy Airtime from Telco
     [Arguments]    ${TELCO}    ${PHONE_NUMBER}
@@ -412,6 +411,10 @@ Schedule Payment To Buy Airtime For
     Verify Schedule Payment Status is       Successful
     Verify Screen Title    ${MAIN_TITLE}    Transact
 
+Schedule Payment To Buy Airtime For Airtel
+    Schedule Payment To Buy Airtime For     ${user_subsidiary["TELCO"]["Airtel"]}     ${user_subsidiary["PHONE_NUMBER"]["AirtelMoney"]}
+
+
 Schedule Payment To Pay Bill For
     [Documentation]    Schedule Payment To Pay Bill
     [Arguments]    ${BillerNumberCode}   ${Account_Meter_Number}      ${PaymentReason}
@@ -425,6 +428,9 @@ Schedule Payment To Pay Bill For
     Verify Schedule Payment is Successful
     Verify Schedule Payment Status is     Your bill was paid successfully
     #Verify Screen Title    ${MAIN_TITLE}    Transact
+
+Schedule Payment To Pay Bill For KPLC
+	Schedule Payment To Pay Bill For      ${user_subsidiary["PAY_BILL"]["KPLC_BillCode"]}      ${user_subsidiary["PAY_BILL"]["KPLC_Account_Meter_Number"]}     Part payment for KPLC
 
 Cancel Schedule Payment For
 	[Arguments]    ${TRANS_TYPE}

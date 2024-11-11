@@ -52,3 +52,6 @@ Withdraw Cash From An Agent
 	Transaction Verification
 	Verify that the Agent Withdrawal transaction is Successful
 	Click on Done Button
+
+Withdraw Cash From Agent
+		Withdraw Cash From An Agent         ${user_subsidiary["AGENT_NUMBER"]}

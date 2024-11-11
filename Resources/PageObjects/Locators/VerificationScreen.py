@@ -29,15 +29,29 @@ ANCHOR_SECURITY_QUESTION_SCREEN = "ke.co.equitygroup.equitymobile.debug:id/toolb
 # Answer your security question to continue
 SECURITY_QUESTION_HEADER = "ke.co.equitygroup.equitymobile.debug:id/header"
 VERIFICATION_BY_SECURITY_QUESTION = "ke.co.equitygroup.equitymobile.debug:id/itemText"
-FIRST_SECURITY_QUESTION_TEXT = '(//android.widget.RadioButton[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemRadioButton"])[1]'
-SECOND_SECURITY_QUESTION_TEXT = '(//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemText"])[2]'
-FIRST_SECURITY_QUESTION = "ke.co.equitygroup.equitymobile.debug:id/firstQuestionText"
-SECOND_SECURITY_QUESTION = "ke.co.equitygroup.equitymobile.debug:id/secondQuestionText"
-FIRST_SECURITY_QUESTION_FIELD = "//android.widget.EditText[@resource-id='ke.co.equitygroup.equitymobile.debug:id/firstAnswerET']"
-SECOND_SECURITY_QUESTION_FIELD = "//android.widget.EditText[@resource-id='ke.co.equitygroup.equitymobile.debug:id/secondAnswerET']"
+
+
+FIRST_SECURITY_QUESTION_TEXT = '//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/firstQuestion"]'
+SECOND_SECURITY_QUESTION_TEXT = '//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/secondQuestion"]'
+FIRST_SECURITY_QUESTION = '//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/firstQuestion"]'
+SECOND_SECURITY_QUESTION = '//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/secondQuestion"]'
+FIRST_SECURITY_QUESTION_FIELD = '//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/textinput_placeholder"][1]'
+SECOND_SECURITY_QUESTION_FIELD = '//android.widget.LinearLayout[@resource-id="ke.co.equitygroup.equitymobile.debug:id/secondQuestionAnswer"]'
+
+
+# FIRST_SECURITY_QUESTION_TEXT = '(//android.widget.RadioButton[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemRadioButton"])[1]'
+# SECOND_SECURITY_QUESTION_TEXT = '(//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemText"])[2]'
+# FIRST_SECURITY_QUESTION = "ke.co.equitygroup.equitymobile.debug:id/firstQuestion"
+# SECOND_SECURITY_QUESTION = "ke.co.equitygroup.equitymobile.debug:id/secondQuestion"
+# FIRST_SECURITY_QUESTION_FIELD = '//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/textinput_placeholder"][1]'
+# SECOND_SECURITY_QUESTION_FIELD = "//android.widget.TextView[@text='Enter your answer']"
+
+# FIRST_SECURITY_QUESTION = "ke.co.equitygroup.equitymobile.debug:id/firstQuestionText"
+#SECOND_SECURITY_QUESTION = "ke.co.equitygroup.equitymobile.debug:id/secondQuestionText"
+# FIRST_SECURITY_QUESTION_FIELD = "//android.widget.EditText[@resource-id='ke.co.equitygroup.equitymobile.debug:id/firstAnswerET']"
+# SECOND_SECURITY_QUESTION_FIELD = "//android.widget.EditText[@resource-id='ke.co.equitygroup.equitymobile.debug:id/secondAnswerET']"
 CONFIRM_SEC_QUESTIONS_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/confirm"
 # Looks like that answer is incorrect, please try again
-INVALID_SECURITY_ANSWER_ERROR_MESSAGE = "ke.co.equitygroup.equitymobile.debug:id/errorDescription"
 TRY_AGAIN_BUTTON = "android.widget.Button[@text='Try again']"
 
 # New device sign-in

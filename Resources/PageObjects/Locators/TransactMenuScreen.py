@@ -42,7 +42,9 @@ DOWNLOAD_PAY_RECEIPT_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/downloadB
 ADD_TO_FAVORITE_BUTTON = '//android.widget.TextView[@text="Add to favourites"]'
 SCHEDULE_PAYMENT_BUTTON = '//android.widget.TextView[@text="Schedule payment"]'
 #DONE_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/backToTransactionButton"
-DONE_BUTTON = "//android.widget.Button[@text='Done']"
+DONE_BUTTON = "//android.widget.Button[ends-with(@text,'Done')]"
+#//android.widget.Button[@text='Done']")
+
 PIN_CONFIRMATION_SCREEN_TITLE = '//android.widget.TextView[@text="Verify"]'
 BTN_CONTINUE = '//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/sendAction"]'
 VERIFICATION_PIN_FIELD = '//android.widget.EditText[@resource-id="ke.co.equitygroup.equitymobile.debug:id/pinET"]'
@@ -78,6 +80,8 @@ BTN_RADIO_BENEFICIARY_FAVOURITE_SEARCH_OUTCOME = 'ke.co.equitygroup.equitymobile
 BTN_MORE_CANCEL = "ke.co.equitygroup.equitymobile.debug:id/btnMore"
 HEADER_CARD_FIELD = "ke.co.equitygroup.equitymobile.debug:id/headerCard"
 WU_HEADER_CARD_FIELD = "ke.co.equitygroup.equitymobile.debug:id/header"
+# We have sent a verification code to your registered 250*****431
+# Please enter your PIN to continue
 BTN_CANCEL_PAYMENT = "ke.co.equitygroup.equitymobile.debug:id/cancel"
 CANCEL_REASON_FIELD = "ke.co.equitygroup.equitymobile.debug:id/reasonEditText"
 TRANS_TYPE_TITLE = "ke.co.equitygroup.equitymobile.debug:id/tvPaymentTitle"

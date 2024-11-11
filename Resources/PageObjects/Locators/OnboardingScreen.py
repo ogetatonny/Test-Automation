@@ -5,7 +5,9 @@ CHOOSE_LANGUAGE = "ke.co.equitygroup.equitymobile.debug:id/en"
 CONTINUE_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/continueButton"
 # Welcome to Equity mobile
 ANCHOR_TOOLBAR_TITLE = "ke.co.equitygroup.equitymobile.debug:id/toolbarTitle"
-NEXT_BUTTON = "//android.widget.Button[@text='Next']"
+SLIDER_TITLE = "ke.co.equitygroup.equitymobile.debug:id/sliderTitle"
+#NEXT_BUTTON = "//android.widget.Button[@text='Next']"
+NEXT_BUTTON = '//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/getStartedButton"]'
 GET_STARTED_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/getStartedButton"
 # Good afternoon! Sign in or register to continue
 ANCHOR_SIGN_REGISTER_SCREEN = "ke.co.equitygroup.equitymobile.debug:id/welcomeSubText"

@@ -18,7 +18,9 @@ ADD_AN_EQUITY_ACCOUNT_LINK = "//android.widget.TextView[@text='Add an Equity acc
 ADD_ACCOUNT_CHECKBOX = "//androidx.cardview.widget.CardView[@resource-id='ke.co.equitygroup.equitymobile.debug:id/home_item_loan']/android.view.ViewGroup"
 ADD_ACCOUNT_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/nextButton"
 ADD_ACCOUNT_SUCCESS_MESSAGE = "ke.co.equitygroup.equitymobile.debug:id/thankDetails"
-ADD_ACCOUNT_DONE_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/doneButton"
+#ADD_ACCOUNT_DONE_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/doneButton"
+ADD_ACCOUNT_DONE_BUTTON = "//android.widget.Button[@text='Done']"
+
 
 TRANSACT_LINK = "//android.widget.TextView[@text='Transact']"
 ACCOUNT_INFORMATION_LINK = "//android.widget.TextView[@text='Account information']"
@@ -40,12 +42,13 @@ BACK_ARROW_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/startIcon"
 SHARE_HEADER_TITLE = "ke.co.equitygroup.equitymobile.debug:id/headerShare"
 DOWNLOAD_AND_SAVE_TO_PHONE_MENU = "//android.widget.TextView[@resource-id='ke.co.equitygroup.equitymobile.debug:id/itemText' and @text='Download and save to your phone']"
 SEND_TO_AN_EMAIL_ADDRESS_MENU = "//android.widget.TextView[@resource-id='ke.co.equitygroup.equitymobile.debug:id/itemText' and @text='Send to an email address']"
-SENT_EMAIL_CONFIRMATION = "ke.co.equitygroup.equitymobile.debug:id/errorTitle"
-SENT_EMAIL_DESCRIPTION = "ke.co.equitygroup.equitymobile.debug:id/errorDescription"
+ERROR_DESCRIPTION = "ke.co.equitygroup.equitymobile.debug:id/errorDescription"
 DISMISS_BUTTON = "//android.widget.Button[@text='Dismiss']"
 SHARE_DOCUMENT_MENU = "ke.co.equitygroup.equitymobile.debug:id/share"
 DOWNLOAD_VIA_ACROBAT_ICON = '//android.widget.TextView[@resource-id="android:id/text1" and @text="Adobe Acrobat"]'
 NAVIGATE_BACK_TO_DS_VIEW ="//android.widget.ScrollView[@resource-id='android:id/contentPanel']"
 BACK_ICON = "ke.co.equitygroup.equitymobile.debug:id/backIcon"
+INSTALLMENT_MONTH_AMOUNT = "ke.co.equitygroup.equitymobile.debug:id/loanAmountInstallment"
+BACK_ICON_BORR0W = "ke.co.equitygroup.equitymobile.debug:id/startIcon"
 
 TRANSACTION_HISTORY_FILTER_BTN = '//android.widget.ImageView[@content-desc="Account statements filter"]'

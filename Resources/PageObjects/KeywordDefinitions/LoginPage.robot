@@ -29,6 +29,7 @@ Device Access Permission
 Navigate to Login Page
 	Device Access Permission
     Choose Preferred Language
+    Choose Proceed upon OS verification warning
     Click On The Next Button/Get Started
     Click on SignIn Button
 
@@ -42,8 +43,12 @@ Choose Preferred Language
 	Select your language
 	Click on Continue Button
 
+Choose Proceed upon OS verification warning
+    ${OS_Validation}        Run Keyword And Return Status        Wait Until Element Is Visible  ${PROCEED_BUTTON}
+    Run Keyword If    ${OS_Validation}== True         Wait Until Element Is Ready and Click    ${PROCEED_BUTTON}
+
 Click On The Next Button/Get Started
-	Wait Until Element Is Visible   ${NEXT_BUTTON}
+	Verify Screen Title    ${SLIDER_TITLE}     More than just banking
 	Click Element                   ${NEXT_BUTTON}
 	Click Element                   ${NEXT_BUTTON}
 	Click Element                   ${NEXT_BUTTON}
@@ -68,6 +73,12 @@ Input Email address or Mobile Number
 	[Arguments]                          ${EMAIL-OR-MOBILE-NUMBER}
     Wait Until Page Contains Element     ${EMAIL_MOBILE_NUMBER_FIELD}
     Input Text                           ${EMAIL_MOBILE_NUMBER_FIELD}               ${EMAIL-OR-MOBILE-NUMBER}
+
+Input Email address/Mobile Number
+	Input Email address or Mobile Number        ${current_user["user_name"]}
+
+Input Invalid User Password
+	Input User Password     ${current_user["invalid_password"]}
 
 Input User Password
     [Arguments]                          ${USER-PASSWORD}
@@ -123,6 +134,7 @@ Answer first security question
     #Click Element    ${FIRST_SECURITY_QUESTION}
    # Wait Until Element Is Ready       Please select a security question
     ${FIRST_SELECTED_QUESTION_TEXT}=    Get Text    ${FIRST_SECURITY_QUESTION}
+    Log    FIRST_SELECTED_QUESTION_TEXT
     IF    '${FIRST_SELECTED_QUESTION_TEXT}' == '${current_user["first_question"]}'
     	Wait Until Element Is Ready And Click   ${FIRST_SECURITY_QUESTION_FIELD}
 	    Input Text Into Current Element         ${current_user["first_answer"]}
@@ -213,7 +225,7 @@ Check To See If The Error Message Is Visible
 	Wait Until Element Is Visible    ${TRY_AGAIN_BUTTON}
 	${ERROR_TITLE}=  Get Text            ${LOGIN_ERROR_TITLE}
 	Should Be Equal As Strings    ${ERROR_TITLE}        Uh oh!
-	${ERROR_DESCRIPTION}=  Get Text            ${LOGIN_ERROR_DESCRIPTION}
+	${ERROR_DESCRIPTION}=  Get Text            ${ERROR_DESCRIPTION}
 	Should Be Equal As Strings    ${ERROR_DESCRIPTION}        Sorry, these details aren't familiar to us, please take a look and try again
     Click Element    ${TRY_AGAIN_BUTTON}
 

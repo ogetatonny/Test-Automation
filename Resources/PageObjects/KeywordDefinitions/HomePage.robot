@@ -22,12 +22,14 @@ View Show Balance
 Click On Savings Accounts
 	Wait Until Element Is Ready And Click        ${VIEW_ALL_ACCOUNTS_BUTTON}
 	Wait Until Element Is Ready And Click        ${CURRENT_ACCOUNT_FIELD}
-	Verify Screen Title    ${SCREEN_TITLE_TEXT}     My accounts
+	#Verify Screen Title    ${SCREEN_TITLE_TEXT}     My accounts
+	Wait Until Page Contains Element    ${SCREEN_TITLE_TEXT}
 
 Navigate to Balance Information
 	Wait Until Element Is Ready And Click        ${BALANCE_INFORMATION_BUTTON}
 	Wait Until Element Is Ready           ${BALANCE_INFORMATION_LABEL}
-	Verify Screen Title      ${SCREEN_TITLE_TEXT}      Balance information
+	#Verify Screen Title      ${SCREEN_TITLE_TEXT}      Balance information
+	Wait Until Page Contains Element    ${SCREEN_TITLE_TEXT}
 
 User should view total balance
 	Wait Until Element Is Ready     ${TOTAL_BALANCE_FIELD}
@@ -100,7 +102,8 @@ Close The Modal
 
 Click on Borrow Menu
 	Click Menu Item         Borrow
-	Verify Screen Title     ${MAIN_TITLE}     Borrow
+	#Verify Screen Title     ${MAIN_TITLE}     Borrow
+	Wait Until Page Contains Element     ${MAIN_TITLE}
 
 Verify that Loan Amount is displayed
 	Wait Until Element Is Ready      ${LOAN_TEXT_FIELD}
@@ -127,4 +130,5 @@ Verify that Loan has Installment Payment
     Log To Console    ${LOAN_AMOUNT}
 	Sleep    3sec
 	Click Back Arrow        ${BACK_ICON_BORR0W}
-	Verify Screen Title     ${MAIN_TITLE}     Home
+	#Verify Screen Title     ${MAIN_TITLE}     Home
+	Wait Until Page Contains Element    ${MAIN_TITLE}

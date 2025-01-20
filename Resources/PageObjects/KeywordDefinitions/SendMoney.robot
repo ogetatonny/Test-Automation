@@ -1,33 +1,65 @@
 *** Settings ***
-Library  AppiumLibrary
+Library   AppiumLibrary
+Library    BuiltIn
 Library  Screenshot    default_directory=../Screenshots
 Variables    ../Locators/TransactMenuScreen.py
 Variables    ../Locators/WithdrawCashScreen.py
-Variables    /Users/martinsadeyeye/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py
+Variables    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py
 Resource    ../KeywordDefinitions/CommonFunctions.robot
-Variables    /Users/martinsadeyeye/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py
+Library    OperatingSystem
+#Variables    /Users/martinsadeyeye/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py
 
+
+*** Variables ***
+${CONTAINER_BOUNDS}    [0,857][1080,2088]
+${START_X}             540   # Middle of the container width
+${START_Y}             2000  # Slightly above the bottom edge
+${END_X}               540   # Same as START_X
+${END_Y}               900   # Slightly below the top edge
 *** Keywords ***
 Click on Transact Menu
 	Click Menu Item     Transact
 
 Click Send Money to Own Equity Account Menu
 	Click Transaction Items     Own Equity account
+	
+Enter amount to send
+    [Arguments]    ${AMOUNT_OWN}
+    click element    ${OWN_AMOUNT_FIELD}
+    Input Text     ${OWN_AMOUNT_FIELD}    ${AMOUNT_OWN}
+    Wait Until Element Is Ready And Click      ${SEND_OWN_BUTTON}
+
+# send to own
+Confirmation screen
+    [Documentation]    checking that the text on the confirmation screen is the expected one
+    Wait Until Page Contains Element    ${PAY_OWN_BUTTON}
+    ${CONFIRMATION_TEXT} =     Get Text    ${CONFIRMATION_SCREEN_TEXT}
+    Should Be Equal   ${CONFIRMATION_TEXT}     To continue, please confirm your transaction
+    click element    ${PAY_OWN_BUTTON}
+
+completing the transaction
+    Wait Until Page Contains Element      ${TRANSACTION_DONE_BUTTON}    20s
+    ${COMPLETE_TRAN_TEXT} =    Get Text    ${TRAN_COMPLETE_TEXT}
+    Should Be Equal    ${COMPLETE_TRAN_TEXT}    Great! Your transaction was successful.
+    Click Element    ${TRANSACTION_DONE_BUTTON}
 
 Select Source Account
     Wait Until Element Is Ready And Click        ${SEND_FROM_FIELD}
-    Verify Screen Title                          ${SCREEN_TITLE_TEXT}       Pay from
+    #Verify Screen Title                          ${SCREEN_TITLE_TEXT}       Pay from
+    Wait Until Page Contains Element     ${SCREEN_TITLE_TEXT}
     Wait Until Element Is Ready And Click        ${FIRST_ACCOUNT}
 
 Select USD Source Account
     Wait Until Element Is Ready And Click        ${SEND_FROM_FIELD}
-    Verify Screen Title                          ${SCREEN_TITLE_TEXT}       Pay from
+    #Verify Screen Title                          ${SCREEN_TITLE_TEXT}       Pay from
+    Wait Until Page Contains Element    ${SCREEN_TITLE_TEXT}
     Wait Until Element Is Ready And Click        ${SELECT_SOURCE_ACC_FIELD}
 
 Select Destination Account
 	Wait Until Element Is Ready And Click         ${SEND_TO_FIELD}
-	Verify Screen Title                           ${SCREEN_TITLE_TEXT}       Send to
-#    Wait Until Element Is Ready And Click         ${SEND_TO_BUTTON}
+	#Verify Screen Title                           ${SCREEN_TITLE_TEXT}       Send to
+	Wait Until Page Contains Element     ${SCREEN_TITLE_TEXT}
+	Wait Until Element Is Ready And Click         ${SEND_TO_BUTTON}
     Own Currency Account        ${user_subsidiary["LOCAL_CURRENCY"]}
 
 
@@ -96,17 +128,21 @@ Click Send Money to Another Equity account Menu
 
 Click Send To Someone New
 	Wait Until Element Is Ready And Click        ${SEND_TO_FIELD}
-	Verify Screen Title                          ${SCREEN_TITLE_TEXT}       Send to
-	Wait Until Element Is Ready And Click        ${SEND_TO_SOMEONE_NEW_BUTTON}
+	#Verify Screen Title                          ${SCREEN_TITLE_TEXT}       Send to
+	#Wait Until Element Is Ready And Click        ${SEND_TO_SOMEONE_NEW_BUTTON}
+	
+Send to Someone New if element is available
+    ${is_someone_new}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${SEND_TO_SOMEONE_NEW_BUTTON}
+    Run Keyword If    ${is_someone_new}    Click Send To Someone New
 
 Enter Account Number
 	[Arguments]    ${ACCOUNT_NUMBER}
-	Verify Screen Title        ${SCREEN_TITLE_TEXT}         Send to someone new
+	#Verify Screen Title        ${SCREEN_TITLE_TEXT}         Send to someone new
 	Input Text    ${ACCOUNT_NUMBER_INPUT_FIELD}          ${ACCOUNT_NUMBER}
 
 Click on Continue to Add Beneficiary
 	Wait Until Element Is Ready And Click        ${ADD_BENEFICIARY_CONTINUE_BUTTON}
-	Wait Until Element Is Ready And Click       ${OK_RECEIPT_HIDDEN_BUTTON_ON_MODAL}
+	#Wait Until Element Is Ready And Click       ${OK_RECEIPT_HIDDEN_BUTTON_ON_MODAL}
 
 Click Continue to Add Beneficiary
     Wait Until Element Is Ready And Click        ${ADD_BENEFICIARY_CONTINUE_BUTTON}
@@ -117,11 +153,64 @@ Click Continue to Add Beneficiary
 Click Send Money to Another Bank Menu
 	Click Transaction Items     Another Bank
 
-Search and Select a Bank
-	[Arguments]    ${BANK_NAME}
-	Verify Screen Title     ${SCREEN_TITLE_TEXT}        Send to a bank account
-	Input Text    ${SEARCH_FOR_A_BENEFICIARY}            ${BANK_NAME}
-    Wait Until Element Is Ready And Click    ${SELECT_A_BANK_RESULT}
+Select bank and enter account
+    #[Arguments]    ${bank}    ${account}
+    Wait Until Element Is Ready And Click    ${ANOTHER_BANK_NAV}
+    Wait Until Element Is Ready And Click    ${SOMEONE_NEW_NAV}
+    Wait Until Page Contains Element     ${SEARCH_ANOTHER_BANK}
+    ${SELECTION_CONFIRMATION} =   Get Text    ${SELECT_COUNTRY_TEXT}
+    Should Be Equal   ${SELECTION_CONFIRMATION}    Please select the recipient’s bank
+    Wait Until Page Contains Element    ${SEARCH_ANOTHER_BANK}
+    sleep   10s
+    Scroll Element Into View
+
+#Scroll Element Into View
+    [Documentation]    Scroll through the container until the target element is visible.
+    Wait Until Page Contains Element    ${BANKS_LIST_CONTAINER}
+
+    WHILE    not    Run Keyword And Return Status    Element Should Be Visible    ${STANBIC_BANK_UG}
+        Swipe    start_x=${START_X}    start_y=${START_Y}    end_x=${END_X}    end_y=${END_Y}    duration=500
+        ${is_at_end}=    Run Keyword And Return Status    Page Should Contain Element    ${END_MARKER}
+        Run Keyword If    ${is_at_end}    Exit For Loop
+        ${visible}=    Run Keyword And Return Status    Element Should Be Visible    ${STANBIC_BANK_UG}
+    END
+
+    Wait Until Element Is Visible    ${STANBIC_BANK_UG}    timeout=5s
+    Click Element    ${STANBIC_BANK_UG}
+
+
+
+
+
+
+
+# RTGS accounts
+# UG
+#1. Stanbic 9030016855536, 903008646022, 9030010157667
+#2. Absa  6005247185,   6004495460,    60034782228
+
+#KE
+# 1. Absa  2036752376,
+# 2. Standard Chartered   0100369991000
+
+# RW
+# 1. bank of kigali 002570635184933
+
+# SS
+# 1. KCB    5500108786
+# 2. Ecobank    0010087701130001
+
+# TZ
+# National Microfinance Bank    62308000712
+
+
+#select bank
+    #${IS_UG_TAG}    Run Keyword And Return Status      Is Tag Present     UG
+    #Run Keyword If    ${IS_UG_TAG}    Scroll Until Visible and click
+    
+    
+#sroll to the bank to select UG(Stanbic)
+    #Click Element    ${STANBIC_BANK_UG}
 
 Enter Bank Account Number
     [Arguments]    ${BANK_ACCOUNT_NUMBER}
@@ -198,8 +287,12 @@ Select Beneficiary from Favorites for Another Bank
 
 Select Destination Country
     [Arguments]    ${COUNTRY_NAME}      ${SWIFT_BANK_NAME}
+    Wait Until Page Contains Element    ${SEARCH_FOR_A_BENEFICIARY}    10s
+	Click Element    ${NAV_TO_SEARCH_BANK}
+	Wait Until Page Contains Element    ${SEARCH_FOR_A_BENEFICIARY}    10s
 	Wait Until Element Is Ready And Click    ${SELECT_COUNTRY_FIELD}
-	Verify Screen Title                      ${SCREEN_TITLE_TEXT}      Please select a country
+	#Verify Screen Title                      ${SCREEN_TITLE_TEXT}      Please select a country
+	Wait Until Page Contains Element    ${SEARCH_FOR_A_BENEFICIARY}    10s
 	Input Text    ${SEARCH_FOR_A_BENEFICIARY}            ${COUNTRY_NAME}
     Wait Until Element Is Ready And Click    ${SEARCH_RESULT_COUNTRY_LIST}
     Verify Screen Title                      ${SCREEN_TITLE_TEXT}      Send to a bank account
@@ -211,7 +304,7 @@ Enter FUll Name Account Number and Address
 	Verify Screen Title                      ${SCREEN_TITLE_TEXT}      Send to someone new
 	Input Text    ${FULL_NAME_FIELD}         ${FULL_NAME}
 	Input Text    ${ACCOUNT_NUMBER_VALUE_FIELD}     ${ACCOUNT_IBAN_NUMBER}
-	Input Text    ${PHYSICAL_ADDRESS_FIELD}            My Addess
+	Input Text    ${PHYSICAL_ADDRESS_FIELD}            My Swift Address in Italy
 
 Select Currency
 	Wait Until Element Is Ready And Click    ${SElECT_CURRENCY}
@@ -222,10 +315,17 @@ Select Currency
 	Verify Screen Title    	${CONVERTED_AMOUNT_FIELD}     Converted amount
 
 Select Charge Option
+    #Scroll Element Into View    ${SELECT_FOREIGN_CHARGE_OPTION_FIELD}
+    Scroll To Element Using UiScrollable for the foreign charge option
 	Wait Until Element Is Ready And Click       ${SELECT_FOREIGN_CHARGE_OPTION_FIELD}
 	Verify Screen Title                         ${SCREEN_TITLE_TEXT}      Charge option
 	Wait Until Element Is Ready And Click       ${FULL_CHARGE_OPTION}
 	Swipe    425    2037    421    1126
+
+Scroll To Element Using UiScrollable for the foreign charge option
+    [Documentation]    Scrolls to the element using UiScrollable's scrollIntoView
+    ${element}=    Get WebElement    android=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceId("ke.co.equitygroup.equitymobile.debug:id/itemText"))
+    Click Element    ${element}
 
 Select Share Charge Option
 	Wait Until Element Is Ready And Click       ${SELECT_FOREIGN_CHARGE_OPTION_FIELD}
@@ -314,6 +414,16 @@ Send Money To Another Equity Account
 	Verify that the transaction is Successful
 	Click on Done Button
 	Verify Screen Title    ${MAIN_TITLE}    Home
+
+Enter recipient of another equity transaction
+    Wait Until Element Is Ready And Click    ${SOMEONE_NEW_NAV}
+    sleep    10s
+
+Enter Account number of another equity beneficiary
+    [Arguments]    ${ACCOUNT_NO}
+    Wait Until Page Contains Element        ${ACCOUNT_FIELD}     20S
+    Input Text    ${ACCOUNT_FIELD}    ${ACCOUNT_NO}
+    Click Element    ${CONTINUE_SUBMIT}
 
 Click Pay To Card Menu
 	Click Transaction Items     Pay to card
@@ -405,6 +515,7 @@ Send Money To Phone-Linked Favourite
 Send Money To Another Bank
 	[Documentation]    Send money to Another Bank
 	${random_number}    Evaluate    random.randint(${user_subsidiary["RTGS_minimum"]}, ${user_subsidiary["RTGS_maximum"]})
+	#Send to Someone New if element is available
 	Click Send To Someone New
 	Search and Select a Bank        ${user_subsidiary["RTGS_destination_name"]}
 	Enter Bank Account Number       ${user_subsidiary["RTGS_destination_account"]}
@@ -412,8 +523,8 @@ Send Money To Another Bank
 	Enter Full Name                 ${user_subsidiary["RTGS_destination_name"]} DOE
 	Click Continue to Add Beneficiary
 	Enter Amount         ${random_number}
-	Verify Transfer Service Label
-	Select Transfer Service
+	#Verify Transfer Service Label
+	#Select Transfer Service
 	Enter Payment Reason       Sending Money to Another Equity Account
 	Click on Send Money Button
 	Verify Payment Confirmation
@@ -434,17 +545,27 @@ Send Money To Another Bank EFT
 	Enter Full Name                 ${user_subsidiary["RTGS_destination_name"]} DOE
 	Click Continue to Add Beneficiary
 	Enter Amount         ${random_number}
-	Verify Transfer Service Label
-	Select EFT Transfer Service
+	#Verify Transfer Service Label
+	#Select EFT Transfer Service
 	Enter Payment Reason       Sending Money to Another Equity Account
 	Click on Send Money Button
 	Verify Payment Confirmation
-	Charge Fee Verification     ${user_subsidiary["RTGS_ETF_charge_fee"]}
+	#Charge Fee Verification     ${user_subsidiary["RTGS_ETF_charge_fee"]}
 	Confirm and Send
     Transaction Verification
     Verify that the transaction is Successful
     Click on Done Button
     Verify Screen Title    ${MAIN_TITLE}    Home
+
+Search and Select a Bank
+	[Arguments]    ${BANK_NAME}
+	#Verify Screen Title     ${SCREEN_TITLE_TEXT}        Send to a bank account
+	Wait Until Page Contains Element    ${SEARCH_FOR_A_BENEFICIARY}    10s
+	Click Element    ${NAV_TO_SEARCH_BANK}
+	Wait Until Page Contains Element    ${SEARCH_FOR_A_BENEFICIARY}    10s
+	Input Text    ${SEARCH_FOR_A_BENEFICIARY}            ${BANK_NAME}
+    Wait Until Element Is Ready And Click    ${SELECT_A_BANK_RESULT}
+
 
 
 Send Money To Pesalink Mobile

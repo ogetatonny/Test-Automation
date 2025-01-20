@@ -13,44 +13,60 @@ ${first_acc_number}
 
 
 *** Keywords ***
-Get the customer's account number
-        Wait Until Element Is Ready    ${ACCOUNT_NUMBER_TEXT}
-        ${ACCOUNT_NUMBER_TEXT_DETAILS}=       Get Text    ${ACCOUNT_NUMBER_TEXT}
-        Split String    ${ACCOUNT_NUMBER_TEXT_DETAILS}
-        ${ACC_NUMBER}=      Fetch From Left    ${ACCOUNT_NUMBER_TEXT_DETAILS}      •
-        Strip String    ${ACC_NUMBER}
-        Log    ${ACC_NUMBER}
+#Get the customer's account number
+#        Wait Until Element Is Ready    ${ACCOUNT_NUMBER_TEXT}
+#        ${ACCOUNT_NUMBER_TEXT_DETAILS}=       Get Text    ${ACCOUNT_NUMBER_TEXT}
+#        Split String    ${ACCOUNT_NUMBER_TEXT_DETAILS}
+#        ${ACC_NUMBER}=      Fetch From Left    ${ACCOUNT_NUMBER_TEXT_DETAILS}      •
+#        Strip String    ${ACC_NUMBER}
+#        Log    ${ACC_NUMBER}
 
-Remove the customer's account number
-	    Wait Until Element Is Ready      ${ACCOUNT_ACTION_LINK}
-	    Wait Until Element Is Ready And Click           ${ACCOUNT_ACTION_LINK}
-        Wait Until Element Is Ready    ${ACCOUNT_UNLINK_LINK}
-        Wait Until Element Is Ready And Click           ${ACCOUNT_UNLINK_LINK}
-        Wait Until Element Is Ready And Click           ${ACCOUNT_UNLINK_CONFIRMATION}
-        Wait Until Element Is Ready    ${CLOSE_ACCOUNT_UNLINK_CONFIRMATION}
-        Click Element    ${CLOSE_ACCOUNT_UNLINK_CONFIRMATION}
-
-Navigate to existing accounts
-	Wait Until Element Is Ready     ${ACCOUNTS_MENU_TAB}
-    Click Element    ${ACCOUNTS_MENU_TAB}
-    Wait Until Element Is Ready    ${ADD_EXISTING_ACCOUNT_LINK}
-    Click Element    ${ADD_EXISTING_ACCOUNT_LINK}
-    Wait Until Element Is Ready And Click              ${ADD_AN_EQUITY_ACCOUNT_LINK}
-
-# Choose delinked account to add back to profile
-
-Add select account and add to profile
-	Wait Until Element Is Ready     ${ADD_ACCOUNT_CHECKBOX}
-    Click Element    ${ADD_ACCOUNT_CHECKBOX}
-    Wait Until Element Is Ready And Click       ${ADD_ACCOUNT_BUTTON}
-
-
-Verify that Account is Successfully Added
-    Wait Until Element Is Ready           ${ADD_ACCOUNT_DONE_BUTTON}
-	${CONFIRMATION-TEXT}=  Get Text         ${ADD_ACCOUNT_SUCCESS_MESSAGE}
-	Should Be Equal As Strings              ${CONFIRMATION-TEXT}                         ${ADD_ACCOUNT_MESSAGE}[message]
-	Click Element                           ${ADD_ACCOUNT_DONE_BUTTON}
-	Sleep    5s
-	Verify Screen Title    ${MAIN_TITLE}        Home
+click on the three dots on the account card (no unlinking)
+    click element    ${DOTS_ON_ACCOUNT_CARD}
+    Wait Until Element Is Ready And Click    ${UNLINK_LINK}
+    Click Element    ${NO_KEEP_BUTTON}
+    
+checking that the remove pop up button is working
+    click element    ${DOTS_ON_ACCOUNT_CARD}
+    Wait Until Element Is Ready And Click    ${UNLINK_LINK}
+    Click Element    ${REMOVE_POPUP_BUTTON}
+    
+click on the three dots on the account card (unlinking)
+    click element    ${DOTS_ON_ACCOUNT_CARD}
+    Wait Until Element Is Ready And Click    ${UNLINK_LINK}
+    click element    ${YES_UNLINK_BUTTON}
+    Wait Until Element Is Visible    ${GREAT_DISMISS_BUTTON}    timeout=10
+    click element    ${GREAT_DISMISS_BUTTON}        
+#Remove the customer's account number
+#	    Wait Until Element Is Ready      ${ACCOUNT_ACTION_LINK}
+#	    Wait Until Element Is Ready And Click           ${ACCOUNT_ACTION_LINK}
+#        Wait Until Element Is Ready    ${ACCOUNT_UNLINK_LINK}
+#        Wait Until Element Is Ready And Click           ${ACCOUNT_UNLINK_LINK}
+#        Wait Until Element Is Ready And Click           ${ACCOUNT_UNLINK_CONFIRMATION}
+#        Wait Until Element Is Ready    ${CLOSE_ACCOUNT_UNLINK_CONFIRMATION}
+#        Click Element    ${CLOSE_ACCOUNT_UNLINK_CONFIRMATION}
+#
+#Navigate to existing accounts
+#	Wait Until Element Is Ready     ${ACCOUNTS_MENU_TAB}
+#    Click Element    ${ACCOUNTS_MENU_TAB}
+#    Wait Until Element Is Ready    ${ADD_EXISTING_ACCOUNT_LINK}
+#    Click Element    ${ADD_EXISTING_ACCOUNT_LINK}
+#    Wait Until Element Is Ready And Click              ${ADD_AN_EQUITY_ACCOUNT_LINK}
+#
+## Choose delinked account to add back to profile
+#
+#Add select account and add to profile
+#	Wait Until Element Is Ready     ${ADD_ACCOUNT_CHECKBOX}
+#    Click Element    ${ADD_ACCOUNT_CHECKBOX}
+#    Wait Until Element Is Ready And Click       ${ADD_ACCOUNT_BUTTON}
+#
+#
+#Verify that Account is Successfully Added
+#    Wait Until Element Is Ready           ${ADD_ACCOUNT_DONE_BUTTON}
+#	${CONFIRMATION-TEXT}=  Get Text         ${ADD_ACCOUNT_SUCCESS_MESSAGE}
+#	Should Be Equal As Strings              ${CONFIRMATION-TEXT}                         ${ADD_ACCOUNT_MESSAGE}     [message]
+#	Click Element                           ${ADD_ACCOUNT_DONE_BUTTON}
+#	Sleep    5s
+#	Verify Screen Title    ${MAIN_TITLE}        Home
 
 

@@ -71,3 +71,12 @@ LOAN_INSTALLMENT_FIELD = "ke.co.equitygroup.equitymobile.debug:id/loanAmountInst
 #14,082.00 KES per month
 NEXT_PAYMENT_LABEL_FIELD = "ke.co.equitygroup.equitymobile.debug:id/loanDaysTitle"
 #Next Payment
+
+# Newly added - Ogeta
+# account linking and unlinking
+DOTS_ON_ACCOUNT_CARD='ke.co.equitygroup.equitymobile.debug:id/accountActions'
+UNLINK_LINK='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemText" and @text="Unlink account"]'
+NO_KEEP_BUTTON='ke.co.equitygroup.equitymobile.debug:id/secondaryButton'
+YES_UNLINK_BUTTON='ke.co.equitygroup.equitymobile.debug:id/primaryButton'
+REMOVE_POPUP_BUTTON='ke.co.equitygroup.equitymobile.debug:id/crossForeground'
+GREAT_DISMISS_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/primaryButton" and @text="Dismiss"]'

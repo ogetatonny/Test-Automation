@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation  Verify That User Can Successfully Login with a Valid Credentail
+Documentation  Verify That User Can Successfully Login with a Valid Credential
 Library  AppiumLibrary
 Library  Screenshot    default_directory=../Screenshots
 Resource    ../../Resources/PageObjects/KeywordDefinitions/LoginPage.robot

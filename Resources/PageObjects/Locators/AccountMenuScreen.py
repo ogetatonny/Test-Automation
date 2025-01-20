@@ -34,7 +34,7 @@ SELECT_DURATION_END_DATE = "ke.co.equitygroup.equitymobile.debug:id/endDateET"
 NAVIGATE_TO_PREVIOUS_MONTH_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/month_navigation_previous"
 SELECT_DAY_OF_MONTH = "//android.widget.TextView[@text='1']"
 OK_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/confirm_button"
-VIEW_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/applyFilter"
+#VIEW_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/applyFilter"
 PDF_VIEW = "ke.co.equitygroup.equitymobile.debug:id/pdfView"
 SHARE_MENU = "ke.co.equitygroup.equitymobile.debug:id/share_menu"
 NAVIGATE_BACK_FROM_PDF_BUTTON = "//android.widget.ImageButton"
@@ -52,3 +52,11 @@ INSTALLMENT_MONTH_AMOUNT = "ke.co.equitygroup.equitymobile.debug:id/loanAmountIn
 BACK_ICON_BORR0W = "ke.co.equitygroup.equitymobile.debug:id/startIcon"
 
 TRANSACTION_HISTORY_FILTER_BTN = '//android.widget.ImageView[@content-desc="Account statements filter"]'
+
+
+# view statement
+
+THREE_MONTHS_BUTTON='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/filterText" and @text="3 Months"]'
+ONE_MONTH_BUTTON='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/filterText" and @text="1 Month"]'
+SIX_MONTHS_BUTTON='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/filterText" and @text="6 Months"]'
+VIEW_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/applyFilter"]'

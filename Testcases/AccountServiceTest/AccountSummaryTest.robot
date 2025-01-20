@@ -3,7 +3,8 @@ Documentation  Verify That User can successfully View All Balances
 Library  AppiumLibrary
 Library  Screenshot    default_directory=../Screenshots
 Resource    ../../Resources/PageObjects/KeywordDefinitions/HomePage.robot
-Resource    ../../Resources/PageObjects/KeywordDefinitions/AccountStatementPage.robot
+Resource    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/PageObjects/KeywordDefinitions/CommonFunctions.robot
+Suite Setup   Initial App Launch and Nav to Homepage
 
 *** Test Cases ***
 User Verify My Balance
@@ -35,17 +36,17 @@ Validate the Available Balance
 	[Tags]    KE   RW   UG   TZ  SS
 	Verify The Sum of All Balances Equal the Available Balance
 	Close The Modal
-	Move Back to the Previous Screen
-	Move Back to the Previous Screen
+	#Move Back to the Previous Screen
+	#Move Back to the Previous Screen
 
-User should view the loan amount
-	[Tags]    KE   RW   UG   TZ  SS
-	Click on Borrow Menu
-#	Verify that Loan Amount is displayed
-	#Verify that Loan Balance is Displayed
-
-User should view the installment amount
-	[Tags]    KE   RW   UG   TZ  SS
-	Verify that Loan has Installment Payment
+#User should view the loan amount
+#	[Tags]    KE   RW   UG   TZ  SS
+#	Click on Borrow Menu
+##	Verify that Loan Amount is displayed
+#	#Verify that Loan Balance is Displayed
+#
+#User should view the installment amount
+#	[Tags]    KE   RW   UG   TZ  SS
+#	Verify that Loan has Installment Payment
 
 

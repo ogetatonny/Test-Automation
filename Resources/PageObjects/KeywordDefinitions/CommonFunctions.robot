@@ -7,22 +7,31 @@ Variables    ../Locators/HomeScreen.py
 Variables    ../Locators/AccountMenuScreen.py
 Variables    ../Locators/TransactMenuScreen.py
 Resource     ../KeywordDefinitions/LoginPage.robot
+Library  AppiumLibrary
+Library  Screenshot    default_directory=../Screenshots
+Resource    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/PageObjects/KeywordDefinitions/CommonFunctions.robot
+Resource    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/PageObjects/KeywordDefinitions/LoginPage.robot
 
 
 *** Variables ***
-${remoteUrl}=           http://0.0.0.0:4723
+#${remoteUrl}=           http://0.0.0.0:4723
 # url for appium desktop http://127.0.0.1:4723/wd/hub
+${remoteUrl1}=                   http://0.0.0.0:4723
+${remoteUrl2}=                   http://0.0.0.0:4725
 ${ANDROID_AUTOMATION_NAME}=     UiAutomator2
 ${ANDROID_APP_PACKAGE}=         ke.co.equitygroup.equitymobile.debug
 ${ANDROID_APP_ACTIVITY}=        ke.co.equitybank.oneequity.MainActivity
 ${ANDROID_APP_SUB_ACTIVITY}=    com.google.android.gms.auth.api.signin.RevocationBoundService
 ${ANDROID_PLATFORM_NAME}=       Android
-${ANDROID_PLATFORM_VERSION}=    12
-${DEVICE_NAME}=                 emulator-5554
+${ANDROID_PLATFORM_VERSION}=    15
+#${DEVICE_NAME}=                 emulator-5554
+${DEVICE_NAME1}=                 emulator-5554
+${DEVICE_NAME2}=                 emulator-5556
 # device for my physical device SM-A515F/DSN n 13
-${app}=   /Users/martinsadeyeye/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app-uat-oneEquity-google-debug.apk
-@{document}=    /Users/martinsadeyeye/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/Documents/
-@{dir}=    /Users/martinsadeyeye/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE
+#${app}=   /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app-uat-oneEquity-google-debug.apk
+${app}=   /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app.apk
+@{document}=    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/Documents/
+@{dir}=    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE
 ${global_timeout}=  60
 ${retry}=  40x
 ${retry_interval}=  1s
@@ -107,22 +116,79 @@ ${TILL_NUMBER}     0766555004
 @{SS_EQUITY_ACCOUNT}     2001111300232      2001111306713
 
 
+#*** Keywords ***
+#Open Equity Mobile Application
+#    [Arguments]    ${url}=${remoteUrl1}
+#    Open Application    ${url}
+#  ...  automationName=${ANDROID_AUTOMATION_NAME}
+#  ...  platformName=${ANDROID_PLATFORM_NAME}
+#  ...  platformVersion=${ANDROID_PLATFORM_VERSION}
+#  ...  app=${app}
+#  ...  appPackage=${ANDROID_APP_PACKAGE}
+#  ...  appActivity=${ANDROID_APP_ACTIVITY}
+#  ...  ensureWebviewsHavePages=${True}
+#  ...  nativeWebScreenshot=${True}
+#  ...  newCommandTimeout= 60000
+#  ...  launchTimeout= 48000
+#  ...  connectHardwareKeyboard=${True}
+#  ...  deviceOrientation=portrait
+#  ...  noReset=false
+
+#*** Keywords ***
+#Open Equity Mobile Application
+#    [Arguments]    ${url}=${remoteUrl1}
+#    Open Application    ${url}
+#    ...  automationName=${ANDROID_AUTOMATION_NAME}
+#    ...  platformName=${ANDROID_PLATFORM_NAME}
+#    ...  platformVersion=${ANDROID_PLATFORM_VERSION}
+#    ...  app=${app}
+#    ...  appPackage=${ANDROID_APP_PACKAGE}
+#    ...  appActivity=${ANDROID_APP_ACTIVITY}
+#    ...  ensureWebviewsHavePages=${True}
+#    ...  nativeWebScreenshot=${True}
+#    ...  newCommandTimeout=30000
+#    ...  launchTimeout=48000
+#    ...  connectHardwareKeyboard=${True}
+#    ...  deviceOrientation=portrait
+#    ...  noReset=${false}
+#    ...  appium:adbPort=5037
+#    ...  appium:systemPort=8201
+#    ...  appium:udid=emulator-5554
+#
+#Open Equity Mobile Application on First Device
+#    Open Equity Mobile Application    ${remoteUrl1}
+#
+#Open Equity Mobile Application on Second Device
+#    Open Equity Mobile Application    ${remoteUrl2}
+
+*** Keywords ***
+
 *** Keywords ***
 Open Equity Mobile Application
-    Open Application      ${remoteUrl}
-  ...  automationName=${ANDROID_AUTOMATION_NAME}
-  ...  platformName=${ANDROID_PLATFORM_NAME}
-  ...  platformVersion=${ANDROID_PLATFORM_VERSION}
-  ...  app=${app}
-  ...  appPackage=${ANDROID_APP_PACKAGE}
-  ...  appActivity=${ANDROID_APP_ACTIVITY}
-  ...  ensureWebviewsHavePages=${True}
-  ...  nativeWebScreenshot=${True}
-  ...  newCommandTimeout= 60000
-  ...  launchTimeout= 48000
-  ...  connectHardwareKeyboard=${True}
-  ...  deviceOrientation=portrait
-  ...  noReset=false
+    [Arguments]    ${remote_url}    ${adb_port}    ${system_port}    ${udid}
+    Open Application    ${remote_url}
+    ...  automationName=${ANDROID_AUTOMATION_NAME}
+    ...  platformName=${ANDROID_PLATFORM_NAME}
+    ...  platformVersion=${ANDROID_PLATFORM_VERSION}
+    ...  app=${app}
+    ...  appPackage=${ANDROID_APP_PACKAGE}
+    ...  appActivity=${ANDROID_APP_ACTIVITY}
+    ...  ensureWebviewsHavePages=${True}
+    ...  nativeWebScreenshot=${True}
+    ...  newCommandTimeout=30000
+    ...  launchTimeout=48000
+    ...  connectHardwareKeyboard=${True}
+    ...  deviceOrientation=portrait
+    ...  noReset=${False}
+    ...  appium:adbPort=${adb_port}
+    ...  appium:systemPort=${system_port}
+    ...  appium:udid=${udid}
+
+Open Equity Mobile Application on device 1
+    Open Equity Mobile Application    ${remoteUrl1}   5037    8201    emulator-5554
+
+Open Equity Mobile Application on device 2
+    Open Equity Mobile Application    ${remoteUrl2}   5038    8202    emulator-5556
 
 
 Scroll Down to Security Answer
@@ -232,9 +298,15 @@ Select TELCO
 
 Verify Screen Title
 	[Arguments]    ${locator}     ${SCREEN_TITLE}
+	sleep    5s
 	Wait Until Keyword Succeeds     ${retry}      ${retry_interval}    Element Should Be Visible       ${locator}
 	${Field_Text}=  Get Text             ${locator}
 	Should Contain                             ${Field_Text}                       ${SCREEN_TITLE}
+#    Wait Until Page Contains Element    ${WELCOME_BUTTON}
+#    Click Element    ${GET_STARTED_BUTTON}
+#    Click Element    ${GET_STARTED_BUTTON}
+#    Click Element    ${GET_STARTED_BUTTON}
+#    Click Element    ${GET_STARTED_BUTTON}
 
 Validate Results Count
     [Arguments]    ${expected_count}
@@ -370,3 +442,23 @@ Check Error after Transaction OTP/PIN
     ELSE
     	Verify Screen Title    ${CONFIRMED_TITLE_FIELD}          Confirmed
     END
+
+
+Initial App Launch and Nav to Homepage
+    #Open Equity Mobile Application
+    Open Equity Mobile Application on device 1
+    sleep   5s
+    Navigate to Login Page
+    User Login With Valid Credential
+	Key in OTP and Verify
+	Select and Confirm an Option to Verify Security Question
+	Answer First Security Question
+	Answer Second Security Question
+	Click on Confirm Security Question Button
+	Bypassing the Quick Share on android 15
+	Click on the Show Me Later Button
+	Remove Existing Devices
+    Click on the Show Me Later Button
+    Validate Page Title
+	Validate Customer Accounts are available
+

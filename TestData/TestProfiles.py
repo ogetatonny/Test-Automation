@@ -139,7 +139,7 @@ UG01 = {
     "subsidiary": "Uganda",
     "account_number": "1000102739642",
     "source_account": "1003100986766",
-    "id_number" : "",
+    "id_number" : "CM92077100CD7A",
     "cif": "56012038045",
     #"cif": "56010703655",
     "phone": "256986860124",
@@ -147,6 +147,29 @@ UG01 = {
     "invalid_password": "Automation@20",
 }
 
+UG02 = {
+    "user_name": "UGBROKER@GMAIL.COM",
+    "password": "Manual@2023",
+    "first_question": "What is your favourite food?",
+    "first_answer": "food",
+    "second_question": "What city were you born in?",
+    "second_answer": "in",
+    "third_question": "What is your favourite book?",
+    "third_answer": "book",
+    "fourth_question": "What is your partners date of birth?",
+    "fourth_answer": "birth",
+    "fifth_question": "What primary school did you attend?",
+    "fifth_answer": "attend",
+    "subsidiary": "Uganda",
+    "account_number": "1000102739642",
+    "source_account": "1003100986766",
+    "id_number" : "CM92077100CD7A",
+    "cif": "56012038045",
+    #"cif": "56010703655",
+    "phone": "256986860124",
+    "PIN": "2024",
+    "invalid_password": "Automation@20",
+}
 
 RW = {
     "user_name": "testautomationrw01@testbd.com",

@@ -38,6 +38,6 @@ DEVICE_LIST = "ke.co.equitygroup.equitymobile.debug:id/recycler"
 DEVICE_RADIO_BUTTONS = "ke.co.equitygroup.equitymobile.debug:id/itemRadioButton"
 DEVICE_CHECKED = "//android.widget.CheckBox[@checked='true']"
 REMOVE_DEVICE_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/removeDeviceButton"
-MAIN_TITLE = "ke.co.equitygroup.equitymobile.debug:id/tvTitle"
+MAIN_TITLE = '//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/tvTitle" @text="Home"]'
 EACH_DEVICE = "ke.co.equitygroup.equitymobile.debug:id/itemParent"
 LAST_ACTIVE_DEVICES = "//android.widget.CheckBox[@resource-id='ke.co.equitygroup.equitymobile.debug:id/itemRadioButton']"

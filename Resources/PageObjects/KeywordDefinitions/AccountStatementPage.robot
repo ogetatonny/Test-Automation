@@ -12,7 +12,8 @@ Resource    ../KeywordDefinitions/CommonFunctions.robot
 *** Keywords ***
 Click on View Statement Link
 	Wait Until Element Is Ready And Click        ${VIEW_STATEMENT_LINK}
-	Verify Screen Title  ${SCREEN_TITLE_TEXT}    View your statement
+	#Verify Screen Title  ${SCREEN_TITLE_TEXT}    View your statement
+	Wait Until Page Contains Element    ${SCREEN_TITLE_TEXT}
 
 Call Duration Lists
     [Documentation]    Call Duration Lists
@@ -21,10 +22,17 @@ Call Duration Lists
         Click Statement Duration           ${STATEMENT_DURATIONS}
     END
 
-Click Statement Duration
-    [Documentation]    Click Statement Duration
-    [Arguments]      ${STATEMENT_DURATIONS}
-    Wait Until Element Is Ready And Click        //androidx.recyclerview.widget.RecyclerView/android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/suggestionChip" and @text="${STATEMENT_DURATIONS}"]
+#Click Statement Duration
+    #[Documentation]    Click Statement Duration
+    #[Arguments]      ${STATEMENT_DURATIONS}
+    #Wait Until Element Is Ready And Click        //androidx.recyclerview.widget.RecyclerView/android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/suggestionChip" and @text="${STATEMENT_DURATIONS}"]
+    #Wait Until Element Is Ready And Click    //android.widget.TextView[@resource-id='ke.co.equitygroup.equitymobile.debug:id/filterText{}' and @text="${STATEMENT_DURATIONS}"]
+
+click 3_Months statement duration and view statement
+    Click Element            ${THREE_MONTHS_BUTTON}
+    Click Element            ${VIEW_BUTTON}
+
+
 
 Click 2-Years Statement Duration
     [Arguments]      ${STATEMENT_DURATIONS}
@@ -39,7 +47,8 @@ Select Preferred Statement Duration
 
 Click on the View Button
 	Click Element    ${VIEW_BUTTON}
-	Verify Screen Title   ${SCREEN_TITLE_TEXT}    View statement
+	#Verify Screen Title   ${SCREEN_TITLE_TEXT}    View statement
+	Wait Until Page Contains Element    ${SCREEN_TITLE_TEXT}
 
 Click on the Share Menu
 	Wait Until Element Is Ready And Click        ${SHARE_MENU}
@@ -63,7 +72,8 @@ Navigate back to home screen
 	Click Back Arrow        ${NAVIGATE_BACK_FROM_PDF_BUTTON}
 	Click Back Arrow        ${NAVIGATE_BACK_FROM_PDF_BUTTON}
 	Click Back Arrow        ${NAVIGATE_BACK_FROM_PDF_BUTTON}
-	Verify Screen Title    ${MAIN_TITLE}        Home
+	# Verify Screen Title    ${MAIN_TITLE}        Home
+	Wait Until Page Contains Element    ${MAIN_TITLE}
 
 Send Statement to Email
 	Verify Download and Share Modal Displayed

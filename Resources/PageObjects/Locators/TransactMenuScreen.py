@@ -52,13 +52,16 @@ CONFIRMATION_PIN_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/confirmPin"
 FORGOT_YOUR_PIN_LABEL = '//android.widget.TextView[@text="Forgot your PIN?"]'
 
 
-SEND_TO_SOMEONE_NEW_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/toSomeoneNew"
+#SEND_TO_SOMEONE_NEW_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/toSomeoneNew"
+SEND_TO_SOMEONE_NEW_BUTTON = 'xpath=(//android.widget.ImageView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemDropDown"])[2]'
 ACCOUNT_NUMBER_INPUT_FIELD = "ke.co.equitygroup.equitymobile.debug:id/accountOrPhoneNumberValue"
 ADD_BENEFICIARY_CONTINUE_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/addBeneficiary"
 OK_RECEIPT_HIDDEN_BUTTON_ON_MODAL = "ke.co.equitygroup.equitymobile.debug:id/primaryButton"
+BANK_ACCOUNT_ARROW='//android.widget.ImageView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/imageView"]'
 
-
-SEARCH_FOR_A_BENEFICIARY = "ke.co.equitygroup.equitymobile.debug:id/searchValue"
+NAV_TO_SEARCH_BANK='//android.widget.ImageView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/imageView"]'
+#SEARCH_FOR_A_BENEFICIARY = "ke.co.equitygroup.equitymobile.debug:id/searchValue"
+SEARCH_FOR_A_BENEFICIARY='//android.widget.EditText[@resource-id="ke.co.equitygroup.equitymobile.debug:id/searchValue"]'
 SELECT_A_BANK_RESULT = '//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/otherBankList"]/android.view.ViewGroup'
 ACCOUNT_NUMBER_VALUE_FIELD = "ke.co.equitygroup.equitymobile.debug:id/accountNumberValue"
 FULL_NAME_FIELD = "ke.co.equitygroup.equitymobile.debug:id/fullNameET"
@@ -86,11 +89,13 @@ BTN_CANCEL_PAYMENT = "ke.co.equitygroup.equitymobile.debug:id/cancel"
 CANCEL_REASON_FIELD = "ke.co.equitygroup.equitymobile.debug:id/reasonEditText"
 TRANS_TYPE_TITLE = "ke.co.equitygroup.equitymobile.debug:id/tvPaymentTitle"
 
-SELECT_COUNTRY_FIELD = '//android.view.ViewGroup[@resource-id="ke.co.equitygroup.equitymobile.debug:id/selectedCountry"]'
+#SELECT_COUNTRY_FIELD = '//android.view.ViewGroup[@resource-id="ke.co.equitygroup.equitymobile.debug:id/selectedCountry"]'
+SELECT_COUNTRY_FIELD ='//android.widget.ImageView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemDropDown"]'
 SEARCH_RESULT_COUNTRY_LIST = '//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/countryList"]/android.view.ViewGroup'
 PHYSICAL_ADDRESS_FIELD = '//android.widget.EditText[@text="Physical address"]'
 SElECT_CURRENCY = '//android.view.View[@resource-id="ke.co.equitygroup.equitymobile.debug:id/currencyClick"]'
-SELECT_FOREIGN_CHARGE_OPTION_FIELD = '//android.view.ViewGroup[@resource-id="ke.co.equitygroup.equitymobile.debug:id/toChargeOptions"]'
+#SELECT_FOREIGN_CHARGE_OPTION_FIELD = '//android.view.ViewGroup[@resource-id="ke.co.equitygroup.equitymobile.debug:id/toChargeOptions"]'
+SELECT_FOREIGN_CHARGE_OPTION_FIELD='xpath=(//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemText"])[3]'
 SELECT_PAYMENT_CATEGORY = '//android.view.ViewGroup[@resource-id="ke.co.equitygroup.equitymobile.debug:id/toPaymentCategory"]'
 EXCHANGE_RATE_FIELD = "ke.co.equitygroup.equitymobile.debug:id/indicativeRate"
 CONVERSION_RATE_LABEL = "ke.co.equitygroup.equitymobile.debug:id/conversionRateLabel"
@@ -146,5 +151,34 @@ TXT_BIC = '//android.widget.EditText[@resource-id="ke.co.equitygroup.equitymobil
 TXT_IBAN = '//android.widget.EditText[@resource-id="ke.co.equitygroup.equitymobile.debug:id/inputValue" and @text="IBAN"]'
 PURPOSE2_OF_TRANSACTION_FIELD = "(//android.view.View[@resource-id='ke.co.equitygroup.equitymobile.debug:id/itemParent'])[2]"
 
+#  send to own
+RECEIVER_FIELD = 'xpath=(//android.widget.ImageView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemDropDown"])[2]'
+SELECT_OWN_RECEIVER= '//android.widget.CheckBox[@resource-id="ke.co.equitygroup.equitymobile.debug:id/radioButton"]'
+OWN_AMOUNT_FIELD='//android.widget.EditText[@resource-id="ke.co.equitygroup.equitymobile.debug:id/editTextValue" and @text="Enter an amount"]'
+SEND_OWN_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/sendAction" and @text="Send money"]'
+CONFIRMATION_SCREEN_TEXT='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/naration"]'
+PAY_OWN_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/payButton" and @text="Send money"]'
+TRANSACTION_DONE_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/backToTransactionButton"]'
+TRAN_COMPLETE_TEXT= '//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/thankDetails"]'
 
+#another Equity
+SOMEONE_NEW_NAV='//android.widget.ImageView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/imageView"]'
+ACCOUNT_FIELD='ke.co.equitygroup.equitymobile.debug:id/accountOrPhoneNumberValue'
+CONTINUE_SUBMIT='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/addBeneficiary"]'
 
+# another bank
+SELECT_COUNTRY_TEXT = '//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/title" and @text="Please select the recipient’s bank"]'
+SEARCH_ANOTHER_BANK='ke.co.equitygroup.equitymobile.debug:id/searchValue'
+
+# UG RTGS
+ANOTHER_BANK_NAV='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemText" and @text="Select the recipient"]'
+ABC='xpath=(//android.widget.CheckBox[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemRadioButton"])[1]'
+ABC_CAPITAL_BANK='xpath(//android.widget.CheckBox[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemRadioButton"])[2]'
+ABSA='xpath=(//android.widget.CheckBox[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemRadioButton"])[3]'
+ABSA_BANK_UGANDA_LIMITED='xpath=(//android.widget.CheckBox[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemRadioButton"])[4]'
+BANK_OF_AFRICA='xpath=(//android.widget.CheckBox[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemRadioButton"])[5]'
+BANK_of_Africa='xpath=(//android.widget.CheckBox[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemRadioButton"])[6]'
+BANK_of_Baroda='xpath=(//android.widget.CheckBox[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemRadioButton"])[7]'
+STANBIC_BANK_UG='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemSubText" and @text="SBICUGKX . 04"]'
+BANKS_LIST_CONTAINER='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/otherBankList"]'
+END_MARKER='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemSubText" and @text="UNAFUGKAXXX . 26"]'

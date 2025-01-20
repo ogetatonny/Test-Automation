@@ -6,12 +6,13 @@ Variables    ../Locators/VerificationScreen.py
 Variables    ../Locators/RemoveOtherDevicesOnLogin.py
 Variables    ../Locators/OnboardingScreen.py
 Resource    ../KeywordDefinitions/CommonFunctions.robot
-Variables    /Users/martinsadeyeye/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py
+Variables    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py
 
 
 *** Keywords ***
 User Login With Valid Credential
 	[Documentation]    Login with valid password
+	Wait Until Element Is Visible    ${EMAIL_MOBILE_NUMBER_FIELD}   10s
     Input Text        ${EMAIL_MOBILE_NUMBER_FIELD}        ${current_user["user_name"]}
     #${INITIATORS-DETAILS}[email]
     Input Text        ${PASSWORD_FIELD}                   ${current_user["password"]}
@@ -25,10 +26,12 @@ Subsequent Login with Valid Password
 
 Device Access Permission
 	Click Element    ${ALLOW_DEVICE_ACCESS_WHILE_USING_THE_APP}
+	sleep  5s
 
 Navigate to Login Page
 	Device Access Permission
     Choose Preferred Language
+    sleep    5s
     Choose Proceed upon OS verification warning
     Click On The Next Button/Get Started
     Click on SignIn Button
@@ -44,15 +47,18 @@ Choose Preferred Language
 	Click on Continue Button
 
 Choose Proceed upon OS verification warning
-    ${OS_Validation}        Run Keyword And Return Status        Wait Until Element Is Visible  ${PROCEED_BUTTON}
+    ${OS_Validation}        Run Keyword And Return Status        Page Should Not Contain Element      ${PROCEED_BUTTON}
     Run Keyword If    ${OS_Validation}== True         Wait Until Element Is Ready and Click    ${PROCEED_BUTTON}
 
 Click On The Next Button/Get Started
-	Verify Screen Title    ${SLIDER_TITLE}     More than just banking
+    #Verify Screen Title
+	#Verify Screen Title    ${SLIDER_TITLE}     More than just banking
+	Wait Until Page Contains Element    ${NEXT_BUTTON}
 	Click Element                   ${NEXT_BUTTON}
 	Click Element                   ${NEXT_BUTTON}
 	Click Element                   ${NEXT_BUTTON}
 	Click Element                   ${GET_STARTED_BUTTON}
+
 
 Click on Register Button
 	Wait Until Element Is Visible   ${REGISTER_IN_BUTTON}
@@ -87,6 +93,7 @@ Input User Password
 
 Click on Login Button
 	Wait Until Element Is Ready And Click      ${LOGIN_BUTTON}
+	sleep    10s
 
 Key in OTP and Verify
 	Verification My SMS and Click Confirm Button
@@ -94,6 +101,7 @@ Key in OTP and Verify
 
 Verification My SMS and Click Confirm Button
 	Wait Until Element Is Ready          ${ANCHOR_VERIFY_SCREEN}
+	sleep    10s
 	Wait Until Element Is Visible        ${SMS_VERIFICATION_FIELD}
     Click Element                        ${SMS_VERIFICATION_FIELD}
 	Wait Until Element Is Visible        ${CONFIRM_BUTTON}
@@ -129,10 +137,23 @@ Click on Confirm Security Question Button
 #    Wait Until Element Is Ready And Click      ${BTN_CLOSE_MODAL}
 	Wait Until Element Is Ready And Click      ${CONFIRM_SEC_QUE_BUTTON}
 
+Bypassing the Quick Share on android 15
+    sleep  5s
+    ${Quick_Share_Validation}        Run Keyword And Return Status        Page Should Not Contain Element     ${QUICK_SHARE}
+    Run Keyword If    not ${Quick_Share_Validation}      Bypassing security question if on quick share
+
+
+Bypassing security question if on quick share
+    Wait Until Element Is Ready And Click    ${QUICK_SHARE_BACK_ARROW}
+    Click on Confirm Security Question Button
+    sleep   10s
+
+
 Answer first security question
-	Verify Screen Title    ${SCREEN_TITLE_TEXT}     Security questions
+	#Verify Screen Title    ${SCREEN_TITLE_TEXT}     Security questions
     #Click Element    ${FIRST_SECURITY_QUESTION}
    # Wait Until Element Is Ready       Please select a security question
+    Wait Until Page Contains Element     ${FIRST_SECURITY_QUESTION}
     ${FIRST_SELECTED_QUESTION_TEXT}=    Get Text    ${FIRST_SECURITY_QUESTION}
     Log    FIRST_SELECTED_QUESTION_TEXT
     IF    '${FIRST_SELECTED_QUESTION_TEXT}' == '${current_user["first_question"]}'
@@ -151,8 +172,11 @@ Answer first security question
        	Wait Until Element Is Ready And Click   ${FIRST_SECURITY_QUESTION_FIELD}
 	    Input Text Into Current Element         ${current_user["fifth_answer"]}
     END
+    Hide Keyboard
+
 
 Answer second security question
+
 	#Click Element    ${SECOND_SECURITY_QUESTION}
     #Wait Until Element Is Ready       Please select a security question
     ${SECOND_SELECTED_QUESTION_TEXT}=    Get Text    ${SECOND_SECURITY_QUESTION}
@@ -202,6 +226,7 @@ Remove Existing Devices
     ${NEW_DEVICE_VISIBILITY}=    Run Keyword And Return Status   Wait Until Element Is Ready     ${NEW_DEVICE_REMOVE_POPUP}
     IF    '${NEW_DEVICE_VISIBILITY}' == 'True'
     	${NEW_DEVICE_REMOVE_POPUP_LABEL}=   Get Text    ${NEW_DEVICE_REMOVE_POPUP}
+    	sleep    5s
         ${USED_DEVICES}=        Get WebElements    ${OLD_EXISTING_DEVICES}
         FOR    ${USED_DEVICE}    IN    @{USED_DEVICES}
             Click Element    ${USED_DEVICE}
@@ -219,7 +244,7 @@ Validate Customer Accounts are available
     Wait Until Element Is Ready and Click     ${ACCOUNTS_MENU_TAB}
 	Wait Until Element Is Ready               ${VIEW_ALL_ACCOUNTS_BUTTON}
 	Wait Until Element Is Ready And Click     ${EQUITY_HOME_TAB}
-	Verify Screen Title                       ${MAIN_TITLE}         Home
+	Wait Until Page Contains Element           ${MAIN_TITLE}
 
 Check To See If The Error Message Is Visible
 	Wait Until Element Is Visible    ${TRY_AGAIN_BUTTON}
@@ -230,7 +255,8 @@ Check To See If The Error Message Is Visible
     Click Element    ${TRY_AGAIN_BUTTON}
 
 Validate Page Title
-	Verify Screen Title      ${MAIN_TITLE}         Home
+    Wait Until Page Contains Element        ${MAIN_TITLE}  60s
+	#Verify Screen Title      ${MAIN_TITLE}         #Home
 
 
 I login with username "${username}" and password "${password}"

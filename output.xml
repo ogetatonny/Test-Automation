@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.13.0 on darwin)" generated="20241119 09:53:23.189" rpa="false" schemaversion="2">
+<suite id="s1" name="ROBOT ANDROID EQUITY MOBILE" source="/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE">
+<suite id="s1-s1" name="Testcases" source="/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Testcases">
+<suite id="s1-s1-s1" name="ProfileServiceTest" source="/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Testcases/ProfileServiceTest">
+<suite id="s1-s1-s1-s1" name="LoginTest" source="/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Testcases/ProfileServiceTest/LoginTest.robot">
+<test id="s1-s1-s1-s1-t1" name="Validate EquityApp Home Page">
+<kw name="Test Setup" library="CommonFunctions" type="SETUP">
+<kw name="Remove Other Subsidiary Tags" library="CommonFunctions">
+<kw name="Set Variable" library="BuiltIn">
+<var>@{available_tags}</var>
+<arg>${TEST_TAGS}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20241119 09:53:23.572" level="INFO">@{available_tags} = [ KE | RW | SS | TZ | UG ]</msg>
+<status status="PASS" starttime="20241119 09:53:23.572" endtime="20241119 09:53:23.572"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${available_tags}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20241119 09:53:23.573" level="INFO">['KE', 'RW', 'SS', 'TZ', 'UG']</msg>
+<status status="PASS" starttime="20241119 09:53:23.572" endtime="20241119 09:53:23.573"/>
+</kw>
+<if>
+<branch type="IF" condition="$current_user['subsidiary'] == 'Kenya' and 'KE' in ${available_tags}">
+<msg timestamp="20241119 09:53:23.574" level="FAIL">Evaluating expression '$current_user['subsidiary'] == 'Kenya' and 'KE' in ['KE', 'RW', 'SS', 'TZ', 'UG']' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20241119 09:53:23.574" endtime="20241119 09:53:23.574"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Uganda' and 'UG' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.574" endtime="20241119 09:53:23.574"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.574" endtime="20241119 09:53:23.574"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Rwanda' and 'RW' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.574" endtime="20241119 09:53:23.574"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.574" endtime="20241119 09:53:23.574"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Tanzania' and 'TZ' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.575" endtime="20241119 09:53:23.575"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.575" endtime="20241119 09:53:23.575"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'South_Sudan' and 'SS' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.575" endtime="20241119 09:53:23.575"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.575" endtime="20241119 09:53:23.575"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Congo' and 'DRC' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.575" endtime="20241119 09:53:23.575"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.575" endtime="20241119 09:53:23.575"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" library="BuiltIn">
+<arg>msg=No subsidiary assigned to the user!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.575" endtime="20241119 09:53:23.575"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.575" endtime="20241119 09:53:23.575"/>
+</branch>
+<status status="FAIL" starttime="20241119 09:53:23.573" endtime="20241119 09:53:23.575"/>
+</if>
+<status status="FAIL" starttime="20241119 09:53:23.571" endtime="20241119 09:53:23.576"/>
+</kw>
+<status status="FAIL" starttime="20241119 09:53:23.571" endtime="20241119 09:53:23.576"/>
+</kw>
+<tag>KE</tag>
+<tag>RW</tag>
+<tag>SS</tag>
+<tag>TZ</tag>
+<tag>UG</tag>
+<status status="FAIL" starttime="20241119 09:53:23.570" endtime="20241119 09:53:23.576">Setup failed:
+Evaluating expression '$current_user['subsidiary'] == 'Kenya' and 'KE' in ['KE', 'RW', 'SS', 'TZ', 'UG']' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<test id="s1-s1-s1-s1-t2" name="Navigate to Login Screen">
+<kw name="Test Setup" library="CommonFunctions" type="SETUP">
+<kw name="Remove Other Subsidiary Tags" library="CommonFunctions">
+<kw name="Set Variable" library="BuiltIn">
+<var>@{available_tags}</var>
+<arg>${TEST_TAGS}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20241119 09:53:23.578" level="INFO">@{available_tags} = [ KE | RW | SS | TZ | UG ]</msg>
+<status status="PASS" starttime="20241119 09:53:23.578" endtime="20241119 09:53:23.578"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${available_tags}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20241119 09:53:23.579" level="INFO">['KE', 'RW', 'SS', 'TZ', 'UG']</msg>
+<status status="PASS" starttime="20241119 09:53:23.579" endtime="20241119 09:53:23.579"/>
+</kw>
+<if>
+<branch type="IF" condition="$current_user['subsidiary'] == 'Kenya' and 'KE' in ${available_tags}">
+<msg timestamp="20241119 09:53:23.579" level="FAIL">Evaluating expression '$current_user['subsidiary'] == 'Kenya' and 'KE' in ['KE', 'RW', 'SS', 'TZ', 'UG']' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20241119 09:53:23.579" endtime="20241119 09:53:23.579"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Uganda' and 'UG' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.579" endtime="20241119 09:53:23.579"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.579" endtime="20241119 09:53:23.579"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Rwanda' and 'RW' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.580" endtime="20241119 09:53:23.580"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.580" endtime="20241119 09:53:23.580"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Tanzania' and 'TZ' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.580" endtime="20241119 09:53:23.580"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.580" endtime="20241119 09:53:23.580"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'South_Sudan' and 'SS' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.580" endtime="20241119 09:53:23.580"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.580" endtime="20241119 09:53:23.580"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Congo' and 'DRC' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.580" endtime="20241119 09:53:23.581"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.580" endtime="20241119 09:53:23.581"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" library="BuiltIn">
+<arg>msg=No subsidiary assigned to the user!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.581" endtime="20241119 09:53:23.581"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.581" endtime="20241119 09:53:23.581"/>
+</branch>
+<status status="FAIL" starttime="20241119 09:53:23.579" endtime="20241119 09:53:23.581"/>
+</if>
+<status status="FAIL" starttime="20241119 09:53:23.578" endtime="20241119 09:53:23.581"/>
+</kw>
+<status status="FAIL" starttime="20241119 09:53:23.577" endtime="20241119 09:53:23.581"/>
+</kw>
+<tag>KE</tag>
+<tag>RW</tag>
+<tag>SS</tag>
+<tag>TZ</tag>
+<tag>UG</tag>
+<status status="FAIL" starttime="20241119 09:53:23.577" endtime="20241119 09:53:23.581">Setup failed:
+Evaluating expression '$current_user['subsidiary'] == 'Kenya' and 'KE' in ['KE', 'RW', 'SS', 'TZ', 'UG']' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<test id="s1-s1-s1-s1-t3" name="Login with valid credentials">
+<kw name="Test Setup" library="CommonFunctions" type="SETUP">
+<kw name="Remove Other Subsidiary Tags" library="CommonFunctions">
+<kw name="Set Variable" library="BuiltIn">
+<var>@{available_tags}</var>
+<arg>${TEST_TAGS}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20241119 09:53:23.584" level="INFO">@{available_tags} = [ KE | RW | SS | TZ | UG ]</msg>
+<status status="PASS" starttime="20241119 09:53:23.583" endtime="20241119 09:53:23.584"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${available_tags}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20241119 09:53:23.584" level="INFO">['KE', 'RW', 'SS', 'TZ', 'UG']</msg>
+<status status="PASS" starttime="20241119 09:53:23.584" endtime="20241119 09:53:23.584"/>
+</kw>
+<if>
+<branch type="IF" condition="$current_user['subsidiary'] == 'Kenya' and 'KE' in ${available_tags}">
+<msg timestamp="20241119 09:53:23.585" level="FAIL">Evaluating expression '$current_user['subsidiary'] == 'Kenya' and 'KE' in ['KE', 'RW', 'SS', 'TZ', 'UG']' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20241119 09:53:23.585" endtime="20241119 09:53:23.585"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Uganda' and 'UG' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.585" endtime="20241119 09:53:23.585"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.585" endtime="20241119 09:53:23.585"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Rwanda' and 'RW' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.585" endtime="20241119 09:53:23.585"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.585" endtime="20241119 09:53:23.585"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Tanzania' and 'TZ' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.585" endtime="20241119 09:53:23.585"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.585" endtime="20241119 09:53:23.585"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'South_Sudan' and 'SS' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.586" endtime="20241119 09:53:23.586"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.585" endtime="20241119 09:53:23.586"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Congo' and 'DRC' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.586" endtime="20241119 09:53:23.586"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.586" endtime="20241119 09:53:23.586"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" library="BuiltIn">
+<arg>msg=No subsidiary assigned to the user!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.586" endtime="20241119 09:53:23.586"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.586" endtime="20241119 09:53:23.586"/>
+</branch>
+<status status="FAIL" starttime="20241119 09:53:23.584" endtime="20241119 09:53:23.586"/>
+</if>
+<status status="FAIL" starttime="20241119 09:53:23.583" endtime="20241119 09:53:23.586"/>
+</kw>
+<status status="FAIL" starttime="20241119 09:53:23.583" endtime="20241119 09:53:23.586"/>
+</kw>
+<tag>KE</tag>
+<tag>RW</tag>
+<tag>SS</tag>
+<tag>TZ</tag>
+<tag>UG</tag>
+<status status="FAIL" starttime="20241119 09:53:23.582" endtime="20241119 09:53:23.586">Setup failed:
+Evaluating expression '$current_user['subsidiary'] == 'Kenya' and 'KE' in ['KE', 'RW', 'SS', 'TZ', 'UG']' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<test id="s1-s1-s1-s1-t4" name="OTP verification on login">
+<kw name="Test Setup" library="CommonFunctions" type="SETUP">
+<kw name="Remove Other Subsidiary Tags" library="CommonFunctions">
+<kw name="Set Variable" library="BuiltIn">
+<var>@{available_tags}</var>
+<arg>${TEST_TAGS}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20241119 09:53:23.590" level="INFO">@{available_tags} = [ KE | RW | SS | TZ | UG ]</msg>
+<status status="PASS" starttime="20241119 09:53:23.590" endtime="20241119 09:53:23.590"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${available_tags}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20241119 09:53:23.590" level="INFO">['KE', 'RW', 'SS', 'TZ', 'UG']</msg>
+<status status="PASS" starttime="20241119 09:53:23.590" endtime="20241119 09:53:23.591"/>
+</kw>
+<if>
+<branch type="IF" condition="$current_user['subsidiary'] == 'Kenya' and 'KE' in ${available_tags}">
+<msg timestamp="20241119 09:53:23.591" level="FAIL">Evaluating expression '$current_user['subsidiary'] == 'Kenya' and 'KE' in ['KE', 'RW', 'SS', 'TZ', 'UG']' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20241119 09:53:23.591" endtime="20241119 09:53:23.591"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Uganda' and 'UG' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.591" endtime="20241119 09:53:23.591"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.591" endtime="20241119 09:53:23.591"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Rwanda' and 'RW' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.592" endtime="20241119 09:53:23.592"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.592" endtime="20241119 09:53:23.592"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Tanzania' and 'TZ' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.592" endtime="20241119 09:53:23.592"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.592" endtime="20241119 09:53:23.592"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'South_Sudan' and 'SS' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.592" endtime="20241119 09:53:23.592"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.592" endtime="20241119 09:53:23.592"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Congo' and 'DRC' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.592" endtime="20241119 09:53:23.593"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.592" endtime="20241119 09:53:23.593"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" library="BuiltIn">
+<arg>msg=No subsidiary assigned to the user!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.593" endtime="20241119 09:53:23.593"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.593" endtime="20241119 09:53:23.593"/>
+</branch>
+<status status="FAIL" starttime="20241119 09:53:23.591" endtime="20241119 09:53:23.593"/>
+</if>
+<status status="FAIL" starttime="20241119 09:53:23.589" endtime="20241119 09:53:23.593"/>
+</kw>
+<status status="FAIL" starttime="20241119 09:53:23.588" endtime="20241119 09:53:23.593"/>
+</kw>
+<tag>KE</tag>
+<tag>RW</tag>
+<tag>SS</tag>
+<tag>TZ</tag>
+<tag>UG</tag>
+<status status="FAIL" starttime="20241119 09:53:23.587" endtime="20241119 09:53:23.594">Setup failed:
+Evaluating expression '$current_user['subsidiary'] == 'Kenya' and 'KE' in ['KE', 'RW', 'SS', 'TZ', 'UG']' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<test id="s1-s1-s1-s1-t5" name="Answer security questions">
+<kw name="Test Setup" library="CommonFunctions" type="SETUP">
+<kw name="Remove Other Subsidiary Tags" library="CommonFunctions">
+<kw name="Set Variable" library="BuiltIn">
+<var>@{available_tags}</var>
+<arg>${TEST_TAGS}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20241119 09:53:23.596" level="INFO">@{available_tags} = [ KE | RW | SS | TZ | UG ]</msg>
+<status status="PASS" starttime="20241119 09:53:23.595" endtime="20241119 09:53:23.596"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${available_tags}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20241119 09:53:23.596" level="INFO">['KE', 'RW', 'SS', 'TZ', 'UG']</msg>
+<status status="PASS" starttime="20241119 09:53:23.596" endtime="20241119 09:53:23.596"/>
+</kw>
+<if>
+<branch type="IF" condition="$current_user['subsidiary'] == 'Kenya' and 'KE' in ${available_tags}">
+<msg timestamp="20241119 09:53:23.596" level="FAIL">Evaluating expression '$current_user['subsidiary'] == 'Kenya' and 'KE' in ['KE', 'RW', 'SS', 'TZ', 'UG']' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20241119 09:53:23.596" endtime="20241119 09:53:23.596"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Uganda' and 'UG' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.597" endtime="20241119 09:53:23.597"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.596" endtime="20241119 09:53:23.597"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Rwanda' and 'RW' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.597" endtime="20241119 09:53:23.597"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.597" endtime="20241119 09:53:23.597"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Tanzania' and 'TZ' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.597" endtime="20241119 09:53:23.597"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.597" endtime="20241119 09:53:23.597"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'South_Sudan' and 'SS' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.597" endtime="20241119 09:53:23.597"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.597" endtime="20241119 09:53:23.597"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Congo' and 'DRC' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.597" endtime="20241119 09:53:23.597"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.597" endtime="20241119 09:53:23.597"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" library="BuiltIn">
+<arg>msg=No subsidiary assigned to the user!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.597" endtime="20241119 09:53:23.597"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.597" endtime="20241119 09:53:23.597"/>
+</branch>
+<status status="FAIL" starttime="20241119 09:53:23.596" endtime="20241119 09:53:23.597"/>
+</if>
+<status status="FAIL" starttime="20241119 09:53:23.595" endtime="20241119 09:53:23.598"/>
+</kw>
+<status status="FAIL" starttime="20241119 09:53:23.594" endtime="20241119 09:53:23.598"/>
+</kw>
+<tag>KE</tag>
+<tag>RW</tag>
+<tag>SS</tag>
+<tag>TZ</tag>
+<tag>UG</tag>
+<status status="FAIL" starttime="20241119 09:53:23.594" endtime="20241119 09:53:23.598">Setup failed:
+Evaluating expression '$current_user['subsidiary'] == 'Kenya' and 'KE' in ['KE', 'RW', 'SS', 'TZ', 'UG']' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<test id="s1-s1-s1-s1-t6" name="Terminate all existing devices">
+<kw name="Test Setup" library="CommonFunctions" type="SETUP">
+<kw name="Remove Other Subsidiary Tags" library="CommonFunctions">
+<kw name="Set Variable" library="BuiltIn">
+<var>@{available_tags}</var>
+<arg>${TEST_TAGS}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20241119 09:53:23.600" level="INFO">@{available_tags} = [ KE | RW | SS | TZ | UG ]</msg>
+<status status="PASS" starttime="20241119 09:53:23.599" endtime="20241119 09:53:23.600"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${available_tags}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20241119 09:53:23.600" level="INFO">['KE', 'RW', 'SS', 'TZ', 'UG']</msg>
+<status status="PASS" starttime="20241119 09:53:23.600" endtime="20241119 09:53:23.600"/>
+</kw>
+<if>
+<branch type="IF" condition="$current_user['subsidiary'] == 'Kenya' and 'KE' in ${available_tags}">
+<msg timestamp="20241119 09:53:23.601" level="FAIL">Evaluating expression '$current_user['subsidiary'] == 'Kenya' and 'KE' in ['KE', 'RW', 'SS', 'TZ', 'UG']' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20241119 09:53:23.601" endtime="20241119 09:53:23.601"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Uganda' and 'UG' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.601" endtime="20241119 09:53:23.601"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.601" endtime="20241119 09:53:23.601"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Rwanda' and 'RW' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.601" endtime="20241119 09:53:23.601"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.601" endtime="20241119 09:53:23.601"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Tanzania' and 'TZ' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.601" endtime="20241119 09:53:23.601"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.601" endtime="20241119 09:53:23.601"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'South_Sudan' and 'SS' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.601" endtime="20241119 09:53:23.602"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.601" endtime="20241119 09:53:23.602"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Congo' and 'DRC' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.602" endtime="20241119 09:53:23.602"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.602" endtime="20241119 09:53:23.602"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" library="BuiltIn">
+<arg>msg=No subsidiary assigned to the user!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.602" endtime="20241119 09:53:23.602"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.602" endtime="20241119 09:53:23.602"/>
+</branch>
+<status status="FAIL" starttime="20241119 09:53:23.600" endtime="20241119 09:53:23.602"/>
+</if>
+<status status="FAIL" starttime="20241119 09:53:23.599" endtime="20241119 09:53:23.602"/>
+</kw>
+<status status="FAIL" starttime="20241119 09:53:23.599" endtime="20241119 09:53:23.602"/>
+</kw>
+<tag>KE</tag>
+<tag>RW</tag>
+<tag>SS</tag>
+<tag>TZ</tag>
+<tag>UG</tag>
+<status status="FAIL" starttime="20241119 09:53:23.598" endtime="20241119 09:53:23.603">Setup failed:
+Evaluating expression '$current_user['subsidiary'] == 'Kenya' and 'KE' in ['KE', 'RW', 'SS', 'TZ', 'UG']' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<test id="s1-s1-s1-s1-t7" name="Validate HomePage">
+<kw name="Test Setup" library="CommonFunctions" type="SETUP">
+<kw name="Remove Other Subsidiary Tags" library="CommonFunctions">
+<kw name="Set Variable" library="BuiltIn">
+<var>@{available_tags}</var>
+<arg>${TEST_TAGS}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20241119 09:53:23.605" level="INFO">@{available_tags} = [ KE | RW | SS | TZ | UG ]</msg>
+<status status="PASS" starttime="20241119 09:53:23.604" endtime="20241119 09:53:23.605"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${available_tags}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20241119 09:53:23.605" level="INFO">['KE', 'RW', 'SS', 'TZ', 'UG']</msg>
+<status status="PASS" starttime="20241119 09:53:23.605" endtime="20241119 09:53:23.605"/>
+</kw>
+<if>
+<branch type="IF" condition="$current_user['subsidiary'] == 'Kenya' and 'KE' in ${available_tags}">
+<msg timestamp="20241119 09:53:23.605" level="FAIL">Evaluating expression '$current_user['subsidiary'] == 'Kenya' and 'KE' in ['KE', 'RW', 'SS', 'TZ', 'UG']' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20241119 09:53:23.605" endtime="20241119 09:53:23.605"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Uganda' and 'UG' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.606" endtime="20241119 09:53:23.606"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.605" endtime="20241119 09:53:23.606"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Rwanda' and 'RW' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.606" endtime="20241119 09:53:23.606"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.606" endtime="20241119 09:53:23.606"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Tanzania' and 'TZ' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>SS</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.606" endtime="20241119 09:53:23.606"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.606" endtime="20241119 09:53:23.606"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'South_Sudan' and 'SS' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>DRC</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.606" endtime="20241119 09:53:23.606"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.606" endtime="20241119 09:53:23.606"/>
+</branch>
+<branch type="ELSE IF" condition="$current_user['subsidiary'] == 'Congo' and 'DRC' in ${available_tags}">
+<kw name="Remove Tags" library="BuiltIn">
+<arg>KE</arg>
+<arg>UG</arg>
+<arg>RW</arg>
+<arg>TZ</arg>
+<arg>SS</arg>
+<doc>Removes given ``tags`` from the current test or all tests in a suite.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.606" endtime="20241119 09:53:23.606"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.606" endtime="20241119 09:53:23.606"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" library="BuiltIn">
+<arg>msg=No subsidiary assigned to the user!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20241119 09:53:23.606" endtime="20241119 09:53:23.606"/>
+</kw>
+<status status="NOT RUN" starttime="20241119 09:53:23.606" endtime="20241119 09:53:23.607"/>
+</branch>
+<status status="FAIL" starttime="20241119 09:53:23.605" endtime="20241119 09:53:23.607"/>
+</if>
+<status status="FAIL" starttime="20241119 09:53:23.604" endtime="20241119 09:53:23.607"/>
+</kw>
+<status status="FAIL" starttime="20241119 09:53:23.604" endtime="20241119 09:53:23.607"/>
+</kw>
+<tag>KE</tag>
+<tag>RW</tag>
+<tag>SS</tag>
+<tag>TZ</tag>
+<tag>UG</tag>
+<status status="FAIL" starttime="20241119 09:53:23.603" endtime="20241119 09:53:23.607">Setup failed:
+Evaluating expression '$current_user['subsidiary'] == 'Kenya' and 'KE' in ['KE', 'RW', 'SS', 'TZ', 'UG']' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<doc>Verify That User Can Successfully Login with a Valid Credential</doc>
+<status status="FAIL" starttime="20241119 09:53:23.538" endtime="20241119 09:53:23.607"/>
+</suite>
+<status status="FAIL" starttime="20241119 09:53:23.256" endtime="20241119 09:53:23.608"/>
+</suite>
+<status status="FAIL" starttime="20241119 09:53:23.254" endtime="20241119 09:53:23.609"/>
+</suite>
+<status status="FAIL" starttime="20241119 09:53:23.191" endtime="20241119 09:53:23.610"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="7" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="7" skip="0">KE</stat>
+<stat pass="0" fail="7" skip="0">RW</stat>
+<stat pass="0" fail="7" skip="0">SS</stat>
+<stat pass="0" fail="7" skip="0">TZ</stat>
+<stat pass="0" fail="7" skip="0">UG</stat>
+</tag>
+<suite>
+<stat pass="0" fail="7" skip="0" id="s1" name="ROBOT ANDROID EQUITY MOBILE">ROBOT ANDROID EQUITY MOBILE</stat>
+<stat pass="0" fail="7" skip="0" id="s1-s1" name="Testcases">ROBOT ANDROID EQUITY MOBILE.Testcases</stat>
+<stat pass="0" fail="7" skip="0" id="s1-s1-s1" name="ProfileServiceTest">ROBOT ANDROID EQUITY MOBILE.Testcases.ProfileServiceTest</stat>
+<stat pass="0" fail="7" skip="0" id="s1-s1-s1-s1" name="LoginTest">ROBOT ANDROID EQUITY MOBILE.Testcases.ProfileServiceTest.LoginTest</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20241119 09:53:23.533" level="ERROR">Error in file '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/PageObjects/KeywordDefinitions/LoginPage.robot' on line 9: Processing variable file '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py' failed: Importing variable file '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py' failed: TypeError: eval() arg 1 must be a string, bytes or code object
+Traceback (most recent call last):
+  File "/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py", line 10, in &lt;module&gt;
+    current_user = eval(test_user)
+PYTHONPATH:
+  /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE
+  /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python313.zip
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/lib-dynload
+  /Users/asd/ROBOT_ANDROID_EQUITY_MOBILE/pythonProject1/.venv/lib/python3.13/site-packages
+  /Users/asd/ROBOT_ANDROID_EQUITY_MOBILE/pythonProject1/.venv/lib/python3.13/site-packages/aeosa
+  /Users/asd/ROBOT_ANDROID_EQUITY_MOBILE/pythonProject1/.venv/lib/python3.13/site-packages/anaconda_client-1.13.0-py3.13.egg</msg>
+<msg timestamp="20241119 09:53:23.564" level="ERROR">Error in file '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/PageObjects/KeywordDefinitions/LoginPage.robot' on line 9: Processing variable file '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py' failed: Importing variable file '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py' failed: TypeError: eval() arg 1 must be a string, bytes or code object
+Traceback (most recent call last):
+  File "/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py", line 10, in &lt;module&gt;
+    current_user = eval(test_user)
+PYTHONPATH:
+  /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE
+  /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python313.zip
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/lib-dynload
+  /Users/asd/ROBOT_ANDROID_EQUITY_MOBILE/pythonProject1/.venv/lib/python3.13/site-packages
+  /Users/asd/ROBOT_ANDROID_EQUITY_MOBILE/pythonProject1/.venv/lib/python3.13/site-packages/aeosa
+  /Users/asd/ROBOT_ANDROID_EQUITY_MOBILE/pythonProject1/.venv/lib/python3.13/site-packages/anaconda_client-1.13.0-py3.13.egg</msg>
+</errors>
+</robot>

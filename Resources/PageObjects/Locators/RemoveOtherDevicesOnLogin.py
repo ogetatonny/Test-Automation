@@ -10,6 +10,7 @@ NEW_DEVICE_REMOVE_POPUP = "ke.co.equitygroup.equitymobile.debug:id/newDeviceLabe
 DEVICE_LIST = "ke.co.equitygroup.equitymobile.debug:id/recycler"
 # androidx.recyclerview.widget.RecyclerView
 OLD_EXISTING_DEVICES = "//androidx.cardview.widget.CardView[@resource-id='ke.co.equitygroup.equitymobile.debug:id/itemCard']"
+#OLD_EXISTING_DEVICES= '//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemSubText" and @text="Last active session"]'
 REMOVE_DEVICE_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/removeDeviceButton"
 SIGNED_IN_DEVICES = "ke.co.equitygroup.equitymobile.debug:id/newDeviceDescription"
 DEVICE_RADIO_BUTTONS = "ke.co.equitygroup.equitymobile.debug:id/itemRadioButton"

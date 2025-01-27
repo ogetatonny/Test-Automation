@@ -6,17 +6,12 @@ Resource    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/Pag
 Resource    ../../Resources/PageObjects/KeywordDefinitions/SavePage.robot
 Suite Setup   Initial App Launch and Nav to Homepage
 
-*** Test Cases ***
-open call deposit account when no other save accounts are opened
-    [Tags]    KE  UG  TZ  SS  RW
-    Navigate to the save page select call deposit and enter amount    150000
-    view call interest rates and the terms and conditions
-    view call deposit feedback display and complete the application
 
-Fixed Deposit Account 1
+*** Test Cases ***
+Fixed Deposit Account 1 - no reinvesting
     [Tags]    KE  UG  RW  TZ  SS
-    Open fixed deposit account
+    Open fixed deposit account without the reinvest journey
     sleep   10s
-Fixed Deposit Account 2
+Fixed Deposit Account 2 - reinvesting
     [Tags]    KE  UG  RW  TZ  SS
-    Open fixed deposit account
+    Open fixed deposit account with the reinvest journey

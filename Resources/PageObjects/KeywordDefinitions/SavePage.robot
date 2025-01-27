@@ -5,7 +5,6 @@ Variables    ../Locators/ClassicSavings.py
 Variables    ../Locators/FixedDepositScreen.py
 
 
-
 *** Variables ***
 ${START_Y}    80  # Start point as percentage of screen height
 ${END_Y}      20  # End point as percentage of screen height
@@ -129,7 +128,7 @@ complete opening of the fixed deposit account
     Wait Until Element Is Visible    ${FIXED_CONTINUE_BUTTON}   60s
     Click Element    ${FIXED_CONTINUE_BUTTON}
     Wait Until Page Contains Element    ${FIXED_DEPOSIT_CONFIRMATION}  10S
-    Wait Until Element Is Visible    ${FIXED_TERMS_LINK}  7S
+    Wait Until Element Is Visible    ${FIXED_TERMS_LINK}  30s
     Click Element    ${FIXED_TERMS_LINK}
     Wait Until Page Contains Element    ${FIXED_TERMS_PAGE}  10s
     sleep  8s
@@ -140,9 +139,13 @@ complete opening of the fixed deposit account
     Click Element    ${FIXED_DONE_BUTTON}
     Wait Until Element Is Visible    ${CREATED_FIXED_CARD}   30s
     
-Open fixed deposit account
-    ${Others_available} =    Run Keyword And Return Status    Open Fixed Deposit Account When There Are No Preexisting Savings Accounts   15000000
-    Run Keyword If    not ${Others_available}    Open fixed deposit account if there are preexisting save accounts  12000000
+Open fixed deposit account without the reinvest journey
+    ${Other_savings_available} =    Run Keyword And Return Status    Open Fixed Deposit Account When There Are No Preexisting Savings Accounts   15000000
+    Run Keyword If    not ${Other_savings_available}    Open fixed deposit account if there are preexisting save accounts  12000000
+
+Open fixed deposit account with the reinvest journey
+    ${Other_savings_available} =    Run Keyword And Return Status    Open Fixed Deposit Account When There Are No Preexisting Savings Accounts   15000000
+    Run Keyword If    not ${Other_savings_available}   Open Fixed Deposit Reinvest journey when there are other preexisting accounts   150000000
 
 Open fixed deposit account if there are preexisting save accounts
     [Arguments]    ${FIXED_AMOUNT}
@@ -159,6 +162,8 @@ Open fixed deposit account if there are preexisting save accounts
     sleep  10s
     Fixed Deposit Period    3 Months
     complete opening of the fixed deposit account
+    check fixed deposit statement
+    check the fixed deposit account information
 
 Swipe Down Dynamically
     ${screen_width}    Get Window Width
@@ -179,4 +184,53 @@ swipe up dynamically
     ${start_y}    Evaluate    ${screen_height} * ${START_Y} / 100
     ${end_y}      Evaluate    ${screen_height} * ${END_Y} / 100
     Swipe    ${start_x}    ${end_y}    ${start_x}    ${start_y}    1000
+    
+Key in the Reinvest details
+     Click Element    ${REINVEST_BUTTON}
+     sleep  10s
+     Swipe Down Dynamically
+     Wait Until Page Contains Element    ${CHOOSE_REINVESTMENT_OPTION}   20s
+     Click Element     ${CHOOSE_REINVESTMENT_OPTION}
+     Wait Until Page Contains Element    ${REINVEST_PRINCIPAL_AND_INTEREST}    45s
+     Click Element    ${REINVEST_PRINCIPAL_AND_INTEREST}
+    
+
+Open Fixed Deposit Reinvest journey when there are other preexisting accounts
+    [Arguments]    ${FIXED_AMOUNT}
+    swipe down dynamically if the open save account button not visible
+    Wait Until Element Is Visible    ${OPEN_SAVINGS_ACCOUNT_NAV}  10s
+    Click Element    ${OPEN_SAVINGS_ACCOUNT_NAV}
+    Wait Until Keyword Succeeds    10s    1s    check if No savings account error is available on the screen
+    Wait Until Element Is Visible    ${FIXED_OPEN_ACCOUNT_BUTTON}  15s
+    Click Element    ${FIXED_OPEN_ACCOUNT_BUTTON}
+    Wait Until Page Contains Element    ${FIXED_AMOUNT_FIELD}
+    Input Text    ${FIXED_AMOUNT_FIELD}    ${FIXED_AMOUNT}
+    Click Element   ${DEPOSIT_PERIOD_DROPDOWN}
+    Wait Until Page Contains Element    ${DEPOSIT_PERIOD_EXIT}   10s
+    sleep  10s
+    Fixed Deposit Period    6 Months
+    Key in the Reinvest details
+    complete opening of the fixed deposit account
+    check fixed deposit statement
+    check the fixed deposit account information
+    
+check fixed deposit statement
+    Click Element    ${FIRST_FIXED_DEPOSIT_CARD}
+    Wait Until Page Contains Element    ${TRANSACTION_HISTORY}   45S
+    ${opened_fixed_amount} =  Get Text    ${FIXED_TRANSACTION_AMOUNT}
+    Log To Console    The opened fixed amount is ${opened_fixed_amount}
+
+check the fixed deposit account information
+    ${first_fixed_account} =  Page Should Not Contain Element
+    Click Element    ${FIXED_ACCOUNT_INFORMATION}
+    Wait Until Page Contains Element    ${FIXED_DEPOSIT_PERIOD}   45s
+    ${fixed_deposit_period} =   Get Text    ${FIXED_DEPOSIT_PERIOD}
+    Log To Console    The fixed deposit period on the account info page is ${fixed_deposit_period}
+    ${fixed_interest_rate} =  Get Text    ${FIXED_INTEREST_RATE}
+    Log To Console    The fixed deposit rate on the account info page is  ${fixed_interest_rate}
+    Click Element    ${INTEREST_RATE_INFORMATION}
+    Wait Until Page Contains Element    ${FIXED_DEPOSIT_RATES}   60s
+    sleep   15s
+    Click Element    ${LEAVE_INTEREST_RATE_PAGE}
+
 

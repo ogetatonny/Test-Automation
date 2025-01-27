@@ -153,7 +153,7 @@ Answer first security question
 	#Verify Screen Title    ${SCREEN_TITLE_TEXT}     Security questions
     #Click Element    ${FIRST_SECURITY_QUESTION}
    # Wait Until Element Is Ready       Please select a security question
-    Wait Until Page Contains Element     ${FIRST_SECURITY_QUESTION}
+    Wait Until Page Contains Element     ${FIRST_SECURITY_QUESTION}   20s
     ${FIRST_SELECTED_QUESTION_TEXT}=    Get Text    ${FIRST_SECURITY_QUESTION}
     Log    FIRST_SELECTED_QUESTION_TEXT
     IF    '${FIRST_SELECTED_QUESTION_TEXT}' == '${current_user["first_question"]}'

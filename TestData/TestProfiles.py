@@ -60,6 +60,7 @@ KE02 = {
 }
 
 KE = {
+    # one month loan available
     "user_name": "TESTAUTOMATIONKE02@GMAIL.COM",
     "password": "Automation@2024",
     "first_question": "What is your favourite food?",
@@ -76,7 +77,7 @@ KE = {
     "account_number": "0260160735852",
     "id_number": "28570377",
     "cif": "54305630103",
-    "PIN": "2024",
+    "PIN": "2025",
     "invalid_password": "Automation@20",
 }
 
@@ -148,12 +149,13 @@ UG01 = {
 }
 
 UG02 = {
+    # one_month Loan
     "user_name": "UGBROKER@GMAIL.COM",
     "password": "Manual@2023",
     "first_question": "What is your favourite food?",
     "first_answer": "food",
-    "second_question": "What city were you born in?",
-    "second_answer": "in",
+    "second_question": "What is the name of your first school?",
+    "second_answer": "school",
     "third_question": "What is your favourite book?",
     "third_answer": "book",
     "fourth_question": "What is your partners date of birth?",
@@ -162,11 +164,10 @@ UG02 = {
     "fifth_answer": "attend",
     "subsidiary": "Uganda",
     "account_number": "1000102739642",
-    "source_account": "1003100986766",
+    "source_account": "1035100594617",
     "id_number" : "CM92077100CD7A",
     "cif": "56012038045",
-    #"cif": "56010703655",
-    "phone": "256986860124",
+    "phone": "256719016781",
     "PIN": "2024",
     "invalid_password": "Automation@20",
 }
@@ -238,6 +239,7 @@ RW02 = {
 }
 
 TZ = {
+    # error of JH_416 ( invalid phone number) - on loan application
     "user_name": "androidtests01@automation.db",
     "password": "Automation@2024",
     "first_question": "What is your favourite food?",
@@ -252,6 +254,7 @@ TZ = {
     "fifth_answer": "number",
     "subsidiary": "Tanzania",
     "account_number": "3001211206732",
+    "source_account": "3004211561077",
     "id_number": "4000038123",
     "cif": "55600007847",
     "PIN": "2024",
@@ -365,6 +368,7 @@ SS = {
     "cif": "11100151929",
     "PIN": "2024",
     "invalid_password": "Automation@20",
+    "USD Source Account": "2011111337137",
 }
 
 SS02 = {

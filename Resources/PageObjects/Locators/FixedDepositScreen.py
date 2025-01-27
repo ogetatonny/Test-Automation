@@ -18,3 +18,25 @@ FIXED_SUCCESS_FEEDBACK='//android.widget.TextView[@resource-id="ke.co.equitygrou
 FIXED_SUCCESS_TEXT='Congrats, you’re growing your wealth!'
 FIXED_DONE_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/doneAction"]'
 CREATED_FIXED_CARD='//android.widget.ImageView[@content-desc="Save"]'
+
+REINVEST_BUTTON='//android.widget.Switch[@resource-id="ke.co.equitygroup.equitymobile.debug:id/reinvestmentSwitchAction"]'
+CHOOSE_REINVESTMENT_OPTION='//android.view.ViewGroup[@resource-id="ke.co.equitygroup.equitymobile.debug:id/reinvestOptionValue"]'
+REINVEST_PRINCIPAL_AND_INTEREST='xpath=(//android.widget.CheckBox[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemRadioButton"])[3]'
+
+FIXED_DEPOSIT_INFORMATION='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/title" and @text="Fixed deposit"]'
+FIXED_DEPOSIT_VIEW_ALL='xpath=(//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/learnMoreAction"])[2]'
+FIRST_FIXED_DEPOSIT_CARD='xpath=(//android.widget.ImageView[@content-desc="Save"])[3]'
+SECOND_FIXED_DEPOSIT='xpath=(//android.widget.ImageView[@content-desc="Save"])[4]'
+TRANSACTION_HISTORY='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/transaction_history_title"]'
+FIXED_TRANSACTION_AMOUNT='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/transactionAmount"]'
+FIXED_ACCOUNT_INFORMATION='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountActions"]/android.view.ViewGroup[1]'
+FIXED_DEPOSIT_PERIOD='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/description" and @text="6 Months"]'
+FIXED_INTEREST_RATE='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/description" and @text="3.5%"]'
+INTEREST_RATE_INFORMATION='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/viewInterestRateLink"]'
+FIXED_DEPOSIT_RATES='//android.widget.TextView[@text="Interest rates for Fixed Deposit in UGX"]'
+LEAVE_INTEREST_RATE_PAGE='//android.widget.ImageButton'
+
+
+
+
+

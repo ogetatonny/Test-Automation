@@ -28,8 +28,8 @@ ${ANDROID_PLATFORM_VERSION}=    15
 ${DEVICE_NAME1}=                 emulator-5554
 ${DEVICE_NAME2}=                 emulator-5556
 # device for my physical device SM-A515F/DSN n 13
-#${app}=   /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app-uat-oneEquity-google-debug.apk
-${app}=   /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app.apk
+#${app}=  ../Resources/AppFile/app-uat-oneEquity-google-debug.apk
+${app}=  /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app.apk
 @{document}=    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/Documents/
 @{dir}=    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE
 ${global_timeout}=  60
@@ -115,51 +115,6 @@ ${TILL_NUMBER}     0766555004
 @{TZ_EQUITY_ACCOUNT}     3001100004415      3004111132042
 @{SS_EQUITY_ACCOUNT}     2001111300232      2001111306713
 
-
-#*** Keywords ***
-#Open Equity Mobile Application
-#    [Arguments]    ${url}=${remoteUrl1}
-#    Open Application    ${url}
-#  ...  automationName=${ANDROID_AUTOMATION_NAME}
-#  ...  platformName=${ANDROID_PLATFORM_NAME}
-#  ...  platformVersion=${ANDROID_PLATFORM_VERSION}
-#  ...  app=${app}
-#  ...  appPackage=${ANDROID_APP_PACKAGE}
-#  ...  appActivity=${ANDROID_APP_ACTIVITY}
-#  ...  ensureWebviewsHavePages=${True}
-#  ...  nativeWebScreenshot=${True}
-#  ...  newCommandTimeout= 60000
-#  ...  launchTimeout= 48000
-#  ...  connectHardwareKeyboard=${True}
-#  ...  deviceOrientation=portrait
-#  ...  noReset=false
-
-#*** Keywords ***
-#Open Equity Mobile Application
-#    [Arguments]    ${url}=${remoteUrl1}
-#    Open Application    ${url}
-#    ...  automationName=${ANDROID_AUTOMATION_NAME}
-#    ...  platformName=${ANDROID_PLATFORM_NAME}
-#    ...  platformVersion=${ANDROID_PLATFORM_VERSION}
-#    ...  app=${app}
-#    ...  appPackage=${ANDROID_APP_PACKAGE}
-#    ...  appActivity=${ANDROID_APP_ACTIVITY}
-#    ...  ensureWebviewsHavePages=${True}
-#    ...  nativeWebScreenshot=${True}
-#    ...  newCommandTimeout=30000
-#    ...  launchTimeout=48000
-#    ...  connectHardwareKeyboard=${True}
-#    ...  deviceOrientation=portrait
-#    ...  noReset=${false}
-#    ...  appium:adbPort=5037
-#    ...  appium:systemPort=8201
-#    ...  appium:udid=emulator-5554
-#
-#Open Equity Mobile Application on First Device
-#    Open Equity Mobile Application    ${remoteUrl1}
-#
-#Open Equity Mobile Application on Second Device
-#    Open Equity Mobile Application    ${remoteUrl2}
 
 *** Keywords ***
 

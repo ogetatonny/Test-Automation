@@ -1,3 +1,5 @@
+
+
 FIXED_OPEN_ACCOUNT_BUTTON='xpath=(//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/actionOneButton"])[3]'
 NO_SAVINGS_REFRESH_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/primaryButton"]'
 NO_SAVINGS_DISMISS_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/secondaryButton"]'
@@ -30,11 +32,18 @@ SECOND_FIXED_DEPOSIT='xpath=(//android.widget.ImageView[@content-desc="Save"])[4
 TRANSACTION_HISTORY='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/transaction_history_title"]'
 FIXED_TRANSACTION_AMOUNT='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/transactionAmount"]'
 FIXED_ACCOUNT_INFORMATION='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountActions"]/android.view.ViewGroup[1]'
-FIXED_DEPOSIT_PERIOD='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/description" and @text="6 Months"]'
-FIXED_INTEREST_RATE='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/description" and @text="3.5%"]'
+FIXED_DEPOSIT_PERIOD='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/description" and @text="3 Months"]'
+FIXED_INTEREST_RATE='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/description" and @text="3.0%"]'
 INTEREST_RATE_INFORMATION='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/viewInterestRateLink"]'
 FIXED_DEPOSIT_RATES='//android.widget.TextView[@text="Interest rates for Fixed Deposit in UGX"]'
 LEAVE_INTEREST_RATE_PAGE='//android.widget.ImageButton'
+BACK_BUTTON='//android.widget.ImageButton'
+CLOSE_ACCOUNT_ICON='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountActions"]/android.view.ViewGroup[2]'
+CLOSE_ACCOUNT_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/primaryButton"]'
+CONFIRM_DETAILS_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/fixedDepositReviewContinueButton"]'
+CLOSED_DONE_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/doneButton"]'
+
+
 
 
 

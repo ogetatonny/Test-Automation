@@ -349,8 +349,8 @@ SS01 = {
 }
 
 SS = {
-    "user_name": "testautomationss01@testbd.com",
-    "password": "Automation@2024",
+    "user_name": "SS1AUTOMATION@GMAIL.COM",
+    "password": "Automation@2025",
     "first_question": "Which is your favourite color?",
     "first_answer": "color",
     "second_question": "What is the name of your first school?",

@@ -69,7 +69,7 @@ Set borrow amount based on the tag
     ...  ELSE IF    'KE' in ${TEST TAGS}    Set Variable    50000
     ...  ELSE IF    'RW' in ${TEST TAGS}    Set Variable    15000000
     ...  ELSE IF    'SS' in ${TEST TAGS}    Set Variable    17000000
-    [Return]    ${amount}
+    RETURN    ${amount}
 
 
 confirm the loan terms and conditions
@@ -132,7 +132,7 @@ Set the remaining borrow amount based on the tag
     ...       ELSE IF        'KE' in ${TEST TAGS}        Set Variable                12000
     ...       ELSE IF        'RW' in ${TEST TAGS}        Set Variable                15000000
     ...       ELSE IF        'SS' in ${TEST TAGS}        Set Variable                17000000
-    [Return]    ${remaining_amount}
+    RETURN    ${remaining_amount}
 
 Pay the one month loan partially
     Navigate To the BorrowPage And Check If The Applied Loan Has Been Disbursed
@@ -165,7 +165,7 @@ Set the partial amount based on the tag
     ...                  ELSE IF           'KE' in ${TEST TAGS}        Set Variable     40000
     ...                  ELSE IF           'RW' in ${TEST TAGS}        Set Variable     15000000 
     ...                  ELSE IF           'SS' in ${TEST TAGS}        Set Variable     17000000
-    [Return]            ${partial amount}
+    RETURN            ${partial amount}
 
 Pay all the one month loan amount that is on the user profile
     ${loan_action_is available} =         Run Keyword And Return Status    Page Should Contain Element    ${LOAN_ACTION}
@@ -244,7 +244,7 @@ Extract the Full Loan Limit from the Loan Limit Dialog and key it in as the full
     Wait Until Page Contains Element        ${BORROW_AMOUNT_FIELD}           20s
     Input Text                              ${BORROW_AMOUNT_FIELD}           ${loan_limit_cleaned}
     # Return the clean loan limit (integer only)
-    [Return]                                ${loan_limit_cleaned}
+    RETURN                                ${loan_limit_cleaned}
 
 Check the Loan Limit
     Wait Until Element Is Visible           ${BORROW_ICON}                   20S
@@ -260,12 +260,12 @@ Check the Loan Limit
     Wait Until Page Contains Element        ${APPLY_NOW_BUTTON}              240s
 
 check if user gets error of insufficient funds
-    ${insufficient_funds_error} =  Page Should Not Contain Element    ${INSUFFICIENT_FUNDS_ELEMENT}
-    Run Keyword If     ${insufficient_funds_error}    click the account drop down and select another account
+    ${insufficient_funds_error} =  Run keyword and return status    Page Should Not Contain Element    ${INSUFFICIENT_FUNDS_ELEMENT}
+    Run Keyword If     not ${insufficient_funds_error}    click the account drop down and select another account
 
 click the account drop down and select another account
-    Click Element   ${ACCOUNT_DROPDOWN}
-    Click Element    ${ACCOUNT_DROPDOWN}
+    ${element_is_clicked}=  Run Keyword And Return Status    Click Element   ${ACCOUNT_DROPDOWN}
+    run keyword if     not ${element_is_clicked}   Click Element    ${ACCOUNT_DROPDOWN}
     Wait Until Page Contains Element    ${FIRST_SUFFICIENT_BALANCE_RADIO_BUTTON}   10s
     Click Element    ${FIRST_SUFFICIENT_BALANCE_RADIO_BUTTON}
 
@@ -313,5 +313,5 @@ Set the checks of the foreign currencies based on the tags
     ...  ELSE IF  'TZ' in ${TEST TAGS}    select another account to deposit loan to if the default currency on the amount field is foreign currency(TZ)
     ...  ELSE IF  'RW' in ${TEST TAGS}    select another account to deposit loan to if the default currency on the amount field is foreign currency(RW)
     ...  ELSE IF  'SS' in ${TEST TAGS}    select another account to deposit loan to if the default currency on the amount field is foreign currency(SS)
-    [Return]    ${subsidiary_foreign_currency}
+    RETURN    ${subsidiary_foreign_currency}
 

@@ -40,7 +40,7 @@ LOAN_CHARGES= '//android.widget.TextView[@resource-id="ke.co.equitygroup.equitym
 PAY_LOAN_BUTTON= '//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/payButton"]'
 FULL_AMOUNT_RADIO_BUTTON= 'xpath=(//android.widget.CheckBox[@resource-id="ke.co.equitygroup.equitymobile.debug:id/radioButton"])[1]'
 FULL_AMOUNT_LOCATOR='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/loanDescription"]'
-KES_CURRENCY_ON_AMOUNT_FIELD='//android.view.ViewGroup[@resource-id="ke.co.equitygroup.equitymobile.debug:id/amountInputSuffix" and @text="KES"]'
+KES_CURRENCY_ON_AMOUNT_FIELD='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/spinnerStatusTitle" and @text="KES"]'
 TZ_CURRENCY_ON_AMOUNT_FIELD='//android.view.ViewGroup[@resource-id="ke.co.equitygroup.equitymobile.debug:id/amountInputSuffix" and @text="TZS"]'
 UG_CURRENCY_ON_AMOUNT_FIELD='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/spinnerStatusTitle" and @text="UGX"]'
 SS_CURRENCY_ON_AMOUNT_FIELD='//android.view.ViewGroup[@resource-id="ke.co.equitygroup.equitymobile.debug:id/amountInputSuffix" and @text="SSP"]'

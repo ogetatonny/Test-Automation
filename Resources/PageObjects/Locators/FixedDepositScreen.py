@@ -8,6 +8,7 @@ FIXED_AMOUNT_FIELD='//android.widget.EditText[@resource-id="ke.co.equitygroup.eq
 DEPOSIT_PERIOD_DROPDOWN='xpath=(//android.widget.ImageView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemDropDown"])[2]'
 #PERIOD_ELEMENT='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemText" and @text="3 Months"]'
 #PERIOD_ELEMENT='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemText" and @text="${period}"]'
+USD_CURRENCY='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemText" and @text="USD"]'
 DEPOSIT_PERIOD_EXIT='//android.widget.ImageButton'
 FIXED_CONTINUE_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/continueAction"]'
 FIXED_DEPOSIT_CONFIRMATION='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/toolbarTitle"]'

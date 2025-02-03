@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.13.0 on darwin)" generated="20250129 11:54:35.871" rpa="false" schemaversion="2">
+<suite id="s1" name="ApplyPartialTest" source="/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Testcases/BorrowTest/OneMonthLoanTest/ApplyPartialTest.robot">
+<kw name="Initial App Launch and Nav to Homepage" library="CommonFunctions" type="SETUP">
+<kw name="Open Equity Mobile Application on device 1" library="CommonFunctions">
+<kw name="Open Equity Mobile Application" library="CommonFunctions">
+<arg>${remoteUrl1}</arg>
+<arg>5037</arg>
+<arg>8201</arg>
+<arg>emulator-5554</arg>
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${remote_url}</arg>
+<arg>automationName=${ANDROID_AUTOMATION_NAME}</arg>
+<arg>platformName=${ANDROID_PLATFORM_NAME}</arg>
+<arg>platformVersion=${ANDROID_PLATFORM_VERSION}</arg>
+<arg>app=${app}</arg>
+<arg>appPackage=${ANDROID_APP_PACKAGE}</arg>
+<arg>appActivity=${ANDROID_APP_ACTIVITY}</arg>
+<arg>ensureWebviewsHavePages=${True}</arg>
+<arg>nativeWebScreenshot=${True}</arg>
+<arg>newCommandTimeout=30000</arg>
+<arg>launchTimeout=48000</arg>
+<arg>connectHardwareKeyboard=${True}</arg>
+<arg>deviceOrientation=portrait</arg>
+<arg>noReset=${False}</arg>
+<arg>appium:adbPort=${adb_port}</arg>
+<arg>appium:systemPort=${system_port}</arg>
+<arg>appium:udid=${udid}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20250129 11:54:40.261" level="FAIL">No application is open</msg>
+<status status="FAIL" starttime="20250129 11:54:40.254" endtime="20250129 11:54:40.262"/>
+</kw>
+<msg timestamp="20250129 11:54:40.286" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg timestamp="20250129 11:54:40.295" level="FAIL">WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: The application at '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app (1).apk' does not exist or is not accessible
+Stacktrace:
+UnknownError: An unknown server-side error occurred while processing the command. Original error: The application at '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app (1).apk' does not exist or is not accessible
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/errors.js:1145:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/protocol.js:485:57)</msg>
+<status status="FAIL" starttime="20250129 11:54:36.541" endtime="20250129 11:54:40.295"/>
+</kw>
+<status status="FAIL" starttime="20250129 11:54:36.540" endtime="20250129 11:54:40.296"/>
+</kw>
+<status status="FAIL" starttime="20250129 11:54:36.540" endtime="20250129 11:54:40.297"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20250129 11:54:40.297" endtime="20250129 11:54:40.297"/>
+</kw>
+<kw name="Navigate to Login Page" library="LoginPage">
+<status status="NOT RUN" starttime="20250129 11:54:40.297" endtime="20250129 11:54:40.297"/>
+</kw>
+<kw name="User Login With Valid Credential" library="LoginPage">
+<doc>Login with valid password</doc>
+<status status="NOT RUN" starttime="20250129 11:54:40.298" endtime="20250129 11:54:40.298"/>
+</kw>
+<kw name="Key in OTP and Verify" library="LoginPage">
+<status status="NOT RUN" starttime="20250129 11:54:40.298" endtime="20250129 11:54:40.298"/>
+</kw>
+<kw name="Select and Confirm an Option to Verify Security Question" library="LoginPage">
+<status status="NOT RUN" starttime="20250129 11:54:40.298" endtime="20250129 11:54:40.298"/>
+</kw>
+<kw name="Answer first security question" library="LoginPage">
+<status status="NOT RUN" starttime="20250129 11:54:40.298" endtime="20250129 11:54:40.298"/>
+</kw>
+<kw name="Answer second security question" library="LoginPage">
+<status status="NOT RUN" starttime="20250129 11:54:40.299" endtime="20250129 11:54:40.299"/>
+</kw>
+<kw name="Click on Confirm Security Question Button" library="LoginPage">
+<status status="NOT RUN" starttime="20250129 11:54:40.299" endtime="20250129 11:54:40.299"/>
+</kw>
+<kw name="Bypassing the Quick Share on android 15" library="LoginPage">
+<status status="NOT RUN" starttime="20250129 11:54:40.299" endtime="20250129 11:54:40.299"/>
+</kw>
+<kw name="Click on the Show Me Later Button" library="LoginPage">
+<status status="NOT RUN" starttime="20250129 11:54:40.299" endtime="20250129 11:54:40.299"/>
+</kw>
+<kw name="Remove Existing Devices" library="LoginPage">
+<doc>Remove existing Devices</doc>
+<status status="NOT RUN" starttime="20250129 11:54:40.300" endtime="20250129 11:54:40.300"/>
+</kw>
+<kw name="Click on the Show Me Later Button" library="LoginPage">
+<status status="NOT RUN" starttime="20250129 11:54:40.300" endtime="20250129 11:54:40.300"/>
+</kw>
+<kw name="Validate Page Title" library="LoginPage">
+<status status="NOT RUN" starttime="20250129 11:54:40.300" endtime="20250129 11:54:40.300"/>
+</kw>
+<kw name="Validate Customer Accounts are available" library="LoginPage">
+<status status="NOT RUN" starttime="20250129 11:54:40.301" endtime="20250129 11:54:40.301"/>
+</kw>
+<status status="FAIL" starttime="20250129 11:54:36.539" endtime="20250129 11:54:40.301"/>
+</kw>
+<test id="s1-t1" name="Apply for one month loan - partial loan application">
+<tag>KE</tag>
+<status status="FAIL" starttime="20250129 11:54:40.301" endtime="20250129 11:54:40.302">Parent suite setup failed:
+WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: The application at '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app (1).apk' does not exist or is not accessible
+Stacktrace:
+UnknownError: An unknown server-side error occurred while processing the command. Original error: The application at '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app (1).apk' does not exist or is not accessible
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/errors.js:1145:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/protocol.js:485:57)</status>
+</test>
+<status status="FAIL" starttime="20250129 11:54:35.887" endtime="20250129 11:54:40.303">Suite setup failed:
+WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: The application at '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app (1).apk' does not exist or is not accessible
+Stacktrace:
+UnknownError: An unknown server-side error occurred while processing the command. Original error: The application at '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app (1).apk' does not exist or is not accessible
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/errors.js:1145:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/protocol.js:485:57)</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">KE</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="ApplyPartialTest">ApplyPartialTest</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20250129 11:54:36.447" level="ERROR">Error in file '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/PageObjects/KeywordDefinitions/LoginPage.robot' on line 9: Processing variable file '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py' failed: Importing variable file '/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py' failed: TypeError: eval() arg 1 must be a string, bytes or code object
+Traceback (most recent call last):
+  File "/Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/TestData/TestData.py", line 10, in &lt;module&gt;
+    current_user = eval(test_user)
+PYTHONPATH:
+  /Users/asd/Library/Application Support/JetBrains/PyCharmCE2024.2/plugins/robotframework-intellij/lib/robotframework_debug_adapter
+  /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE
+  /Users/asd/Library/Application Support/JetBrains/PyCharmCE2024.2/plugins/robotframework-intellij/lib
+  /Users/asd/Library/Application Support/JetBrains/PyCharmCE2024.2/plugins/robotframework-intellij/lib/robotframework_ls/vendored
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python313.zip
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/lib-dynload
+  /Users/asd/ROBOT_ANDROID_EQUITY_MOBILE/pythonProject1/.venv/lib/python3.13/site-packages
+  /Users/asd/ROBOT_ANDROID_EQUITY_MOBILE/pythonProject1/.venv/lib/python3.13/site-packages/aeosa
+  /Users/asd/ROBOT_ANDROID_EQUITY_MOBILE/pythonProject1/.venv/lib/python3.13/site-packages/anaconda_client-1.13.0-py3.13.egg</msg>
+<msg timestamp="20250129 11:54:40.286" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+</errors>
+</robot>

@@ -9,9 +9,7 @@ Variables    ../Locators/TransactMenuScreen.py
 Resource     ../KeywordDefinitions/LoginPage.robot
 Library  AppiumLibrary
 Library  Screenshot    default_directory=../Screenshots
-Resource    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/PageObjects/KeywordDefinitions/CommonFunctions.robot
-Resource    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/PageObjects/KeywordDefinitions/LoginPage.robot
-
+Resource    LoginPage.robot
 
 *** Variables ***
 #${remoteUrl}=           http://0.0.0.0:4723
@@ -27,10 +25,9 @@ ${ANDROID_PLATFORM_VERSION}=    15
 #${DEVICE_NAME}=                 emulator-5554
 ${DEVICE_NAME1}=                 emulator-5554
 ${DEVICE_NAME2}=                 emulator-5556
-# device for my physical device SM-A515F/DSN n 13
-#${app}=  ../Resources/AppFile/app-uat-oneEquity-google-debug.apk
-${app}=  /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app.apk
-@{document}=    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/Documents/
+#${app}=    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app (3).apk
+${app}=    ${EXECDIR}${/}Resources/AppFile/app (4).apk
+@{document}=    ${EXECDIR}${/}Resources/Documents/Document1.pdf
 @{dir}=    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE
 ${global_timeout}=  60
 ${retry}=  40x

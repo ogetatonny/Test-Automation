@@ -14,20 +14,37 @@ ${X_COORD}    50  # X coordinate as percentage of screen width
 
 Navigate to the save page select call deposit and enter amount
     [Arguments]    ${CALL_AMOUNT}
-    Click Element    ${SAVE_PILLAR}
-    Wait Until Page Contains Element    ${CALL_OPEN_ACCOUNT_BUTTON}    10s
+    Wait Until Page Contains Element    ${CALL_OPEN_ACCOUNT_BUTTON}    60s
     Click Element    ${CALL_OPEN_ACCOUNT_BUTTON}
     Wait Until Page Contains Element    ${CALL_DEPOSIT_AMOUNT_FIELD}   10S
     Input Text    ${CALL_DEPOSIT_AMOUNT_FIELD}    ${CALL_AMOUNT}
     Click Element    ${CALL_CONTINUE_ACTION_BUTTON}
+
+Open call deposit account when there are other save accounts
+    sleep     10s
+    ${call_deposit_is_available} =    run keyword and return status    page should contain element    ${CALL_OPEN_ACCOUNT_BUTTON}
+    run keyword if    not ${call_deposit_is_available}      click on the savings account navigation and enter the save details     300000
+
+click on the savings account navigation and enter the save details
+    [Arguments]    ${CALL_AMOUNT}
+    sleep    15s
+    swipe down dynamically
+    click element      ${OPEN_SAVINGS_ACCOUNT_NAV}
+    Wait Until Page Contains Element    ${CALL_OPEN_ACCOUNT_BUTTON}    10s
+    Click Element    ${CALL_OPEN_ACCOUNT_BUTTON}
+    Wait Until Page Contains Element    ${CALL_DEPOSIT_AMOUNT_FIELD}   10S
+    Input Text    ${CALL_DEPOSIT_AMOUNT_FIELD}    ${CALL_AMOUNT}
+    wait until page contains element    ${CALL_CONTINUE_ACTION_BUTTON}    20s
+    Click Element    ${CALL_CONTINUE_ACTION_BUTTON}
+
     
 view call interest rates and the terms and conditions
     Wait Until Page Contains Element    ${VIEW_INTEREST_LINK}    7s
     Click Element     ${VIEW_INTEREST_LINK}
-    Wait Until Element Is Visible    ${LEAVE_INTEREST_PAGE}    10s
-    sleep  5s
+    wait until page contains element    ${LEAVE_INTEREST_PAGE}    20s
+    sleep  15s
     Click Element    ${LEAVE_INTEREST_PAGE}
-    Wait Until Element Is Visible    ${CALL_TERMS_LINK}    7s
+    Wait Until Element Is Visible    ${CALL_TERMS_LINK}    25s
     Click Element    ${CALL_TERMS_LINK}
     Sleep    10S
     Click Element    ${LEAVE_TERMS_PAGE}
@@ -35,10 +52,63 @@ view call interest rates and the terms and conditions
     Click Element    ${CALL_CONFIRM_BUTTON}
     
 view call deposit feedback display and complete the application
-    Wait Until Element Is Visible    ${CALL_APPLICATION_FEEDBACK}   60s
+    Wait Until Element Is Visible    ${CALL_APPLICATION_FEEDBACK}   80s
     ${feedback_text}=  Get Text    ${CALL_APPLICATION_FEEDBACK}
     Should Be Equal     ${feedback_text}    ${CALL_APPLICATION_FEEDBACK_TEXT}
     Click Element    ${APPLICATION_DONE_BUTTON}
+
+withraw an amount from the call deposit account
+    [Arguments]    ${amount}
+    sleep    20s
+    wait until page contains element    ${CALL_DEPOSIT_CARD}     60s
+    click element    ${CALL_DEPOSIT_CARD}
+    wait until page contains element    ${WITHDRAW_ICON}    20s
+    click element     ${WITHDRAW_ICON}
+    wait until page contains element    ${CONTINUE_WITHDRAW}    30s
+    click element    ${CONTINUE_WITHDRAW}
+    sleep    7s
+    input text    ${WITHDRAWAL_AMOUNT_FIELD}     ${amount}
+    wait until element is visible    ${CONTINUE_WITHDRAWAL}    20s
+    click element    ${CONTINUE_WITHDRAWAL}
+    wait until page contains element    ${CONFIRM_WITHDRAW}    20s
+    click element    ${CONFIRM_WITHDRAW}
+    wait until page contains element    ${CONFIRM_WITHDRAWAL}    15s
+    click element    ${CONFIRM_WITHDRAWAL}
+    wait until page contains element    ${WITHDRAWAL_DONE_BUTTON}    60s
+    click element      ${WITHDRAWAL_DONE_BUTTON}
+    sleep    15s
+
+
+Open Call Deposit Account When No Other Save Accounts Are Opened
+    Click Element    ${SAVE_PILLAR}
+    sleep    15s
+    @{opened_saves}=    Create List
+    ...    Open fixed deposit account without the reinvest journey
+    ...    Open fixed deposit account with the reinvest journey
+    ...    Open call deposit account when there are other save accounts
+    ...    Open classic savings account
+
+    ${save_count}=    Get Length    ${opened_saves}
+
+    IF    ${save_count} == 0
+        Run Keyword    Navigate to the save page select call deposit and enter amount    350000
+    END
+
+
+close the open call deposit account
+    sleep    15s
+    wait until page contains element    ${CALL_DEPOSIT_CARD}     60s
+    click element    ${CALL_DEPOSIT_CARD}
+    wait until element is visible    ${CLOSE_ACCOUNT}    20s
+    sleep    10s
+    click element    ${CLOSE_ACCOUNT}
+    sleep     15s
+    wait until element is visible    ${CONFIRM1_BUTTON}    45s
+    click element     ${CONFIRM1_BUTTON}
+    wait until page contains element    ${CONFIRM_CLOSURE}    50s
+    click element     ${CONFIRM_CLOSURE}
+    wait until page contains element    ${DONE_BUTTON}    50s
+    click element    ${DONE_BUTTON}
     
 Navigate to the save page select classic savings and enter amount
     [Arguments]    ${CLASSIC_AMOUNT}
@@ -51,6 +121,7 @@ Navigate to the save page select classic savings and enter amount
     #Input Text    ${CLASSIC_SAVINGS_AMOUNT_FIELD}    ${CLASSIC_AMOUNT}
     Input Text    ${CLASSIC_SAVINGS_AMOUNT_FIELD}    ${CLASSIC_AMOUNT}
     Click Element    ${CLASSIC_CONTINUE_ACTION_BUTTON}
+
     
 view classic account terms and conditions
     Wait Until Element Is Visible    ${CLASSIC_TERMS_LINK}    7s
@@ -101,7 +172,7 @@ Open Fixed Deposit Account When There Are No Preexisting Savings Accounts
     Wait Until Keyword Succeeds    10s    1s    check if No savings account error is available on the screen
     Wait Until Element Is Visible    ${FIXED_OPEN_ACCOUNT_BUTTON}  15s
     Click Element    ${FIXED_OPEN_ACCOUNT_BUTTON}
-    Wait Until Page Contains Element    ${FIXED_AMOUNT_FIELD}
+    Wait Until Page Contains Element    ${FIXED_AMOUNT_FIELD}     45s
     Input Text    ${FIXED_AMOUNT_FIELD}    ${FIXED_AMOUNT}
     Click Element   ${DEPOSIT_PERIOD_DROPDOWN}
     Wait Until Page Contains Element    ${DEPOSIT_PERIOD_EXIT}   10s
@@ -109,12 +180,21 @@ Open Fixed Deposit Account When There Are No Preexisting Savings Accounts
     Fixed Deposit Period    3 Months
     complete opening of the fixed deposit account
 
+check if USD currency is available on the screen and enter the USD amount
+    ${is_USD_Currency} =    run keyword and return status    page should not contain element    ${USD_CURRENCY}
+    run keyword if   not ${is_USD_Currency}    Enter the save amount in USD
+
+Enter the save amount in USD
+    Wait Until Page Contains Element    ${FIXED_AMOUNT_FIELD}     45s
+    Input Text    ${FIXED_AMOUNT_FIELD}    5000
+
 Fixed Deposit Period
     [Arguments]    ${period}
     ${PERIOD_ELEMENT}=    Set Variable    //android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemText" and @text="${period}"]
     Click Element    ${PERIOD_ELEMENT}
     Log    Selected period: ${period}
-    
+
+
 check if No savings account error is available on the screen
     ${no_savings_account}=   Run Keyword And Return Status    Page Should Not Contain Element     ${NO_SAVINGS_DISPLAY}
     Run Keyword If   not ${no_savings_account}    wait until the No savings error display appears on the screen
@@ -140,12 +220,12 @@ complete opening of the fixed deposit account
     Wait Until Element Is Visible    ${CREATED_FIXED_CARD}   30s
     
 Open fixed deposit account without the reinvest journey
-    ${Other_savings_available} =    Run Keyword And Return Status    Open Fixed Deposit Account When There Are No Preexisting Savings Accounts   2000000
-    Run Keyword If    not ${Other_savings_available}    Open fixed deposit account if there are preexisting save accounts  3000000
+    ${Other_savings_available} =    Run Keyword And Return Status    Open Fixed Deposit Account When There Are No Preexisting Savings Accounts   550000
+    Run Keyword If    not ${Other_savings_available}    Open fixed deposit account if there are preexisting save accounts  600000
 
 Open fixed deposit account with the reinvest journey
-    ${Other_savings_available} =    Run Keyword And Return Status    Open Fixed Deposit Account When There Are No Preexisting Savings Accounts   2000000
-    Run Keyword If    not ${Other_savings_available}   Open Fixed Deposit Reinvest journey when there are other preexisting accounts   3000000
+    ${Other_savings_available} =    Run Keyword And Return Status    Open Fixed Deposit Account When There Are No Preexisting Savings Accounts   500000
+    Run Keyword If    not ${Other_savings_available}   Open Fixed Deposit Reinvest journey when there are other preexisting accounts   650000
 
 Open fixed deposit account if there are preexisting save accounts
     [Arguments]    ${FIXED_AMOUNT}
@@ -155,8 +235,9 @@ Open fixed deposit account if there are preexisting save accounts
     Wait Until Keyword Succeeds    10s    1s    check if No savings account error is available on the screen
     Wait Until Element Is Visible    ${FIXED_OPEN_ACCOUNT_BUTTON}  15s
     Click Element    ${FIXED_OPEN_ACCOUNT_BUTTON}
-    Wait Until Page Contains Element    ${FIXED_AMOUNT_FIELD}
+    Wait Until Page Contains Element    ${FIXED_AMOUNT_FIELD}    15s
     Input Text    ${FIXED_AMOUNT_FIELD}    ${FIXED_AMOUNT}
+    sleep    10s
     Click Element   ${DEPOSIT_PERIOD_DROPDOWN}
     Wait Until Page Contains Element    ${DEPOSIT_PERIOD_EXIT}   10s
     sleep  10s
@@ -221,7 +302,7 @@ check fixed deposit statement
     Log To Console    The opened fixed amount is ${opened_fixed_amount}
 
 check the fixed deposit account information
-    #${first_fixed_account} =  Page Should Not Contain Element
+    confirm whether other save accounts are opened
     Click Element    ${FIRST_FIXED_DEPOSIT_CARD}
     Wait Until Page Contains Element    ${FIXED_ACCOUNT_INFORMATION}  20s
     sleep  10s
@@ -229,8 +310,6 @@ check the fixed deposit account information
     Wait Until Page Contains Element    ${FIXED_DEPOSIT_PERIOD}   45s
     ${fixed_period} =   Get Text    ${FIXED_DEPOSIT_PERIOD}
     Log To Console    The fixed deposit period on the account info page is ${fixed_period}
-#    ${fixed_rate} =  Get Text    ${FIXED_INTEREST_RATE}
-#    Log To Console    The fixed deposit rate on the account info page is  ${fixed_rate}
     sleep    10s
     Click Element    ${INTEREST_RATE_INFORMATION}
     Wait Until Page Contains Element    ${LEAVE_INTEREST_RATE_PAGE}   60s
@@ -238,7 +317,18 @@ check the fixed deposit account information
     Click Element    ${LEAVE_INTEREST_RATE_PAGE}
     Click Element    ${BACK_BUTTON}
 
-    
+confirm whether other save accounts are opened
+    @{other_saves_avilable} =    create list
+    ...    Open call deposit account when there are other save accounts
+    ...    Open Call Deposit Account When No Other Save Accounts Are Opened
+    ...    open classic savings account
+
+    ${save_count} =    get length    ${other_saves_avilable}
+    IF    ${save_count} > 0
+        run keyword    swipe down dynamically
+    END
+
+
 Close the fixed account
     Wait Until Page Contains Element    ${CLOSE_ACCOUNT_ICON}  45s
     Click Element    ${CLOSE_ACCOUNT_ICON}
@@ -250,5 +340,9 @@ Close the fixed account
     Click Element    ${CLOSE_ACCOUNT_BUTTON}
     Wait Until Page Contains Element    ${CLOSED_DONE_BUTTON}    45s
     Click Element    ${CLOSED_DONE_BUTTON}
+
+
+
+
 
 

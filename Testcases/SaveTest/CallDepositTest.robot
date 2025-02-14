@@ -10,21 +10,24 @@ Suite Setup   Initial App Launch and Nav to Homepage
 *** Test Cases ***
 Open Call deposit when no other save product has been opened
    [Tags]    KE    UG    TZ
-    Open Call Deposit Account When No Other Save Accounts Are Opened
+    Open call deposit account when there are no other save accounts
 
 open call deposit account when other save accounts are opened
     [Tags]    KE    UG    TZ
     Open call deposit account when there are other save accounts
     view call interest rates and the terms and conditions
     view call deposit feedback display and complete the application
-    withraw an amount from the call deposit account    100000
+    withraw an amount from the call deposit account    200000
 
-Close the opened call deposit account
+Close opened call deposit account
     [Tags]    KE    UG    TZ
     Open call deposit account when there are other save accounts
     view call interest rates and the terms and conditions
     view call deposit feedback display and complete the application
     close the open call deposit account
+
+
+
 
 
 

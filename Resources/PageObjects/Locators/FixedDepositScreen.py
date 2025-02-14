@@ -1,6 +1,12 @@
 
+#FIXED_DEPOSIT_SECOND='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/saveProductsList"]/androidx.cardview.widget.CardView[2]/android.view.ViewGroup//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/cardTitle" and @text="Fixed Deposit"]'
+FIXED_DEPOSIT_SECOND='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/saveProductsList"]/androidx.cardview.widget.CardView[2]/android.view.ViewGroup/android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/cardTitle" and @text="Fixed Deposit"]'
 
-FIXED_OPEN_ACCOUNT_BUTTON='xpath=(//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/actionOneButton"])[3]'
+#FIXED_DEPOSIT_THIRD='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/saveProductsList"]/androidx.cardview.widget.CardView[3]/android.view.ViewGroup//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/cardTitle" and @text="Fixed Deposit"]'
+FIXED_DEPOSIT_THIRD='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/saveProductsList"]/androidx.cardview.widget.CardView[3]/android.view.ViewGroup/android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/cardTitle" and @text="Fixed Deposit"]'
+
+FIXED_OPEN_ACCOUNT_BUTTON3='xpath=(//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/actionOneButton"])[3]'
+FIXED_OPEN_ACCOUNT_BUTTON2='xpath=(//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/actionOneButton"])[2]'
 NO_SAVINGS_REFRESH_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/primaryButton"]'
 NO_SAVINGS_DISMISS_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/secondaryButton"]'
 NO_SAVINGS_DISPLAY='//android.view.View[@resource-id="ke.co.equitygroup.equitymobile.debug:id/statusContentView"]'
@@ -8,6 +14,12 @@ FIXED_AMOUNT_FIELD='//android.widget.EditText[@resource-id="ke.co.equitygroup.eq
 DEPOSIT_PERIOD_DROPDOWN='xpath=(//android.widget.ImageView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemDropDown"])[2]'
 #PERIOD_ELEMENT='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemText" and @text="3 Months"]'
 #PERIOD_ELEMENT='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemText" and @text="${period}"]'
+BACK_ARROW='//android.widget.ImageButton[@content-desc="Navigate Up"]'
+FIXED_SAVE_CARD='//android.view.ViewGroup[.//android.widget.ImageView[@content-desc="Save"] and .//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountName" and @text="Fixed deposit"]]'
+FIXED_DEPOSIT_TEXT='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/toolBarTitle" and @text="Fixed deposit"]'
+
+
+
 USD_CURRENCY='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemText" and @text="USD"]'
 DEPOSIT_PERIOD_EXIT='//android.widget.ImageButton'
 FIXED_CONTINUE_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/continueAction"]'
@@ -21,6 +33,16 @@ FIXED_SUCCESS_FEEDBACK='//android.widget.TextView[@resource-id="ke.co.equitygrou
 FIXED_SUCCESS_TEXT='Congrats, you’re growing your wealth!'
 FIXED_DONE_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/doneAction"]'
 CREATED_FIXED_CARD='//android.widget.ImageView[@content-desc="Save"]'
+
+
+FIXED_FIRST_CARD='//android.view.ViewGroup[.//android.widget.ImageView[@content-desc="Save"] and .//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountName" and @text="Fixed deposit"]]'
+#FIXED_FIRST_CARD='//android.widget.ImageView[@content-desc="Save"]//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountName" and @text="Fixed deposit"]'
+#FIXED_2ND_CARD='xpath=(//android.widget.ImageView[@content-desc="Save"])[1]xpath=(//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountName" and @text="Fixed deposit"])[1]'
+FIXED_2ND_CARD='xpath=(//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountName"])[1]/ancestor::android.view.ViewGroup[.//android.widget.ImageView[@content-desc="Save"]])[1]'
+
+
+
+
 
 REINVEST_BUTTON='//android.widget.Switch[@resource-id="ke.co.equitygroup.equitymobile.debug:id/reinvestmentSwitchAction"]'
 CHOOSE_REINVESTMENT_OPTION='//android.view.ViewGroup[@resource-id="ke.co.equitygroup.equitymobile.debug:id/reinvestOptionValue"]'

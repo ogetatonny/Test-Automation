@@ -12,8 +12,6 @@ Library  Screenshot    default_directory=../Screenshots
 Resource    LoginPage.robot
 
 *** Variables ***
-#${remoteUrl}=           http://0.0.0.0:4723
-# url for appium desktop http://127.0.0.1:4723/wd/hub
 ${remoteUrl1}=                   http://0.0.0.0:4723
 ${remoteUrl2}=                   http://0.0.0.0:4725
 ${ANDROID_AUTOMATION_NAME}=     UiAutomator2
@@ -25,10 +23,10 @@ ${ANDROID_PLATFORM_VERSION}=    15
 #${DEVICE_NAME}=                 emulator-5554
 ${DEVICE_NAME1}=                 emulator-5554
 ${DEVICE_NAME2}=                 emulator-5556
-#${app}=    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/AppFile/app (3).apk
-${app}=    ${EXECDIR}${/}Resources/AppFile/app (4).apk
+${app}=    ${EXECDIR}${/}Resources/AppFile/app (5).apk
 @{document}=    ${EXECDIR}${/}Resources/Documents/Document1.pdf
-@{dir}=    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE
+#@{dir}=    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE
+@{dir}=     ${EXECDIR}${/}PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE
 ${global_timeout}=  60
 ${retry}=  40x
 ${retry_interval}=  1s
@@ -138,6 +136,7 @@ Open Equity Mobile Application
 
 Open Equity Mobile Application on device 1
     Open Equity Mobile Application    ${remoteUrl1}   5037    8201    emulator-5554
+
 
 Open Equity Mobile Application on device 2
     Open Equity Mobile Application    ${remoteUrl2}   5038    8202    emulator-5556
@@ -394,6 +393,11 @@ Check Error after Transaction OTP/PIN
     ELSE
     	Verify Screen Title    ${CONFIRMED_TITLE_FIELD}          Confirmed
     END
+
+
+Bypass the explore later pop up
+    ${explore_later_available} =    run keyword and return status    page should not contain element    ${EXPLORE_LATER}
+    run keyword if    not ${explore_later_available}      click element    ${EXPLORE_LATER}
 
 
 Initial App Launch and Nav to Homepage

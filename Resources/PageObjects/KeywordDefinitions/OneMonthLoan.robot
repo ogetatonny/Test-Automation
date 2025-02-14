@@ -96,8 +96,10 @@ Enter OTP
 Navigate To the BorrowPage And Check If The Applied Loan Has Been Disbursed
     Navigate to the Homepage from borrow page and click the borrow icon at the homepage
     sleep  10s
-    ${Loan_card_is_available} =  Run Keyword And Return Status    Page Should Contain Element     ${EAZZYLOAN_CARD}
-    Run Keyword If               not ${Loan_card_is_available}    Navigate to the Homepage from borrow page and click the borrow icon at the homepage
+    ${Loan_card_is_available} =  Run Keyword And Return Status
+    ...    Page Should Contain Element     ${EAZZYLOAN_CARD}
+    Run Keyword If               not ${Loan_card_is_available}
+    ...    Navigate to the Homepage from borrow page and click the borrow icon at the homepage
 
 Navigate to the Homepage from borrow page and click the borrow icon at the homepage
     Navigate To The HomePage from the BorrowPage
@@ -111,8 +113,10 @@ Navigate To The HomePage from the BorrowPage
     sleep   10s
     
 Top up with the Remaining Loan Amount
-    ${successful_initial application}=  Run Keyword And Return Status        Apply Partially For Qualified User
-    Run Keyword If                      ${successful_initial application}    Wait Until Page Contains Element    ${APPLY_ONE_MONTH_NAV}   10s
+    ${successful_initial application}=  Run Keyword And Return Status
+    ...    Apply Partially For Qualified User
+    Run Keyword If                      ${successful_initial application}
+    ...    Wait Until Page Contains Element    ${APPLY_ONE_MONTH_NAV}   10s
     sleep   10s
     Wait Until Element Is Visible    ${APPLY_ONE_MONTH_NAV}  45s
     Click Element               ${APPLY_ONE_MONTH_NAV}

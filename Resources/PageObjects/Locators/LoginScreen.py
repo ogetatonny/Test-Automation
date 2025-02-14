@@ -25,5 +25,7 @@ ERROR_TITLE = "ke.co.equitygroup.equitymobile.debug:id/errorTitle"
 # Sorry, these details aren't familiar to us, please take a look and try again
 TRY_AGAIN_BUTTON = "//android.widget.Button[@text='Try again']"
 CLOSE_TRY_AGAIN_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/crossForeground"
+EXPLORE_LATER='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/secondaryButton"]'
+
 
 

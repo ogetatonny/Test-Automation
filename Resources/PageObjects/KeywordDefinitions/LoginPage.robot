@@ -199,8 +199,9 @@ Answer second security question
 
 
 Click on the Show Me Later Button
-    ${presence_of_popup}=    Run Keyword And Return Status    Element Should Be Visible    ${SHOW_ME_LATER_BUTTON}
-    Run Keyword If       '${presence_of_popup}' == 'True'    Click Element    ${SHOW_ME_LATER_BUTTON}
+    sleep    10s
+    ${presence_of_popup}=    Run Keyword And Return Status   page should contain element    ${SHOW_ME_LATER_BUTTON}
+    Run Keyword If       ${presence_of_popup}    Click Element    ${SHOW_ME_LATER_BUTTON}
 
 Click Show Me Later Button On the whats new PopUp
 	[Documentation]    Click Show me Later button popup if exists. No action if there is no popup

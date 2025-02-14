@@ -79,7 +79,7 @@ NEED_HELP_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/needHelpButton"
 ANCHOR_SEEN_WHAT_NEW_MODAL = "ke.co.equitygroup.equitymobile.debug:id/titleText"
 CLOSE_WHATS_NEW_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/crossForeground"
 #SHOW_ME_LATER_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/secondaryButton"
-SHOW_ME_LATER_BUTTON = '//android.widget.Button[@text="Show me later"]'
+SHOW_ME_LATER_BUTTON = '//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/secondaryButton"]'
 LETS_GO_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/primaryButton"
 WHAT_NEW_MODAL_DESCRIPTION="ke.co.equitygroup.equitymobile.debug:id/descriptionText"
 # Take a quick tour to explore whats new. If you want to get explore later, you can find this under Support, in Settings

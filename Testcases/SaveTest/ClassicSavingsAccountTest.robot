@@ -2,7 +2,7 @@
 Documentation       Save tests
 Library  AppiumLibrary
 Library  Screenshot    default_directory=../Screenshots
-Resource    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/PageObjects/KeywordDefinitions/CommonFunctions.robot
+Resource   ../../Resources/PageObjects/KeywordDefinitions/CommonFunctions.robot
 Resource    ../../Resources/PageObjects/KeywordDefinitions/SavePage.robot
 Suite Setup   Initial App Launch and Nav to Homepage
 

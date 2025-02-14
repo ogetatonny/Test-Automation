@@ -1,27 +1,34 @@
 *** Settings ***
-Documentation       Save tests
 Library  AppiumLibrary
 Library  Screenshot    default_directory=../Screenshots
-Resource    /Users/asd/PycharmProjects/ROBOT_ANDROID_EQUITY_MOBILE/Resources/PageObjects/KeywordDefinitions/CommonFunctions.robot
+Resource    ../../Resources/PageObjects/KeywordDefinitions/CommonFunctions.robot
 Resource    ../../Resources/PageObjects/KeywordDefinitions/SavePage.robot
 Suite Setup   Initial App Launch and Nav to Homepage
 
 
 *** Test Cases ***
-Fixed Deposit Account 1 - no reinvesting, opening and closing the account
+Open fixed deposit when no other save product is opened
     [Tags]    KE  UG  RW  TZ
-    Open fixed deposit account without the reinvest journey
-    check the fixed deposit account information
-    Close the fixed account
-    sleep   10s
+    [Documentation]   No reinvesting- A/C left open
+    verify user can open fixed deposit account
 
-Fixed Deposit Account 2 - reinvesting, opening and closing the account
+Open and close fixed deposit when no other save product is opened
     [Tags]    KE  UG  RW  TZ
-    Open fixed deposit account with the reinvest journey
-    check the fixed deposit account information
-    Close the fixed account
+    [Documentation]    No reinvesting - A/C closed
+    verify user can open and close fixed deposit account
 
-Fixed Deposit Account 3 - reinvesting, user not closing the account
-    [Tags]    KE  UG  RW  TZ
-    Open fixed deposit account with the reinvest journey
-    check the fixed deposit account information
+
+
+#Fixed Deposit Account 3
+#    [Tags]    KE  UG  RW  TZ
+#    [Documentation]    opened fixed account(reinvesting) - is closed
+#    Open fixed deposit account through the reinvest journey
+#    check the fixed deposit account information
+#    Close the fixed account
+
+#Fixed Deposit Account 4 - reinvesting
+#    [Tags]    KE  UG  RW  TZ
+#    [Documentation]    opened fixed account(reinvesting) is left unclosed
+#    Open fixed deposit account through the reinvest journey
+#    check the fixed deposit account information
+

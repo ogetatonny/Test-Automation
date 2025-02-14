@@ -279,7 +279,7 @@ TZ01 = {
     "bank_id": "",
     "cif": "55600236671",
     "PIN": "2024",
-    "invalid_password": "Automation@20",
+    "invalid_password": "Automation"
 }
 
 TZ02 = {

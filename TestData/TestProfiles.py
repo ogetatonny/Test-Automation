@@ -102,6 +102,31 @@ KE03 = {
     "invalid_password": "Automation@20",
 }
 
+
+
+KE04 = {
+    "user_name": "jumaketest@gmail.com",
+    "password": "Automation@2025",
+    "first_question": "What is your favourite food?",
+    "first_answer": "food",
+    "second_question": "What is the name of your first school?",
+    "second_answer": "school",
+    "third_question": "What city were you born in?",
+    "third_answer": "in",
+    "fourth_question": "What is the name of the road you grew up on?",
+    "fourth_answer": "on",
+    "fifth_question": "What was the name of your favourite teacher",
+    "fifth_answer": "teacher",
+    "subsidiary": "Kenya",
+    "account_number": "",
+    "this_users_account": "1230160915522",
+    "id_number": "",
+    "cif": "",
+    "PIN": "2024",
+    "invalid_password": "Automation@20",
+}
+
+
 UG = {
     "user_name": "TESTAUTOMATIONUG02@GMAIL.COM",
     "password": "Automation@2024",

@@ -18,17 +18,12 @@ Open and close fixed deposit when no other save product is opened
     verify user can open and close fixed deposit account
 
 
+Open fixed deposit when other save products are opened
+    [Tags]    KE  UG  RW  TZ
+    [Documentation]    Reinvesting - A/C closed
+    Confirm User Opens fixed deposit - Reinvest journey
+    validate the fixed deposit A/C info
+    Confirm the interest rates document is attached
+    confirm user closes the fixed deposit account
 
-#Fixed Deposit Account 3
-#    [Tags]    KE  UG  RW  TZ
-#    [Documentation]    opened fixed account(reinvesting) - is closed
-#    Open fixed deposit account through the reinvest journey
-#    check the fixed deposit account information
-#    Close the fixed account
-
-#Fixed Deposit Account 4 - reinvesting
-#    [Tags]    KE  UG  RW  TZ
-#    [Documentation]    opened fixed account(reinvesting) is left unclosed
-#    Open fixed deposit account through the reinvest journey
-#    check the fixed deposit account information
 

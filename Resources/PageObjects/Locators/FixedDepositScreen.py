@@ -1,12 +1,15 @@
 
-#FIXED_DEPOSIT_SECOND='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/saveProductsList"]/androidx.cardview.widget.CardView[2]/android.view.ViewGroup//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/cardTitle" and @text="Fixed Deposit"]'
+FIXED_DP_FIRST='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/investProductsList"]/androidx.cardview.widget.CardView[1]/android.view.ViewGroup/android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/cardText" and @text="Access your deposit amount plus interest, at the end of a fixed savings period"]'
+FIXED_DP_SECOND='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/investProductsList"]/androidx.cardview.widget.CardView[2]/android.view.ViewGroup/android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/cardText" and @text="Access your deposit amount plus interest, at the end of a fixed savings period"]'
 FIXED_DEPOSIT_SECOND='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/saveProductsList"]/androidx.cardview.widget.CardView[2]/android.view.ViewGroup/android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/cardTitle" and @text="Fixed Deposit"]'
+FIXED_DEPOSIT_FIRST='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/saveProductsList"]/androidx.cardview.widget.CardView[1]/android.view.ViewGroup/android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/cardTitle" and @text="Fixed Deposit"]'
 
-#FIXED_DEPOSIT_THIRD='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/saveProductsList"]/androidx.cardview.widget.CardView[3]/android.view.ViewGroup//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/cardTitle" and @text="Fixed Deposit"]'
+FIXED_DP_THIRD='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/investProductsList"]/androidx.cardview.widget.CardView[3]/android.view.ViewGroup/android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/cardText" and @text="Access your deposit amount plus interest, at the end of a fixed savings period"]'
 FIXED_DEPOSIT_THIRD='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/saveProductsList"]/androidx.cardview.widget.CardView[3]/android.view.ViewGroup/android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/cardTitle" and @text="Fixed Deposit"]'
 
 FIXED_OPEN_ACCOUNT_BUTTON3='xpath=(//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/actionOneButton"])[3]'
 FIXED_OPEN_ACCOUNT_BUTTON2='xpath=(//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/actionOneButton"])[2]'
+FIXED_OPEN_ACCOUNT_BUTTON1='xpath=(//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/actionOneButton"])[1]'
 NO_SAVINGS_REFRESH_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/primaryButton"]'
 NO_SAVINGS_DISMISS_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/secondaryButton"]'
 NO_SAVINGS_DISPLAY='//android.view.View[@resource-id="ke.co.equitygroup.equitymobile.debug:id/statusContentView"]'
@@ -55,6 +58,7 @@ SECOND_FIXED_DEPOSIT='xpath=(//android.widget.ImageView[@content-desc="Save"])[4
 TRANSACTION_HISTORY='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/transaction_history_title"]'
 FIXED_TRANSACTION_AMOUNT='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/transactionAmount"]'
 FIXED_ACCOUNT_INFORMATION='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountActions"]/android.view.ViewGroup[1]'
+FIXED_DEPOSIT_I='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/title" and @text="Fixed deposit"]'
 FIXED_DEPOSIT_PERIOD='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/description" and @text="3 Months"]'
 FIXED_INTEREST_RATE='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/description" and @text="3.0%"]'
 INTEREST_RATE_INFORMATION='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/viewInterestRateLink"]'

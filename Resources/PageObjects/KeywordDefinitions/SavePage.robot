@@ -200,14 +200,15 @@ Open Fixed Deposit Account When There Are No Preexisting Save Accounts
     [Arguments]    ${FIXED_AMOUNT}
     wait until keyword succeeds    15s  1s
     ...    click open fixed deposit button
-    Wait Until Page Contains Element    ${FIXED_AMOUNT_FIELD}     45s
+    Wait Until Page Contains Element    ${FIXED_AMOUNT_FIELD}     10s
     Input Text    ${FIXED_AMOUNT_FIELD}    ${FIXED_AMOUNT}
     Click Element   ${DEPOSIT_PERIOD_DROPDOWN}
     Wait Until Page Contains Element    ${DEPOSIT_PERIOD_EXIT}   10s
     sleep  10s
     Fixed Deposit Period    3 Months
     complete opening of the fixed deposit account
-    check the fixed deposit account information
+    validate the fixed deposit A/C info
+    Confirm the interest rates document is attached
 
 
 select the fixed deposit account card
@@ -265,7 +266,7 @@ complete opening of the fixed deposit account
     Click Element    ${FIXED_CONFIRM_BUTTON}
     Wait Until Page Contains    ${FIXED_SUCCESS_TEXT}  45s
     Click Element    ${FIXED_DONE_BUTTON}
-    Wait Until Element Is Visible    ${CREATED_FIXED_CARD}   30s
+    #Wait Until Element Is Visible    ${CREATED_FIXED_CARD}   30s
 
 verify user can open fixed deposit account
     click the save pillar and swipe down
@@ -275,37 +276,39 @@ verify user can open fixed deposit account
     ...    2000000
 
 verify user can open and close fixed deposit account
-    sleep    5s
-    ${first_fixed_opened} =    run keyword and return status    page should contain element    ${FIXED_DEPOSIT_TEXT}
-    run keyword if    ${first_fixed_opened}    open and close fixed deposit when no other save product is opened   1700000
+    sleep    10s
+    ${first_fixed_opened} =    run keyword and return status
+    ...    page should contain element    ${FIXED_DEPOSIT_TEXT}
+    run keyword if    ${first_fixed_opened}
+    ...    open and close fixed deposit when other save product is opened   1700000
 
 
-open and close fixed deposit when no other save product is opened
+open and close fixed deposit when other save product is opened
     [Arguments]    ${FIXED_AMOUNT}
     wait until element is visible    ${BACK_ARROW}    10s
     click element    ${BACK_ARROW}
     Open fixed deposit account if there are preexisting save accounts    ${FIXED_AMOUNT}
-    Close the fixed account
+    Navigate and Close the fixed account
 
 
-Open fixed deposit account through the reinvest journey
+Confirm User Opens fixed deposit - Reinvest journey
     ${other_saves}=    check if there are save accounts on the landing page
-    run keyword if    ${other_saves}
-    ...    Open Fixed Deposit Reinvest journey when there are other preexisting accounts   650000
+    run keyword if    ${other_saves}    click element    ${OPEN_SAVINGS_ACCOUNT_NAV}
+    Open Fixed Deposit Reinvest, opened save products present   6500000
 
 
 Open fixed deposit account if there are preexisting save accounts
     [Arguments]    ${FIXED_AMOUNT}
     check if there are save accounts on the landing page
-    Wait Until Element Is Visible    ${OPEN_SAVINGS_ACCOUNT_NAV}  60s
+    Wait Until Element Is Visible    ${OPEN_SAVINGS_ACCOUNT_NAV}  20s
     Click Element    ${OPEN_SAVINGS_ACCOUNT_NAV}
-    sleep    5s
-    click element    xpath=(//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/actionOneButton"])[3]
-    #click open fixed deposit button
-    #run keyword and ignore error    click open fixed deposit button
-    Wait Until Page Contains Element    ${FIXED_AMOUNT_FIELD}    15s
+    sleep    7s
+    swipe down dynamically
+    wait until keyword succeeds    15s    1
+    ...    click open fixed deposit button 2nd time
+    Wait Until Page Contains Element    ${FIXED_AMOUNT_FIELD}    7s
     Input Text    ${FIXED_AMOUNT_FIELD}    ${FIXED_AMOUNT}
-    sleep    10s
+    wait until element is visible    ${DEPOSIT_PERIOD_DROPDOWN}    7s
     Click Element   ${DEPOSIT_PERIOD_DROPDOWN}
     Wait Until Page Contains Element    ${DEPOSIT_PERIOD_EXIT}   10s
     sleep  10s
@@ -347,13 +350,13 @@ Key in the Reinvest details
      Click Element    ${REINVEST_PRINCIPAL_AND_INTEREST}
 
 
-Open Fixed Deposit Reinvest journey when there are other preexisting accounts
+Open Fixed Deposit Reinvest, opened save products present
     [Arguments]    ${FIXED_AMOUNT}
-    swipe down dynamically if the open save account button not visible
-    Wait Until Element Is Visible    ${OPEN_SAVINGS_ACCOUNT_NAV}  10s
-    Click Element    ${OPEN_SAVINGS_ACCOUNT_NAV}
-    Wait Until Page Contains Element    ${FIXED_AMOUNT_FIELD}    10s
+
+    click open fixed deposit button 2nd time
+    Wait Until Page Contains Element    ${FIXED_AMOUNT_FIELD}    15s
     Input Text    ${FIXED_AMOUNT_FIELD}    ${FIXED_AMOUNT}
+    wait until element is visible    ${DEPOSIT_PERIOD_DROPDOWN}    7s
     Click Element   ${DEPOSIT_PERIOD_DROPDOWN}
     Wait Until Page Contains Element    ${DEPOSIT_PERIOD_EXIT}   10s
     sleep  10s
@@ -369,24 +372,35 @@ check fixed deposit statement
     ${opened_fixed_amount} =  Get Text    ${FIXED_TRANSACTION_AMOUNT}
     Log To Console    The opened fixed amount is ${opened_fixed_amount}
 
-check the fixed deposit account information
+validate the fixed deposit A/C info
+    sleep    10s
+    swipe down dynamically
+    wait until element is visible    ${FIXED_DEPOSIT_I}    7s
     select the fixed deposit account card
     Wait Until Page Contains Element    ${FIXED_ACCOUNT_INFORMATION}  20s
     sleep  10s
     Click Element    ${FIXED_ACCOUNT_INFORMATION}
     Wait Until Page Contains Element    ${FIXED_DEPOSIT_PERIOD}   45s
     ${fixed_period} =   Get Text    ${FIXED_DEPOSIT_PERIOD}
-    Log To Console    The fixed deposit period is ${fixed_period}
+    Log To Console    Period = ${fixed_period}
     sleep    10s
+
+Confirm the interest rates document is attached
     Click Element    ${INTEREST_RATE_INFORMATION}
     Wait Until Page Contains Element    ${LEAVE_INTEREST_RATE_PAGE}   60s
     sleep   10s
     Click Element    ${LEAVE_INTEREST_RATE_PAGE}
     Click Element    ${BACK_BUTTON}
 
-Close the fixed account
+Navigate and Close the fixed account
+    wait until element is visible    ${FIXED_SAVE_CARD}    30s
+    click element   ${FIXED_SAVE_CARD}
+    confirm user closes the fixed deposit account
+
+
+confirm user closes the fixed deposit account
     sleep    10s
-    Wait Until Page Contains Element    ${CLOSE_ACCOUNT_ICON}  45s
+    wait until element is visible    ${CLOSE_ACCOUNT_ICON}  45s
     Click Element    ${CLOSE_ACCOUNT_ICON}
     Wait Until Page Contains Element    ${CLOSE_ACCOUNT_BUTTON}  30s
     Click Element    ${CLOSE_ACCOUNT_BUTTON}
@@ -399,15 +413,41 @@ Close the fixed account
 
 
 click open fixed deposit button
+    ${fixed_deposit_is_1st} =    run keyword and return status
+    ...    wait until element is visible    ${FIXED_DEPOSIT_FIRST}   60s
+    run keyword if    ${fixed_deposit_is_1st}
+    ...    click element   ${FIXED_OPEN_ACCOUNT_BUTTON1}
+
     ${fixed_deposit_is_2nd} =    run keyword and return status
-    ...    page should contain element    ${FIXED_DEPOSIT_SECOND}
+    ...    wait until element is visible    ${FIXED_DEPOSIT_SECOND}   60s
     run keyword if    ${fixed_deposit_is_2nd}
     ...    click element   ${FIXED_OPEN_ACCOUNT_BUTTON2}
 
     ${fixed_deposit_is_3rd} =    run keyword and return status
-    ...    page should contain element    ${FIXED_DEPOSIT_THIRD}
+    ...    wait until element is visible    ${FIXED_DEPOSIT_THIRD}    60s
     run keyword if    ${fixed_deposit_is_3rd}
     ...    click element   ${FIXED_OPEN_ACCOUNT_BUTTON3}
+
+
+click open fixed deposit button 2nd time
+
+    ${fixed2_deposit_is_1st} =    run keyword and return status
+    ...    wait until element is visible    ${FIXED_DP_FIRST}    30S
+    run keyword if    ${fixed2_deposit_is_1st}    click element
+    ...    ${FIXED_OPEN_ACCOUNT_BUTTON1}
+
+    ${fixed2_deposit_is_2nd} =    run keyword and return status
+    ...    wait until element is visible    ${FIXED_DP_SECOND}    30S
+    run keyword if    ${fixed2_deposit_is_2nd}    click element
+    ...    ${FIXED_OPEN_ACCOUNT_BUTTON2}
+
+    ${fixed3_deposit_is_3rd} =    run keyword and return status
+    ...    wait until element is visible      ${FIXED_DP_THIRD}    30s
+    run keyword if    ${fixed3_deposit_is_3rd}    click element
+    ...    ${FIXED_OPEN_ACCOUNT_BUTTON3}
+
+
+
 
 
 

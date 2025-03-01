@@ -5,6 +5,7 @@ Resource    SavePage.robot
 Library    String
 Library    Collections
 Resource    LoginPage.robot
+Resource    CommonFunctions.robot
 
 *** Keywords ***
 

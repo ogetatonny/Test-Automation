@@ -111,6 +111,11 @@ ${TILL_NUMBER}     0766555004
 @{SS_EQUITY_ACCOUNT}     2001111300232      2001111306713
 
 
+${START_Y}    70  # Start point as percentage of screen height
+${END_Y}      5  # End point as percentage of screen height
+${X_COORD}    50  # X coordinate as percentage of screen width
+
+
 *** Keywords ***
 
 *** Keywords ***
@@ -398,6 +403,24 @@ Check Error after Transaction OTP/PIN
 Bypass the explore later pop up
     ${explore_later_available} =    run keyword and return status    page should not contain element    ${EXPLORE_LATER}
     run keyword if    not ${explore_later_available}      click element    ${EXPLORE_LATER}
+
+
+swipe up dynamically
+    ${screen_width}    Get Window Width
+    ${screen_height}   Get Window Height
+    ${start_x}    Evaluate    ${screen_width} * ${X_COORD} / 100
+    ${start_y}    Evaluate    ${screen_height} * ${START_Y} / 100
+    ${end_y}      Evaluate    ${screen_height} * ${END_Y} / 100
+    Swipe    ${start_x}    ${end_y}    ${start_x}    ${start_y}    1000
+
+Swipe Down Dynamically
+    ${screen_width}    Get Window Width
+    ${screen_height}   Get Window Height
+    ${start_x}    Evaluate    ${screen_width} * ${X_COORD} / 100
+    ${start_y}    Evaluate    ${screen_height} * ${START_Y} / 100
+    ${end_y}      Evaluate    ${screen_height} * ${END_Y} / 100
+    Swipe    ${start_x}    ${start_y}    ${start_x}    ${end_y}    1000
+
 
 
 Initial App Launch and Nav to Homepage

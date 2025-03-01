@@ -64,7 +64,7 @@ SMS_RADIO_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/itemRadioButton"
 # SMS_VERIFICATION_FIELD = "//android.widget.TextView[@resource-id='ke.co.equitygroup.equitymobile.debug:id/itemSubText' and @text='2*****']"
 SMS_VERIFICATION_FIELD = "ke.co.equitygroup.equitymobile.debug:id/itemRadioButton"
 EMAIL_VERIFICATION_FIELD = "//android.widget.TextView[@text= 'By Email']"
-CONFIRM_BUTTON = "ke.co.equitygroup.equitymobile.debug:id/confirmButton"
+CONFIRMATION_BUTTON = '//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/confirmButton" and @text="Confirm"]'
 VERIFICATION_CODE_1 = "ke.co.equitygroup.equitymobile.debug:id/digit1"
 VERIFICATION_CODE_2 = "ke.co.equitygroup.equitymobile.debug:id/digit2"
 VERIFICATION_CODE_3 = "ke.co.equitygroup.equitymobile.debug:id/digit3"

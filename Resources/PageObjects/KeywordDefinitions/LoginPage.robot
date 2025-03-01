@@ -100,12 +100,12 @@ Key in OTP and Verify
 	Input Verification Code
 
 Verification My SMS and Click Confirm Button
-	Wait Until Element Is Ready          ${ANCHOR_VERIFY_SCREEN}
-	sleep    10s
-	Wait Until Element Is Visible        ${SMS_VERIFICATION_FIELD}
+	#Wait Until Element Is Ready          ${ANCHOR_VERIFY_SCREEN}
+	sleep    15s
+	Wait Until Element Is Visible        ${SMS_VERIFICATION_FIELD}    100s
     Click Element                        ${SMS_VERIFICATION_FIELD}
-	Wait Until Element Is Visible        ${CONFIRM_BUTTON}
-	Click Element                        ${CONFIRM_BUTTON}
+	Wait Until Element Is Visible        ${CONFIRMATION_BUTTON}     30s
+	Click Element                        ${CONFIRMATION_BUTTON}
 
 Input Verification Code
 	Wait Until Element Is Ready          ${VERIFICATION_CODE_1}
@@ -119,8 +119,8 @@ Input Verification Code
 Select and Confirm an Option to Verify Security Question
 	Wait Until Element Is Ready          ${VERIFICATION_BY_SECURITY_QUESTION}
     Click Element                        ${VERIFICATION_BY_SECURITY_QUESTION}
-    Wait Until Element Is Visible        ${CONFIRM_BUTTON}
-	Click Element                        ${CONFIRM_BUTTON}
+    Wait Until Element Is Visible        ${CONFIRMATION_BUTTON}
+	Click Element                        ${CONFIRMATION_BUTTON}
 
 Input Security Answer For First Question
 	Sleep    5sec
@@ -138,13 +138,13 @@ Click on Confirm Security Question Button
 	Wait Until Element Is Ready And Click      ${CONFIRM_SEC_QUE_BUTTON}
 
 Bypassing the Quick Share on android 15
-    sleep  5s
-    ${Quick_Share_Validation}        Run Keyword And Return Status        Page Should Not Contain Element     ${QUICK_SHARE}
-    Run Keyword If    not ${Quick_Share_Validation}      Bypassing security question if on quick share
+    ${Quick_Share_Validation}        Run Keyword And Return Status        wait until element is visible     ${QUICK_SHARE}    20s
+    Run Keyword If    ${Quick_Share_Validation}      Bypassing security question if on quick share
 
 
 Bypassing security question if on quick share
-    Wait Until Element Is Ready And Click    ${QUICK_SHARE_BACK_ARROW}
+    wait until element is visible    ${QUICK_SHARE_BACK_ARROW}    10s
+    click element    ${QUICK_SHARE_BACK_ARROW}
     Click on Confirm Security Question Button
     sleep   10s
 

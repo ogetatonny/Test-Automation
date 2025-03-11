@@ -1,5 +1,8 @@
 
-OPEN_GOAL_BUTTON='xpath=(//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/actionOneButton"])[4]'
+OPEN_GOAL_BUTTON_4='xpath=(//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/actionOneButton"])[4]'
+OPEN_GOAL_BUTTON_3='xpath=(//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/actionOneButton"])[3]'
+OPEN_GOAL_BUTTON_2='xpath=(//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/actionOneButton"])[2]'
+OPEN_GOAL_BUTTON_1='xpath=(//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/actionOneButton"])'
 GOAL_CATEGORY_DROPDOWN='//android.widget.ImageView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemDropDown"]'
 EDUCATION_FUND_RADIO_BUTTON='xpath=(//android.view.ViewGroup[@resource-id="ke.co.equitygroup.equitymobile.debug:id/mainGoalViews"])[2]'
 GOAL_INPUT_TEXT_FIELD='//android.widget.EditText[@resource-id="ke.co.equitygroup.equitymobile.debug:id/goalNameValue"]'
@@ -36,6 +39,8 @@ CONFIRM_CLOSURE_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.
 DONE_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/doneButton"]'
 
 VIEW_ALL_LINK='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/learnMoreAction"]'
+
+GOAL_SAVINGS_I='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/title" and @text="Goal savings"]'
 
 
 

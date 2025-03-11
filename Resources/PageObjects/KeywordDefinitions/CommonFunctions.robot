@@ -1,15 +1,14 @@
 *** Settings ***
-Library    String
-Library    AppiumLibrary
+Library        String
+Library        AppiumLibrary
 Library         OperatingSystem
-Variables    ../Locators/GetStartedScreen.py
-Variables    ../Locators/HomeScreen.py
-Variables    ../Locators/AccountMenuScreen.py
-Variables    ../Locators/TransactMenuScreen.py
+Variables     ../Locators/GetStartedScreen.py
+Variables     ../Locators/HomeScreen.py
+Variables     ../Locators/AccountMenuScreen.py
+Variables     ../Locators/TransactMenuScreen.py
 Resource     ../KeywordDefinitions/LoginPage.robot
-Library  AppiumLibrary
-Library  Screenshot    default_directory=../Screenshots
-Resource    LoginPage.robot
+Library       Screenshot    default_directory=../Screenshots
+Resource       LoginPage.robot
 
 *** Variables ***
 ${remoteUrl1}=                   http://0.0.0.0:4723
@@ -112,7 +111,7 @@ ${TILL_NUMBER}     0766555004
 
 
 ${START_Y}    70  # Start point as percentage of screen height
-${END_Y}      5  # End point as percentage of screen height
+${END_Y}      40  # End point as percentage of screen height
 ${X_COORD}    50  # X coordinate as percentage of screen width
 
 
@@ -135,9 +134,11 @@ Open Equity Mobile Application
     ...  connectHardwareKeyboard=${True}
     ...  deviceOrientation=portrait
     ...  noReset=${False}
+    #...  fullReset=${False}
     ...  appium:adbPort=${adb_port}
     ...  appium:systemPort=${system_port}
     ...  appium:udid=${udid}
+    #...  autoLaunch=${True}
 
 Open Equity Mobile Application on device 1
     Open Equity Mobile Application    ${remoteUrl1}   5037    8201    emulator-5554

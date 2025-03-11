@@ -7,7 +7,7 @@ LEAVE_INTEREST_PAGE='//android.widget.ImageButton'
 TERMS_LINK='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/termsLink"]'
 LEAVE_TERMS_PAGE='//android.widget.ImageButton[@content-desc="Navigate Up"]'
 TERMS_CHECKBOX='//android.widget.CheckBox[@resource-id="ke.co.equitygroup.equitymobile.debug:id/iAcceptRadioButton"]'
-CONFIRM_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/reviewContinueButton"]'
+REVIEW_CONTINUE='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/reviewContinueButton"]'
 CALL_APPLICATION_FEEDBACK='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/confirmationTitle"]'
 CALL_APPLICATION_FEEDBACK_TEXT='Congrats, you’re growing your wealth!'
 APPLICATION_DONE_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/doneAction"]'
@@ -25,6 +25,8 @@ CLOSE_ACCOUNT='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.e
 CONFIRM1_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/confirmClosureButton"]'
 CONFIRM_CLOSURE='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/primaryButton"]'
 DONE_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/doneButton"]'
+
+CALL_DEPOSIT_I='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/title" and @text="Call deposit"]'
 
 
 

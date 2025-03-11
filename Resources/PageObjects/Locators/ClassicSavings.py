@@ -25,9 +25,24 @@ CONTINUE_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitym
 
 #CLASSIC_FIRST_CARD='xpath=(//android.widget.ImageView[@content-desc="Save"])[1]//(//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountName" and @text="Classic savings"])[1]'
 #CLASSIC_FIRST_SAVE_CARD='xpath=(//android.widget.ImageView[@content-desc="Save"])[1]//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountName" and @text="Classic savings"]'
-CLASSIC_FIRST_SAVE_CARD='xpath=(//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountName" and @text="Classic savings"])[3]'
+#CLASSIC_FIRST_SAVE_CARD='xpath=(//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountName" and @text="Classic savings"])[3]'
 #CLASSIC_SECOND_SAVE_CARD='xpath=(//android.widget.ImageView[@content-desc="Save"])[2]//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountName" and contains(@text, "Classic savings")]'
 #CLASSIC_SECOND_SAVE_CARD='xpath=(//android.widget.ImageView[@content-desc="Save"])[2]/android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountName" and contains(@text, "Classic savings")]'
 CLASSIC_SECOND_SAVE_CARD='xpath=(//android.widget.ImageView[@content-desc="Save"])[2]/following-sibling::android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountName" and contains(@text, "Classic savings")]'
+CLASSIC_FIRST_SAVE_CARD='xpath=(//android.widget.ImageView[@content-desc="Save"])[1]/following-sibling::android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountName" and contains(@text, "Classic savings")]'
 
 CLASSIC_THIRD_SAVE_CARD='xpath=(//android.widget.ImageView[@content-desc="Save"])[3]//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountName" and @text="Classic savings"]'
+
+VIEW_ALL_1='xpath=(//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/learnMoreAction"])[1]'
+VIEW_ALL_2='xpath=(//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/learnMoreAction"])[2]'
+
+
+CLASSIC_SAVINGS_I='//android.widget.TextView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/title" and @text="Classic savings"]'
+MANAGE_PAYMENTS_ICON='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/accountActions"]/android.view.ViewGroup[2]'
+ADD_RECURRING_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/confirmButton"]'
+START_DATE_CALENDAR_ICON='xpath=(//android.widget.ImageView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemCalendar"])[1]'
+END_DATE_CALENDAR_ICON='xpath=(//android.widget.ImageView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/itemCalendar"])[2]'
+CONTINUE='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/continueAction"]'
+DONE_BUTTON='//android.widget.Button[@resource-id="ke.co.equitygroup.equitymobile.debug:id/doneButton"]'
+
+EDIT_ICON='//androidx.recyclerview.widget.RecyclerView[@resource-id="ke.co.equitygroup.equitymobile.debug:id/manageAccountActions"]/android.view.ViewGroup[1]'

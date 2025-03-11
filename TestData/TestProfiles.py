@@ -36,29 +36,6 @@ Kenya2 = {
     "invalid_password": "Automation@20",
 }
 
-KE02 = {
-    "user_name": "TESTAUTOMATIOKE01@GMAIL.COM",
-    "password": "Automation@2024",
-    "first_question": "What is your lucky number?",
-    "first_answer": "number",
-    "second_question": "What city were you born in?",
-    "second_answer": "in",
-    "third_question": "Where did you meet your spouse?",
-    "third_answer": "spouse",
-    "fourth_question": "What is your partners date of birth?",
-    "fourth_answer": "birth",
-    "fifth_question": "What was the name of your favourite teacher",
-    "fifth_answer": "teacher",
-    "subsidiary": "Kenya",
-    "account_number": "0260160735852",
-    "source_account": "0300190041545",
-    "id_number": "",
-    "bank_id": "",
-    "cif": "54305630103",
-    "PIN": "2024",
-    "invalid_password": "Automation@20",
-}
-
 KE = {
     # one month loan available
     "user_name": "TESTAUTOMATIONKE02@GMAIL.COM",
@@ -78,6 +55,29 @@ KE = {
     "id_number": "28570377",
     "cif": "54305630103",
     "PIN": "2025",
+    "invalid_password": "Automation@20",
+}
+
+KE02 = {
+    "user_name": "TESTAUTOMATIOKE01@GMAIL.COM",
+    "password": "Automation@2024",
+    "first_question": "What city were you born in?",
+    "first_answer": "in",
+    "second_question": "What is your favourite food?",
+    "second_answer": "food",
+    "third_question": "Where did you meet your spouse?",
+    "third_answer": "spouse",
+    "fourth_question": "What is your partners date of birth?",
+    "fourth_answer": "birth",
+    "fifth_question": "What was the name of your favourite teacher",
+    "fifth_answer": "teacher",
+    "subsidiary": "Kenya",
+    "account_number": "0260160735852",
+    "source_account": "0300190041545",
+    "id_number": "",
+    "bank_id": "",
+    "cif": "54305630103",
+    "PIN": "2024",
     "invalid_password": "Automation@20",
 }
 
@@ -127,7 +127,7 @@ KE04 = {
 }
 
 
-UG = {
+UG02 = {
     "user_name": "TESTAUTOMATIONUG02@GMAIL.COM",
     "password": "Automation@2024",
     "first_question": "What is your favourite food?",
@@ -151,7 +151,7 @@ UG = {
 
 UG01 = {
     "user_name": "TESTAUTOMATIONUG01@GMAIL.COM",
-    "password": "Automation@2024",
+    "password": "Automation@2025",
     "first_question": "What is your favourite food?",
     "first_answer": "food",
     "second_question": "What city were you born in?",
@@ -173,7 +173,7 @@ UG01 = {
     "invalid_password": "Automation@20",
 }
 
-UG02 = {
+UG = {
     # one_month Loan
     "user_name": "UGBROKER@GMAIL.COM",
     "password": "Manual@2023",
@@ -197,7 +197,7 @@ UG02 = {
     "invalid_password": "Automation@20",
 }
 
-RW = {
+RW01 = {
     "user_name": "testautomationrw01@testbd.com",
     "password": "Automation@2024",
     "first_question": "What is your favourite food?",
@@ -220,9 +220,9 @@ RW = {
 }
 
 
-RW01 = {
+RW02 = {
     "user_name": "testautomationrw02@testbd.com",
-    "password": "Automation@2024",
+    "password": "Automation@2025",
     "first_question": "What is your favourite food?",
     "first_answer": "food",
     "second_question": "What is the first name of your favourite grandparent?",
@@ -242,7 +242,7 @@ RW01 = {
 }
 
 
-RW02 = {
+RW = {
     "user_name": "rwandav3migration@gmail.com",
     "password": "V3tests.",
     "first_question": "What is your favourite food?",

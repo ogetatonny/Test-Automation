@@ -4,13 +4,13 @@ Library   AppiumLibrary
 Library   Screenshot    default_directory=../Screenshots
 Resource    ../../Resources/PageObjects/KeywordDefinitions/PayBillsPage.robot
 
-#*** Test Cases ***
-#Bill Payment for KPLC Customer
-#	[Tags]    KE
-#	[Documentation]    Bill Payment for KPLC
-#	Click on Transact Menu
-#	Click on Pay Bill Menu
-#	Pay Bill For KPLC Customer
+*** Test Cases ***
+Bill Payment for KPLC Customer
+	[Tags]    KE
+	[Documentation]    Bill Payment for KPLC
+	Click on Transact Menu
+	Click on Pay Bill Menu
+	Pay Bill For KPLC Customer
 #
 #Bill Payment for ZUKU Customer
 #	[Documentation]    Bill Payment for ZUKU
@@ -26,12 +26,12 @@ Resource    ../../Resources/PageObjects/KeywordDefinitions/PayBillsPage.robot
 #	Click on Pay Bill Menu
 #	Pay Bill For WASAC Customer
 #
-#Bill Payment for MTN Customer
-#	[Tags]    UG
-#	[Documentation]    Bill Payment for MTN
-#	Click on Transact Menu
-#	Click on Pay Bill Menu
-#	Pay Bill For MTN Customer
+Bill Payment for MTN Customer
+	[Tags]    UG
+	[Documentation]    Bill Payment for MTN
+	Click on Transact Menu
+	Click on Pay Bill Menu
+	Pay Bill For MTN Customer
 #
 #Bill Payment for UMENE Customer
 #	[Tags]    UG

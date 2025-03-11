@@ -26,11 +26,11 @@ Send Money to Another Equity Account
 	[Tags]    KE   UG   RW    TZ    SS
 	Click on Transact Menu
 	Click Send Money to Another Equity account Menu
-	#Send Money To Another Equity Account
-    Wait Until Element Is Ready And Click     ${RECEIVER_FIELD}
-	Enter recipient of another equity transaction
-	Enter Account number of another equity beneficiary    1000102739642
-	Enter amount to send     3200
+	Send Money To Another Equity Account
+#    Wait Until Element Is Ready And Click     ${RECEIVER_FIELD}
+#	Enter recipient of another equity transaction
+#	Enter Account number of another equity beneficiary    1000102739642
+#	Enter amount to send     3200
 
 
 Send Money to Another Bank Account RTGS
